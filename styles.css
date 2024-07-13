@@ -25,7 +25,7 @@ body {
 
 .church-icon {
     font-size: 2em;
-    color: var(--warm-white);
+    color: var(--dark-chocolate);
     text-decoration: none;
     transition: color 0.3s ease;
 }
