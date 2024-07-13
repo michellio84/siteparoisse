@@ -25,13 +25,13 @@ body {
 
 .church-icon {
     font-size: 2em;
-    color: var (--beige);
+    color: var(--beige);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .church-icon:hover {
-    color: var (--warm-white);
+    color: var(--warm-white);
 }
 
 nav {
@@ -39,7 +39,7 @@ nav {
 }
 
 nav a {
-    color: var (--beige);
+    color: var(--beige);
     text-decoration: none;
     margin: 0 1em;
     font-weight: 600;
@@ -47,7 +47,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var (--warm-white);
+    color: var(--warm-white);
 }
 
 .banner {
@@ -63,7 +63,7 @@ nav a:hover {
 }
 
 .banner h1 {
-    color: var (--warm-white);
+    color: var(--warm-white);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     font-family: 'Playfair Display', serif;
     font-size: 3em;
@@ -71,7 +71,7 @@ nav a:hover {
 }
 
 .daily-schedule {
-    background-color: var (--beige);
+    background-color: var(--beige);
     padding: 2em;
     margin-top: 1em;
     display: flex;
@@ -80,7 +80,7 @@ nav a:hover {
 }
 
 .schedule-item {
-    background-color: var (--warm-white);
+    background-color: var(--warm-white);
     border-radius: 8px;
     padding: 1em;
     margin: 0.5em;
@@ -91,13 +91,13 @@ nav a:hover {
 }
 
 .schedule-item h3 {
-    color: var (--dark-chocolate);
+    color: var(--dark-chocolate);
     margin-top: 0;
 }
 
 .schedule-icon {
     font-size: 2em;
-    color: var (--light-chocolate);
+    color: var(--light-chocolate);
     margin-bottom: 0.5em;
 }
 
@@ -111,7 +111,7 @@ nav a:hover {
 }
 
 .service {
-    background-color: var (--warm-white);
+    background-color: var(--warm-white);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(97, 78, 63, 0.1);
     margin: 1em;
@@ -128,13 +128,13 @@ nav a:hover {
 
 .service h3 {
     font-family: 'Playfair Display', serif;
-    color: var (--dark-chocolate);
+    color: var(--dark-chocolate);
 }
 
 .service-icon {
     font-size: 3em;
     margin-bottom: 0.5em;
-    color: var (--light-chocolate);
+    color: var(--light-chocolate);
 }
 
 .service-image {
@@ -146,15 +146,15 @@ nav a:hover {
 }
 
 footer {
-    background-color: var (--taupe);
-    color: var (--beige);
+    background-color: var(--taupe);
+    color: var(--beige);
     text-align: center;
     padding: 2em;
     margin-top: 2em;
 }
 
 footer a {
-    color: var (--warm-white);
+    color: var(--warm-white);
     text-decoration: none;
     margin: 0 1em;
 }
