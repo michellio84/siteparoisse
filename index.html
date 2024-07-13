@@ -3,69 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paroisse Saint-Etienne</title>
+    <title>Paroisse Saint-Étienne de Braine-L'Alleud</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
+    <div class="top-bar">
+        <a href="https://st-etienne-braine.be" class="church-icon">
+            <i class="fas fa-church"></i>
+        </a>
         <nav>
-            <div class="logo">
-                <img src="images/logo.png" alt="Logo de la Paroisse">
-            </div>
-            <ul>
-                <li><a href="#horaires">Horaires</a></li>
-                <li><a href="#agenda">Agenda</a></li>
-                <li><a href="#actualites">Actualités</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="histoire.html">Histoire</a></li>
-            </ul>
-            <div class="search-menu">
-                <input type="text" placeholder="Rechercher...">
-                <button><img src="images/search-icon.png" alt="Recherche"></button>
-            </div>
+            <a href="#horaires">Horaires</a>
+            <a href="#agenda">Agenda</a>
+            <a href="#actualite">Actualité</a>
+            <a href="#contact">Contact</a>
+            <a href="#histoire">Histoire</a>
         </nav>
-    </header>
+    </div>
 
-    <section id="bandeau" class="hero">
-        <video autoplay muted loop id="hero-video">
-            <source src="videos/hero-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="hero-text">
-            <h1>Bienvenue à la Paroisse Saint-Etienne</h1>
-            <p>Découvrez nos activités et événements</p>
-            <a href="#agenda" class="button">Voir l'Agenda</a>
+    <div class="banner fade-in">
+        <h1>Paroisse Saint-Étienne de Braine-L'Alleud</h1>
+    </div>
+
+    <div class="daily-schedule fade-in">
+        <div class="schedule-item">
+            <i class="fas fa-clock schedule-icon"></i>
+            <h3>Messe du jour</h3>
+            <p>9h00</p>
         </div>
-    </section>
+        <div class="schedule-item">
+            <i class="fas fa-pray schedule-icon"></i>
+            <h3>Confessions</h3>
+            <p>16h00 - 17h00</p>
+        </div>
+        <div class="schedule-item">
+            <i class="fas fa-cross schedule-icon"></i>
+            <h3>Adoration</h3>
+            <p>18h00 - 19h00</p>
+        </div>
+    </div>
 
-    <section id="horaires">
-        <h2>Horaires du Jour</h2>
-        <div id="horaires-du-jour"></div>
-    </section>
-
-    <section id="actualites">
-        <h2>Actualités</h2>
-        <p>Dernières nouvelles et événements de la paroisse.</p>
-    </section>
+    <div class="content">
+        <div class="service fade-in">
+            <img src="https://images.unsplash.com/photo-1528747008803-f9f5cc8f1a64?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80" alt="Préparation" class="service-image">
+            <i class="fas fa-book-open service-icon"></i>
+            <h3>Préparation</h3>
+            <p>Préparation aux sacrements et à la vie chrétienne</p>
+        </div>
+        <div class="service fade-in">
+            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80" alt="Accompagnement" class="service-image">
+            <i class="fas fa-hands-helping service-icon"></i>
+            <h3>Accompagnement</h3>
+            <p>Soutien spirituel et pastoral</p>
+        </div>
+        <div class="service fade-in">
+            <img src="https://images.unsplash.com/photo-1549057219-2c79f0a11144?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1171&amp;q=80" alt="Sacrements" class="service-image">
+            <i class="fas fa-church service-icon"></i>
+            <h3>Sacrements</h3>
+            <p>Célébration des sacrements</p>
+        </div>
+        <div class="service fade-in">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80" alt="Solidarité" class="service-image">
+            <i class="fas fa-heart service-icon"></i>
+            <h3>Solidarité</h3>
+            <p>Actions caritatives et entraide</p>
+        </div>
+    </div>
 
     <footer>
-        <div class="footer-links">
-            <ul>
-                <li><a href="https://catobel.be">Catobel.be</a></li>
-                <li><a href="https://politique-de-confidentialite">Politique de confidentialité</a></li>
-                <li><a href="https://egliseinfo.be">Egliseinfo.be</a></li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l’Alleud</p>
+        <a href="https://www.cathobel.be/">Cathobel.be</a>
+        <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+        <div class="contact-info">
+            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
             <p>Téléphone : 02/384.25.12</p>
-            <p>Email : secretariatstetienne@gmail.com</p>
-        </div>
-        <div class="footer-social">
-            <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
-            <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
-            <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
         </div>
     </footer>
 </body>
