@@ -4,6 +4,7 @@
     --beige: #F1E7DC;
     --taupe: #8E8279;
     --warm-white: #FAF6F2;
+    --white: #FFFFFF;
 }
 
 body {
@@ -25,13 +26,13 @@ body {
 
 .church-icon {
     font-size: 2em;
-    color: var(--dark-chocolate);
+    color: var(--white); /* Icône de l'église en blanc */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .church-icon:hover {
-    color: var(--taupe);
+    color: var(--taupe); /* Icône devient gris taupe au survol */
 }
 
 nav {
@@ -39,7 +40,7 @@ nav {
 }
 
 nav a {
-    color: var(--dark-chocolate);
+    color: var(--white); /* Menu en blanc */
     text-decoration: none;
     margin: 0 1em;
     font-weight: 600;
@@ -47,7 +48,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--taupe);
+    color: var(--taupe); /* Menu devient gris taupe au survol */
 }
 
 .banner {
@@ -60,14 +61,10 @@ nav a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--warm-white);
 }
 
 .banner h1 {
-    color: var(--dark-chocolate);
-    background-color: var(--warm-white); /* Fond du titre en blanc */
-    padding: 0.5em;
-    border-radius: 5px;
+    color: var(--white); /* Titre en blanc */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     font-family: 'Playfair Display', serif;
     font-size: 3em;
