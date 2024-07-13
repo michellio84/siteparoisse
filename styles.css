@@ -2,10 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f8f3e4; /* beige */
+    color: #5b4033; /* chocolat */
 }
 
 header {
-    background-color: #333;
+    background-color: #5b4033; /* chocolat */
     color: white;
     padding: 10px 0;
     display: flex;
@@ -76,7 +78,7 @@ header .search-menu button {
 }
 
 .hero .button {
-    background-color: #0070c9;
+    background-color: #b5651d; /* brun sombre */
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -85,34 +87,23 @@ header .search-menu button {
 }
 
 .hero .button:hover {
-    background-color: #005bb5;
+    background-color: #8e4d13; /* brun plus sombre */
 }
 
-.content-section {
-    display: flex;
+#horaires, #actualites {
     padding: 20px;
-    border-bottom: 1px solid #ddd;
-}
-
-.content-section .content-text {
-    flex: 1;
-    padding: 20px;
-}
-
-.content-section .content-image {
-    flex: 1;
-}
-
-.content-section .content-image img {
-    width: 100%;
-    height: auto;
+    background-color: #ffffff; /* blanc */
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 footer {
-    background-color: #333;
+    background-color: #5b4033; /* chocolat */
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 footer ul {
