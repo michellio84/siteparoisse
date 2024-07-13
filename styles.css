@@ -8,28 +8,92 @@ header {
     background-color: #333;
     color: white;
     padding: 10px 0;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav ul {
+header .logo img {
+    height: 40px;
+}
+
+header nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
-nav ul li {
-    display: inline;
+header nav ul li {
     margin-right: 20px;
 }
 
-nav ul li a {
+header nav ul li a {
     color: white;
     text-decoration: none;
+    padding: 10px 20px;
 }
 
-section {
+header .search-menu {
+    display: flex;
+    align-items: center;
+}
+
+header .search-menu input {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+header .search-menu button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.hero .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero .button {
+    background-color: #0070c9;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.content-section {
+    display: flex;
     padding: 20px;
     border-bottom: 1px solid #ddd;
+}
+
+.content-section .content-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.content-section .content-image {
+    flex: 1;
+}
+
+.content-section .content-image img {
+    width: 100%;
+    height: auto;
 }
 
 footer {
@@ -43,14 +107,24 @@ footer ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 footer ul li {
-    display: inline;
     margin-right: 20px;
 }
 
 footer ul li a {
     color: white;
     text-decoration: none;
+}
+
+.footer-contact, .footer-social {
+    margin: 10px 0;
+}
+
+.footer-social a img {
+    height: 30px;
+    margin: 0 10px;
 }

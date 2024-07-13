@@ -9,6 +9,9 @@
 <body>
     <header>
         <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo de la Paroisse">
+            </div>
             <ul>
                 <li><a href="#horaires">Horaires</a></li>
                 <li><a href="#agenda">Agenda</a></li>
@@ -16,12 +19,20 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#histoire">Histoire</a></li>
             </ul>
+            <div class="search-menu">
+                <input type="text" placeholder="Rechercher...">
+                <button><img src="images/search-icon.png" alt="Recherche"></button>
+            </div>
         </nav>
     </header>
 
-    <section id="bandeau">
-        <h1>Bandeau de la Paroisse</h1>
-        <!-- Optionnel: ajouter une image de fond -->
+    <section id="bandeau" class="hero">
+        <img src="images/hero-image.jpg" alt="Image de la Paroisse">
+        <div class="hero-text">
+            <h1>Bienvenue à la Paroisse</h1>
+            <p>Découvrez nos activités et événements</p>
+            <a href="#agenda" class="button">Voir l'Agenda</a>
+        </div>
     </section>
 
     <section id="horaires">
@@ -29,32 +40,64 @@
         <p>Liste des horaires ici...</p>
     </section>
 
-    <section id="preparation">
-        <h3>Préparation</h3>
-        <p>Contenu de préparation...</p>
+    <section id="preparation" class="content-section">
+        <div class="content-text">
+            <h3>Préparation</h3>
+            <p>Contenu de préparation...</p>
+        </div>
+        <div class="content-image">
+            <img src="images/preparation.jpg" alt="Préparation">
+        </div>
     </section>
 
-    <section id="accompagnement">
-        <h3>Accompagnement</h3>
-        <p>Contenu d'accompagnement...</p>
+    <section id="accompagnement" class="content-section">
+        <div class="content-image">
+            <img src="images/accompagnement.jpg" alt="Accompagnement">
+        </div>
+        <div class="content-text">
+            <h3>Accompagnement</h3>
+            <p>Contenu d'accompagnement...</p>
+        </div>
     </section>
 
-    <section id="sacrements">
-        <h3>Sacrements</h3>
-        <p>Contenu des sacrements...</p>
+    <section id="sacrements" class="content-section">
+        <div class="content-text">
+            <h3>Sacrements</h3>
+            <p>Contenu des sacrements...</p>
+        </div>
+        <div class="content-image">
+            <img src="images/sacrements.jpg" alt="Sacrements">
+        </div>
     </section>
 
-    <section id="solidarite">
-        <h3>Solidarité</h3>
-        <p>Contenu de solidarité...</p>
+    <section id="solidarite" class="content-section">
+        <div class="content-image">
+            <img src="images/solidarite.jpg" alt="Solidarité">
+        </div>
+        <div class="content-text">
+            <h3>Solidarité</h3>
+            <p>Contenu de solidarité...</p>
+        </div>
     </section>
 
     <footer>
-        <ul>
-            <li><a href="https://catobel.be">Catobel.be</a></li>
-            <li><a href="https://politique-de-confidentialite">Politique de confidentialité</a></li>
-            <li><a href="https://egliseinfo.be">Egliseinfo.be</a></li>
-        </ul>
+        <div class="footer-links">
+            <ul>
+                <li><a href="https://catobel.be">Catobel.be</a></li>
+                <li><a href="https://politique-de-confidentialite">Politique de confidentialité</a></li>
+                <li><a href="https://egliseinfo.be">Egliseinfo.be</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <p>Adresse : Rue de la Paroisse, 123, 1000 Bruxelles</p>
+            <p>Téléphone : +32 2 123 456</p>
+            <p>Email : contact@paroisse.be</p>
+        </div>
+        <div class="footer-social">
+            <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+        </div>
     </footer>
 </body>
 </html>
