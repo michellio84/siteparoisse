@@ -16,8 +16,8 @@ body {
 }
 
 .top-bar {
-    background-color: var(--warm-white);
-    color: var(--dark-chocolate);
+    background-color: var(--taupe); /* Mise à jour du fond de la barre de menu */
+    color: var(--beige);
     padding: 1em;
     display: flex;
     justify-content: space-between;
@@ -26,13 +26,13 @@ body {
 
 .church-icon {
     font-size: 2em;
-    color: var(--white); /* Icône de l'église en blanc */
+    color: var(--beige); /* Mise à jour de la couleur de l'icône de l'église */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .church-icon:hover {
-    color: var(--taupe); /* Icône devient gris taupe au survol */
+    color: var(--warm-white); /* Mise à jour de la couleur de l'icône au survol */
 }
 
 nav {
@@ -40,7 +40,7 @@ nav {
 }
 
 nav a {
-    color: var(--white); /* Menu en blanc */
+    color: var(--beige); /* Mise à jour de la couleur des liens de navigation */
     text-decoration: none;
     margin: 0 1em;
     font-weight: 600;
@@ -48,12 +48,12 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--taupe); /* Menu devient gris taupe au survol */
+    color: var(--warm-white); /* Mise à jour de la couleur des liens au survol */
 }
 
 .banner {
     width: 100%;
-    height: 600px; /* Augmenté la hauteur de la bannière */
+    height: 600px;
     background-image: url('images/Eglise Saint Etienne.png');
     background-size: cover;
     background-position: center;
@@ -64,7 +64,7 @@ nav a:hover {
 }
 
 .banner h1 {
-    color: var(--white); /* Titre en blanc */
+    color: var(--white);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     font-family: 'Playfair Display', serif;
     font-size: 3em;
