@@ -1,10 +1,124 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paroisse Saint-Étienne de Braine-L'Alleud</title>
-    <link rel="stylesheet" href="styles.css">
+<html><head><base href="https://st-etienne-braine.be/agenda%20je%20voudrais%20des%20illustrations%20par%20%C3%A9v%C3%A8nement"><title>Agenda illustré - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <style>
+        :root {
+            --dark-chocolate: #614E3F;
+            --light-chocolate: #8B7260;
+            --beige: #F1E7DC;
+            --taupe: #8E8279;
+            --warm-white: #FAF6F2;
+            --accent-green: #7D8F69;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--warm-white);
+            color: var(--dark-chocolate);
+        }
+        .top-bar {
+            background-color: var(--taupe);
+            color: var(--beige);
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .church-icon {
+            font-size: 2em;
+            color: var(--beige);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .church-icon:hover {
+            color: var(--warm-white);
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: var(--beige);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            color: var(--warm-white);
+        }
+        .content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+        h1 {
+            color: var(--dark-chocolate);
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+        .event {
+            background-color: var(--beige);
+            border-radius: 8px;
+            padding: 1.5em;
+            margin-bottom: 2em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .event:hover {
+            transform: translateY(-5px);
+        }
+        .event h2 {
+            color: var(--dark-chocolate);
+            margin-top: 0;
+        }
+        .event-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+        .event-icon {
+            font-size: 1.2em;
+            color: var(--accent-green);
+            margin-right: 0.5em;
+        }
+        .event-description {
+            line-height: 1.6;
+        }
+        .event-link {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background-color: var(--accent-green);
+            color: var(--warm-white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            align-self: flex-start;
+        }
+        .event-link:hover {
+            background-color: var(--dark-chocolate);
+        }
+        .event-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+        footer {
+            background-color: var(--taupe);
+            color: var(--beige);
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+        }
+        footer a {
+            color: var(--warm-white);
+            text-decoration: none;
+            margin: 0 1em;
+        }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -13,74 +127,81 @@
             <i class="fas fa-church"></i>
         </a>
         <nav>
-            <  <a href="index.html">Accueil</a>
-            <a href="agenda.html" class="active">Agenda</a>
-            <a href="actualite.html">Actualité</a>
-            <a href="contact.html">Contact</a>
-            <a href="histoire.html">Histoire</a>
+            <a href="https://st-etienne-braine.be/horaires">Horaires</a>
+            <a href="https://st-etienne-braine.be/agenda" class="active">Agenda</a>
+            <a href="https://st-etienne-braine.be/actualite">Actualité</a>
+            <a href="https://st-etienne-braine.be/contact">Contact</a>
+            <a href="https://st-etienne-braine.be/histoire">Histoire</a>
         </nav>
     </div>
 
-    <div class="banner">
-        <h1>Paroisse Saint-Étienne de Braine-L'Alleud</h1>
-    </div>
-
-    <div class="daily-schedule fade-in">
-        <div class="schedule-item">
-            <i class="fas fa-clock schedule-icon"></i>
-            <h3>Messe du jour</h3>
-            <p>9h00</p>
-        </div>
-        <div class="schedule-item">
-            <i class="fas fa-pray schedule-icon"></i>
-            <h3>Confessions</h3>
-            <p>16h00 - 17h00</p>
-        </div>
-        <div class="schedule-item">
-            <i class="fas fa-cross schedule-icon"></i>
-            <h3>Adoration</h3>
-            <p>18h00 - 19h00</p>
-        </div>
-    </div>
-
     <div class="content">
-        <div class="service fade-in">
-            <img src="images/Préparation.png" alt="Préparation" class="service-image">
-            <i class="fas fa-book-open service-icon"></i>
-            <h3>Préparation</h3>
-            <p>Préparation aux sacrements et à la vie chrétienne</p>
+        <h1>Agenda paroissial illustré</h1>
+
+        <div class="event">
+            <img src="https://images.unsplash.com/photo-1485131907394-ef0cc0f43a97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Personne en méditation dans un environnement paisible" class="event-image" width="800" height="200">
+            <h2>Retraite spirituelle : "Cheminer avec le Christ"</h2>
+            <div class="event-info">
+                <i class="fas fa-calendar-alt event-icon"></i>
+                <span>15-17 juillet 2023</span>
+            </div>
+            <div class="event-info">
+                <i class="fas fa-map-marker-alt event-icon"></i>
+                <span>Centre spirituel Notre-Dame de la Justice</span>
+            </div>
+            <p class="event-description">Une retraite de trois jours pour approfondir votre relation avec le Christ. Méditations guidées, temps de silence et partages en groupe vous aideront à renouveler votre foi.</p>
+            <a href="https://st-etienne-braine.be/agenda/retraite-spirituelle" class="event-link">En savoir plus</a>
         </div>
-        <div class="service fade-in">
-            <img src="images/Accompagnement.jpeg" alt="Accompagnement" class="service-image">
-            <i class="fas fa-hands-helping service-icon"></i>
-            <h3>Accompagnement</h3>
-            <p>Soutien spirituel et pastoral</p>
+
+        <div class="event">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Façade d'une église illuminée pour une fête" class="event-image" width="800" height="200">
+            <h2>Fête paroissiale de la Saint-Étienne</h2>
+            <div class="event-info">
+                <i class="fas fa-calendar-alt event-icon"></i>
+                <span>26 décembre 2023</span>
+            </div>
+            <div class="event-info">
+                <i class="fas fa-map-marker-alt event-icon"></i>
+                <span>Église Saint-Étienne et salle paroissiale</span>
+            </div>
+            <p class="event-description">Célébrons ensemble notre saint patron ! Au programme : messe solennelle, repas festif, animations pour les enfants et concert de la chorale paroissiale.</p>
+            <a href="https://st-etienne-braine.be/agenda/fete-saint-etienne" class="event-link">En savoir plus</a>
         </div>
-        <div class="service fade-in">
-            <img src="images/Sacrements.jpg" alt="Sacrements" class="service-image">
-            <i class="fas fa-church service-icon"></i>
-            <h3>Sacrements</h3>
-            <p>Célébration des sacrements</p>
+
+        <div class="event">
+            <img src="https://images.unsplash.com/photo-1626993856199-51c5dcd69e34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Vue panoramique du sanctuaire de Lourdes" class="event-image" width="800" height="200">
+            <h2>Pèlerinage paroissial à Lourdes</h2>
+            <div class="event-info">
+                <i class="fas fa-calendar-alt event-icon"></i>
+                <span>10-16 août 2023</span>
+            </div>
+            <div class="event-info">
+                <i class="fas fa-map-marker-alt event-icon"></i>
+                <span>Sanctuaire Notre-Dame de Lourdes, France</span>
+            </div>
+            <p class="event-description">Rejoignez-nous pour un pèlerinage d'une semaine à Lourdes. Vivez des moments intenses de prière, de fraternité et de ressourcement spirituel dans ce lieu saint marial.</p>
+            <a href="https://st-etienne-braine.be/agenda/pelerinage-lourdes" class="event-link">En savoir plus</a>
         </div>
-        <div class="service fade-in">
-            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80" alt="Solidarité" class="service-image">
-            <i class="fas fa-heart service-icon"></i>
-            <h3>Solidarité</h3>
-            <p>Actions caritatives et entraide</p>
+
+        <div class="event">
+            <img src="https://images.unsplash.com/photo-1513801431573-bd5aad5d0a63?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Groupe d'adultes étudiant ensemble autour d'une table" class="event-image" width="800" height="200">
+            <h2>Catéchèse pour adultes : "Les sacrements dans notre vie"</h2>
+            <div class="event-info">
+                <i class="fas fa-calendar-alt event-icon"></i>
+                <span>Tous les mercredis à partir du 6 septembre 2023, 20h-21h30</span>
+            </div>
+            <div class="event-info">
+                <i class="fas fa-map-marker-alt event-icon"></i>
+                <span>Salle paroissiale Saint-Étienne</span>
+            </div>
+            <p class="event-description">Une série de rencontres pour approfondir le sens et la richesse des sacrements dans notre vie chrétienne. Ouvert à tous, que vous soyez en chemin de foi ou simplement curieux.</p>
+            <a href="https://st-etienne-braine.be/agenda/catechese-adultes" class="event-link">En savoir plus</a>
         </div>
     </div>
 
     <footer>
         <a href="https://www.cathobel.be/">Cathobel.be</a>
-        <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+        <a href="https://st-etienne-braine.be/politique-de-confidentialite">Politique de confidentialité</a>
         <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
-        <div class="contact-info">
-            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
-            <p>Téléphone : 02/384.25.12</p>
-            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
-        </div>
     </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+</body></html>
