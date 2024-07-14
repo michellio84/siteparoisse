@@ -56,20 +56,31 @@ nav a:hover {
     height: 600px;
     background-image: url('images/Eglise Saint Etienne.png');
     background-size: cover;
-    background-attachment: fixed; /* Parallaxe */
     background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    animation: fadeIn 2s ease-in forwards; /* Effet de fondu */
+    filter: blur(5px);
+    transform: scale(1.2);
+    transition: filter 0.5s ease, transform 2s ease;
+    animation: zoomOut 2s ease-in forwards, fadeInBlur 2s ease-in forwards;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInBlur {
     to {
-        opacity: 1;
+        filter: blur(0);
     }
+}
+
+@keyframes zoomOut {
+    to {
+        transform: scale(1);
+    }
+}
+
+.banner:hover {
+    filter: blur(0);
 }
 
 .banner h1 {
@@ -78,6 +89,17 @@ nav a:hover {
     font-family: 'Playfair Display', serif;
     font-size: 3em;
     margin-bottom: 0.5em;
+    position: relative;
+    animation: scrollText 10s linear infinite;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
 }
 
 .daily-schedule {
