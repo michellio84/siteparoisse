@@ -1,0 +1,243 @@
+<html><head><base href="https://michellio84.github.io/siteparoisse/histoire.html"><title>Histoire et Patrimoine - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <style>
+        :root {
+            --dark-chocolate: #614E3F;
+            --light-chocolate: #8B7260;
+            --beige: #F1E7DC;
+            --taupe: #8E8279;
+            --warm-white: #FAF6F2;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--warm-white);
+            color: var(--dark-chocolate);
+            line-height: 1.6;
+        }
+        .top-bar {
+            background-color: var(--taupe);
+            color: var(--beige);
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .church-icon {
+            font-size: 2em;
+            color: var(--beige);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .church-icon:hover {
+            color: var(--warm-white);
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: var(--beige);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            color: var(--warm-white);
+        }
+        .content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+        h1, h2 {
+            color: var(--dark-chocolate);
+            font-family: 'Playfair Display', serif;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+        .timeline {
+            position: relative;
+            padding: 2em 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: 4px;
+            background: var(--light-chocolate);
+            transform: translateX(-50%);
+        }
+        .event {
+            margin-bottom: 2em;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .event::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--dark-chocolate);
+            transform: translate(-50%, -50%);
+        }
+        .event-content {
+            width: 45%;
+            background: var(--beige);
+            padding: 1em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .event:nth-child(odd) .event-content {
+            margin-right: auto;
+        }
+        .event:nth-child(even) .event-content {
+            margin-left: auto;
+        }
+        .event-year {
+            font-weight: bold;
+            color: var(--dark-chocolate);
+            margin-bottom: 0.5em;
+        }
+        .event-image {
+            width: 45%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .event:nth-child(odd) .event-image {
+            order: 2;
+        }
+        .patrimoine-btn {
+            display: block;
+            width: 80%;
+            max-width: 300px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: var(--dark-chocolate);
+            color: var(--warm-white);
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .patrimoine-btn:hover {
+            background-color: var(--light-chocolate);
+        }
+        footer {
+            background-color: var(--taupe);
+            color: var(--beige);
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+        }
+        footer a {
+            color: var(--warm-white);
+            text-decoration: none;
+            margin: 0 1em;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="top-bar">
+        <a href="https://michellio84.github.io/siteparoisse/index.html" class="church-icon">
+            <i class="fas fa-church"></i>
+        </a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="agenda.html" class="active">Agenda</a>
+            <a href="actualite.html">Actualité</a>
+            <a href="contact.html">Contact</a>
+            <a href="histoire.html">Histoire</a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h1>Histoire et Patrimoine de la Paroisse Saint-Étienne</h1>
+
+        <p>L'histoire de la Paroisse Saint-Étienne de Braine-L'Alleud s'étend sur plusieurs siècles, reflétant la vie de toute une commune et la foi d'une communauté paroissiale. Voici quelques moments clés de cette riche histoire :</p>
+
+        <div class="timeline">
+            <div class="event">
+                <div class="event-content">
+                    <div class="event-year">12ème siècle</div>
+                    <p>Première mention de la paroisse et de son église. Un vestige de mur d'un chœur roman a été découvert lors de travaux en 1963.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1589786742650-7da3a66c98e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Ancien mur d'église romane, pierre taillée" class="event-image" width="360" height="200">
+            </div>
+            <div class="event">
+                <div class="event-content">
+                    <div class="event-year">1550</div>
+                    <p>Élévation ou redressement des colonnes du transept, marqué par un maillet sur le fût d'une demi-colonne du croisillon nord du transept.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1548248823-ce16a73b6d49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Colonnes d'église gothique, pierre sculptée" class="event-image" width="360" height="200">
+            </div>
+            <div class="event">
+                <div class="event-content">
+                    <div class="event-year">1742</div>
+                    <p>Agrandissement de l'église, indiqué sur une console au nord de la nef.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1576142006517-11b9aa34de61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Nef d'église agrandie, architecture gothique" class="event-image" width="360" height="200">
+            </div>
+            <div class="event">
+                <div class="event-content">
+                    <div class="event-year">1762-1763</div>
+                    <p>Construction de la tour et du jubé, dates inscrites respectivement sur une niche de la tour et sur la voûte du jubé.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1472478007644-a391f4d7ceb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Tour d'église et jubé, architecture baroque" class="event-image" width="360" height="200">
+            </div>
+            <div class="event">
+                <div class="event-content">
+                    <div class="event-year">1815</div>
+                    <p>L'église sert d'hôpital de campagne après la bataille de Waterloo, soignant les blessés des deux camps.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1516979893149-b3ceaf7f0fb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Église transformée en hôpital, période napoléonienne" class="event-image" width="360" height="200">
+            </div>
+            <div class="event">
+                <div class="event-content">
+                    <div class="event-year">1973-1974</div>
+                    <p>Dernière grande restauration intérieure de l'église, suivie en 1987 par des travaux sur certaines parties extérieures.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1597829765608-02961f544486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Intérieur d'église restaurée, style moderne" class="event-image" width="360" height="200">
+            </div>
+            <div class="event">
+                <div class="event-content">
+                    <div class="event-year">1983</div>
+                    <p>L'église est classée comme monument en raison de sa valeur historique et artistique.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1607031542117-b48d93f0d8b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Façade d'église classée, architecture remarquable" class="event-image" width="360" height="200">
+            </div>
+        </div>
+
+        <p>Aujourd'hui, l'église Saint-Étienne continue de jouer un rôle central dans la vie spirituelle et communautaire de Braine-L'Alleud. Elle témoigne d'une riche histoire et d'une foi profonde qui ont traversé les siècles.</p>
+
+        <p>Deux éléments mémorables sont à noter :</p>
+        <ul>
+            <li>Une plaque en bronze sur la façade rappelle le rôle de l'église comme hôpital après la bataille de Waterloo.</li>
+            <li>Sous le jubé, un bas-relief en bronze du sculpteur Albert Desenfans représente Simon de Cyrène aidant Jésus à porter sa croix, symbolisant l'esprit de service et de compassion.</li>
+        </ul>
+
+        <p>Ces divers éléments font de l'église Saint-Étienne un témoin vivant de l'histoire locale et un lieu de mémoire important pour la communauté de Braine-L'Alleud.</p>
+
+        <a href="https://st-etienne-braine.be/patrimoine-immobilier" class="patrimoine-btn">Découvrir le patrimoine immobilier de l'église</a>
+    </div>
+
+    <footer>
+        <a href="https://www.cathobel.be/">Cathobel.be</a>
+        <a href="https://st-etienne-braine.be/politique-de-confidentialite">Politique de confidentialité</a>
+        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+    </footer>
+</body></html>
