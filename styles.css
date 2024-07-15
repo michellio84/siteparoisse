@@ -73,6 +73,12 @@ nav a:hover {
     position: relative;
 }
 
+.banner p {
+        font-size: 1.2em;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
 .daily-schedule {
     background-color: var(--beige);
     padding: 2em;
@@ -147,6 +153,8 @@ nav a:hover {
     border-radius: 8px;
     margin-bottom: 1em;
 }
+
+
 
 footer {
     background-color: var(--taupe);
