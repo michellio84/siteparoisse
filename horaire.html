@@ -1,0 +1,187 @@
+<html><head><base href="https://michellio84.github.io/siteparoisse/index.html"><title>Horaires - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <style>
+        :root {
+            --dark-chocolate: #614E3F;
+            --light-chocolate: #8B7260;
+            --beige: #F1E7DC;
+            --taupe: #8E8279;
+            --warm-white: #FAF6F2;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--warm-white);
+            color: var(--dark-chocolate);
+        }
+        .top-bar {
+            background-color: var(--taupe);
+            color: var(--beige);
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .church-icon {
+            font-size: 2em;
+            color: var(--beige);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .church-icon:hover {
+            color: var(--warm-white);
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: var(--beige);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            color: var(--warm-white);
+        }
+        .content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+        h1 {
+            color: var(--dark-chocolate);
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+        .schedule {
+            background-color: var(--beige);
+            border-radius: 8px;
+            padding: 1.5em;
+            margin-bottom: 2em;
+        }
+        .schedule h2 {
+            color: var(--dark-chocolate);
+            margin-top: 0;
+        }
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1em;
+            padding-bottom: 1em;
+            border-bottom: 1px solid var(--light-chocolate);
+        }
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        .day {
+            font-weight: bold;
+        }
+        footer {
+            background-color: var(--taupe);
+            color: var(--beige);
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+        }
+        footer a {
+            color: var(--warm-white);
+            text-decoration: none;
+            margin: 0 1em;
+        }
+        .contact-info {
+            margin-top: 1.5em;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="top-bar">
+        <a href="https://https://michellio84.github.io/siteparoisse/index.html" class="church-icon">
+            <i class="fas fa-church"></i>
+        </a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="agenda.html" class="active">Agenda</a>
+            <a href="actualite.html">Actualité</a>
+            <a href="contact.html">Contact</a>
+            <a href="histoire.html">Histoire</a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h1>Horaires des célébrations</h1>
+
+        <div class="schedule">
+            <h2>Messes dominicales</h2>
+            <div class="schedule-item">
+                <span class="day">Samedi</span>
+                <span class="time">18h00</span>
+            </div>
+            <div class="schedule-item">
+                <span class="day">Dimanche</span>
+                <span class="time">9h00 et 11h00</span>
+            </div>
+        </div>
+
+        <div class="schedule">
+            <h2>Messes en semaine</h2>
+            <div class="schedule-item">
+                <span class="day">Lundi</span>
+                <span class="time">18h30</span>
+            </div>
+            <div class="schedule-item">
+                <span class="day">Mardi</span>
+                <span class="time">9h00</span>
+            </div>
+            <div class="schedule-item">
+                <span class="day">Mercredi</span>
+                <span class="time">18h30</span>
+            </div>
+            <div class="schedule-item">
+                <span class="day">Jeudi</span>
+                <span class="time">9h00</span>
+            </div>
+            <div class="schedule-item">
+                <span class="day">Vendredi</span>
+                <span class="time">18h30</span>
+            </div>
+        </div>
+
+        <div class="schedule">
+            <h2>Confessions</h2>
+            <div class="schedule-item">
+                <span class="day">Samedi</span>
+                <span class="time">16h00 - 17h30</span>
+            </div>
+            <div class="schedule-item">
+                <span>Ou sur rendez-vous avec le prêtre</span>
+            </div>
+        </div>
+
+        <div class="schedule">
+            <h2>Adoration du Saint-Sacrement</h2>
+            <div class="schedule-item">
+                <span class="day">Mardi</span>
+                <span class="time">9h30 - 10h30</span>
+            </div>
+            <div class="schedule-item">
+                <span class="day">Jeudi</span>
+                <span class="time">19h00 - 20h00</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://www.cathobel.be/">Cathobel.be</a>
+        <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+        <div class="contact-info">
+            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
+            <p>Téléphone : 02/384.25.12</p>
+            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
+        </div>
+    </footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body></html>
