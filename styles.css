@@ -74,6 +74,9 @@ nav a:hover {
 }
 
 .banner p {
+        color: var(--white);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        font-family: 'Playfair Display', serif;
         font-size: 1.2em;
         max-width: 600px;
         margin: 0 auto;
