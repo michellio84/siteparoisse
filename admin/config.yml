@@ -1,21 +1,23 @@
 backend:
   name: git-gateway
-  branch: main # Remplacez par votre branche principale si différente
+  branch: main
 
-media_folder: "static/images/uploads" # Dossier où seront stockés les médias uploadés
-public_folder: "/images/uploads" # Chemin public pour accéder aux médias
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
-  - name: "blog" # Utilisé dans les routes, ex: /admin/collections/blog
-    label: "Blog" # Utilisé dans l'interface utilisateur
-    folder: "content/blog" # Le dossier où sont stockés vos articles de blog
-    create: true # Permet aux utilisateurs de créer de nouveaux documents dans cette collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Format du nom de fichier
-    fields: # Les champs pour chaque document, généralement en front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
-
-  # Vous pouvez ajouter d'autres collections ici selon vos besoins
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Accueil"
+        name: "accueil"
+        file: "index.html"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+      - label: "Actualité"
+        name: "actualite"
+        file: "actualite.html"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
