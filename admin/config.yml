@@ -1,7 +1,6 @@
 backend:
-  name: github
-  repo: michellio84/siteparoisse # Remplacez par votre utilisateur et repository GitHub
-  branch: main # ou le nom de la branche principale de votre repository
+  name: git-gateway
+  branch: main
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
