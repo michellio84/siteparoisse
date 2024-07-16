@@ -18,5 +18,14 @@
         });
       }
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        if (window.CMS) {
+          CMS.init();
+        } else {
+          console.error("Netlify CMS not loaded");
+        }
+      });
+    </script>
   </body>
 </html>
