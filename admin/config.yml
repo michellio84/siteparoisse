@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: michellio84/siteparoisse # Remplacez par votre utilisateur et repository GitHub
+  branch: main # ou le nom de la branche principale de votre repository
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Accueil"
+        name: "accueil"
+        file: "index.html"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+      - label: "Contact"
+        name: "contact"
+        file: "contact.html"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
