@@ -1,54 +1,12 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Content Manager</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-  </head>
-  <body>
-    <script>
-      function getQueryVariable(variable) {
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i = 0; i < vars.length; i++) {
-          var pair = vars[i].split("=");
-          if (pair[0] === variable) {
-            return pair[1];
-          }
-        }
-        return false;
-      }
-
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            var inviteToken = getQueryVariable('invite_token');
-            if (inviteToken) {
-              window.netlifyIdentity.on("login", () => {
-                document.location.href = "/admin/";
-              });
-              window.netlifyIdentity.on("open", () => {
-                window.netlifyIdentity._goTrue.acceptInvite(inviteToken);
-              });
-              window.netlifyIdentity.open('signup');
-            } else {
-              window.netlifyIdentity.on("login", () => {
-                document.location.href = "/admin/";
-              });
-            }
-          }
-        });
-      }
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        if (window.CMS) {
-          CMS.init();
-        } else {
-          console.error("Netlify CMS not loaded");
-        }
-      });
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+</head>
+<body>
+  <!-- Inclut le script qui construit la page et fait fonctionner Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+</body>
 </html>
