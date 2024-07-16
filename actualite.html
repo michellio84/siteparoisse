@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <base href="https://michellio84.github.io/siteparoisse/actualite.html">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualités - Paroisse Saint-Étienne de Braine-L'Alleud</title>
@@ -96,7 +95,7 @@
         }
         footer {
             background-color: var(--taupe);
-            color: var (--beige);
+            color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
@@ -115,69 +114,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="top-bar">
-        <a href="https://st-etienne-braine.be" class="church-icon">
-            <i class="fas fa-church"></i>
-        </a>
-        <nav>
+<div class="top-bar">
+    <a href="https://st-etienne-braine.be" class="church-icon">
+        <i class="fas fa-church"></i>
+    </a>
+    <nav>
             <a href="index.html">Accueil</a>
             <a href="horaire.html">Horaire</a>
-            <a href="agenda.html">Agenda</a>
-            <a href="actualite.html" class="active">Actualité</a>
+            <a href="agenda.html" class="active">Agenda</a>
+            <a href="actualite.html">Actualité</a>
             <a href="contact.html">Contact</a>
             <a href="histoire.html">Histoire</a>
-        </nav>
+    </nav>
+</div>
+
+<div class="content">
+    <div class="header">
+        <i class="fas fa-newspaper news-icon"></i>
+        <h1>Actualités de la Paroisse</h1>
     </div>
 
-    <div class="content">
-        <div class="header">
-            <i class="fas fa-newspaper news-icon"></i>
-            <h1>Actualités de la Paroisse</h1>
-        </div>
-        
-        <div id="news-container"></div>
+    <div id="news-container"></div>
+</div>
+
+<footer>
+    <a href="https://www.cathobel.be/">Cathobel.be</a>
+    <a href="https://st-etienne-braine.be/politique-de-confidentialite">Politique de confidentialité</a>
+    <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+    <div class="contact-info">
+        <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
+        <p>Téléphone : 02/384.25.12</p>
+        <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
     </div>
+</footer>
 
-    <footer>
-        <a href="https://www.cathobel.be/">Cathobel.be</a>
-        <a href="https://st-etienne-braine.be/politique-de-confidentialite">Politique de confidentialité</a>
-        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
-        <div class="contact-info">
-            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
-            <p>Téléphone : 02/384.25.12</p>
-            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script>
-        async function fetchMarkdownFiles() {
-            const response = await fetch('https://api.github.com/repos/michellio84/siteparoisse/contents/content/actualites');
-            const files = await response.json();
-            
-            return files.filter(file => file.name.endsWith('.md')).map(file => file.download_url);
-        }
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('/content/actualites.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('news-container');
+                data.forEach(article => {
+                    const item = document.createElement('div');
+                    item.classList.add('news-item');
+                    item.innerHTML = `
+                        <h2>${article.title}</h2>
+                        <p class="date">${article.date}</p>
+                        <img src="${article.image}" alt="${article.title}" width="800" height="533">
+                        <p>${article.content}</p>
+                    `;
+                    container.appendChild(item);
+                });
+            });
+    });
+</script>
 
-        async function fetchMarkdownContent(url) {
-            const response = await fetch(url);
-            const markdown = await response.text();
-            return markdown;
-        }
-
-        async function renderMarkdownFiles() {
-            const container = document.getElementById('news-container');
-            const files = await fetchMarkdownFiles();
-
-            for (const file of files) {
-                const markdown = await fetchMarkdownContent(file);
-                const html = marked(markdown);
-                const articleDiv = document.createElement('div');
-                articleDiv.className = 'news-item';
-                articleDiv.innerHTML = html;
-                container.appendChild(articleDiv);
-            }
-        }
-
-        renderMarkdownFiles();
-    </script>
 </body>
 </html>
