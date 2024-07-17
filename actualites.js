@@ -7,24 +7,27 @@ async function loadNews() {
 
         newsItems.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        newsItems.forEach(item => {
+        for (const item of newsItems) {
+            const articleResponse = await fetch(`/content/actualites/${item.slug}.json`);
+            const articleData = await articleResponse.json();
+
             const article = document.createElement('article');
             article.className = 'news-item';
             
             const title = document.createElement('h2');
-            title.textContent = item.title;
+            title.textContent = articleData.title;
             
             const date = document.createElement('p');
             date.className = 'date';
-            date.textContent = new Date(item.date).toLocaleDateString('fr-FR');
+            date.textContent = new Date(articleData.date).toLocaleDateString('fr-FR');
             
             const image = document.createElement('img');
-            image.src = item.image;
-            image.alt = item.title;
+            image.src = articleData.image;
+            image.alt = articleData.title;
             
             const content = document.createElement('div');
             content.className = 'content';
-            content.innerHTML = item.body;
+            content.innerHTML = articleData.body;
             
             article.appendChild(title);
             article.appendChild(date);
@@ -32,7 +35,7 @@ async function loadNews() {
             article.appendChild(content);
             
             newsContainer.appendChild(article);
-        });
+        }
     } catch (error) {
         console.error('Erreur lors du chargement des actualités:', error);
         newsContainer.innerHTML = '<p>Impossible de charger les actualités pour le moment.</p>';

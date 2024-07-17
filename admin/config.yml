@@ -1,10 +1,3 @@
-backend:
-  name: git-gateway
-  branch: main
-
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
 collections:
   - name: "actualites"
     label: "Actualités"
@@ -16,6 +9,11 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Contenu", name: "body", widget: "markdown" }
-    # Ajoutez cette partie pour générer le fichier index.json
+    format: "json"
     summary: "{{title}}"
-    format: json
+    # Ajoutez cette partie pour générer le fichier index.json
+    index_file: "index"
+    summary_fields:
+      - title
+      - date
+      - slug
