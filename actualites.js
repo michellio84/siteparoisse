@@ -5,33 +5,36 @@ async function loadNews() {
         const response = await fetch('/content/actualites/index.json');
         const newsItems = await response.json();
 
-        newsItems.sort((a, b) => new Date(b.date) - new Date(a.date));
-
         for (const item of newsItems) {
-            const articleResponse = await fetch(`/content/actualites/${item.slug}.json`);
-            const articleData = await articleResponse.json();
-
+            const articleResponse = await fetch(`/content/actualites/${item.slug}.md`);
+            const articleContent = await articleResponse.text();
+            
             const article = document.createElement('article');
             article.className = 'news-item';
             
             const title = document.createElement('h2');
-            title.textContent = articleData.title;
+            title.textContent = item.title;
             
             const date = document.createElement('p');
             date.className = 'date';
-            date.textContent = new Date(articleData.date).toLocaleDateString('fr-FR');
+            date.textContent = new Date(item.date).toLocaleDateString('fr-FR');
             
             const image = document.createElement('img');
-            image.src = articleData.image;
-            image.alt = articleData.title;
+            image.src = item.image;
+            image.alt = item.title;
+            
+            const description = document.createElement('p');
+            description.className = 'description';
+            description.textContent = item.description;
             
             const content = document.createElement('div');
             content.className = 'content';
-            content.innerHTML = articleData.body;
+            content.innerHTML = marked(articleContent);
             
             article.appendChild(title);
             article.appendChild(date);
             article.appendChild(image);
+            article.appendChild(description);
             article.appendChild(content);
             
             newsContainer.appendChild(article);

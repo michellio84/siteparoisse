@@ -1,0 +1,11 @@
+{
+  "name": "votre-projet",
+  "version": "1.0.0",
+  "description": "Description de votre projet",
+  "scripts": {
+    "generate-index": "node scripts/generate-index.js"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}
