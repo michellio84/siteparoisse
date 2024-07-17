@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 articleElement.innerHTML = `
                     <h2>${article.title}</h2>
                     <p class="date">Publié le ${new Date(article.date).toLocaleDateString()}</p>
-                    <img src="${article.image}" alt="${article.title}">
+                    <div class="image-container">
+                        <img src="${article.image}" alt="${article.title}">
+                    </div>
                     <p>${article.description}</p>
                 `;
                 container.appendChild(articleElement);
