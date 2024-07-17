@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualités de la Paroisse</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --dark-chocolate: #614E3F;
@@ -19,7 +20,6 @@
             padding: 0;
             background-color: var(--warm-white);
             color: var(--dark-chocolate);
-            line-height: 1.6;
         }
         .top-bar {
             background-color: var(--taupe);
@@ -52,25 +52,17 @@
             color: var(--warm-white);
         }
         .content {
-            max-width: 1000px; /* Élargir les encarts */
+            max-width: 800px;
             margin: 2em auto;
             padding: 0 1em;
         }
         .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
             margin-bottom: 2em;
         }
         h1 {
             color: var(--dark-chocolate);
             font-family: 'Playfair Display', serif;
-            margin: 0;
-            margin-left: 0.5em;
-        }
-        .news-icon {
-            font-size: 2.5em;
-            color: var(--dark-chocolate);
         }
         .news-item {
             background-color: var(--beige);
@@ -78,6 +70,10 @@
             padding: 1.5em;
             margin-bottom: 2em;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .news-item:hover {
+            transform: translateY(-5px);
         }
         .news-item h2 {
             color: var(--dark-chocolate);
@@ -89,17 +85,13 @@
             margin-bottom: 1em;
         }
         .image-container {
-            position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16/9 ratio */
+            height: 200px;
             overflow: hidden;
             border-radius: 8px;
             margin-bottom: 1em;
         }
         .image-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -127,7 +119,7 @@
 </head>
 <body>
     <div class="top-bar">
-        <a href="https://st-etienne-braine.be" class="church-icon">
+        <a href="https://michellio84.github.io/siteparoisse/index.html" class="church-icon">
             <i class="fas fa-church"></i>
         </a>
         <nav>
@@ -142,7 +134,6 @@
 
     <div class="content">
         <div class="header">
-            <i class="fas fa-newspaper news-icon"></i>
             <h1>Actualités de la Paroisse</h1>
         </div>
 

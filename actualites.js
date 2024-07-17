@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 const articleElement = document.createElement('div');
                 articleElement.className = 'news-item';
                 articleElement.innerHTML = `
-                    <h2>${article.title}</h2>
-                    <p class="date">Publié le ${new Date(article.date).toLocaleDateString()}</p>
                     <div class="image-container">
                         <img src="${article.image}" alt="${article.title}">
                     </div>
+                    <h2>${article.title}</h2>
+                    <p class="date">Publié le ${new Date(article.date).toLocaleDateString()}</p>
                     <p>${article.description}</p>
                 `;
                 container.appendChild(articleElement);
