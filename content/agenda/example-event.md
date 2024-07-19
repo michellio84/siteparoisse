@@ -1,9 +1,0 @@
----
-title: "Retraite spirituelle : Cheminer avec le Christ"
-date: "2023-07-15"
-image: "https://images.unsplash.com/photo-1485131907394-ef0cc0f43a97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-location: "Centre spirituel Notre-Dame de la Justice"
-description: "Une retraite de trois jours pour approfondir votre relation avec le Christ. Méditations guidées, temps de silence et partages en groupe vous aideront à renouveler votre foi."
----
-
-Contenu de l'événement en Markdown.
