@@ -5,25 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda paroissial</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f0eb;
+            color: #534741;
+            margin: 0;
+            padding: 0;
+        }
+        .top-bar {
+            background-color: #807062;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #72624f;
+            text-align: center;
+        }
         .event-item {
-            display: flex;
+            background-color: #ece4db;
             margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
         }
-        .image-container {
-            flex: 0 0 200px;
-            margin-right: 20px;
-        }
-        .image-container img {
-            width: 100%;
+        .event-item img {
+            max-width: 100%;
             height: auto;
-            object-fit: cover;
+            margin-bottom: 10px;
         }
-        .event-content {
-            flex: 1;
-        }
-        .event-content h2 {
+        .event-item h2 {
+            color: #72624f;
             margin-top: 0;
         }
         .event-info {
@@ -31,6 +51,7 @@
         }
         .event-icon {
             margin-right: 5px;
+            color: #b2a289;
         }
         .event-description {
             margin-top: 10px;
@@ -38,43 +59,32 @@
         .event-link {
             display: inline-block;
             margin-top: 10px;
-            color: #007bff;
+            background-color: #b2a289;
+            color: white;
+            padding: 5px 10px;
             text-decoration: none;
+            border-radius: 3px;
         }
         .event-link:hover {
-            text-decoration: underline;
+            background-color: #9e8e75;
         }
     </style>
 </head>
 <body>
     <div class="top-bar">
         <a href="/" class="church-icon"></a>
-        <nav>
-            <a href="/index.html">Accueil</a>
-            <a href="/horaire.html">Horaire</a>
-            <a href="/agenda.html" class="active">Agenda</a>
-            <a href="/actualite.html">Actualité</a>
-            <a href="/contact.html">Contact</a>
-            <a href="/histoire.html">Histoire</a>
-        </nav>
+        <a href="/index.html">Accueil</a>
+        <a href="/horaire.html">Horaire</a>
+        <a href="/agenda.html">Agenda</a>
+        <a href="/actualite.html">Actualité</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/histoire.html">Histoire</a>
     </div>
 
     <div class="content">
-        <h1>Agenda paroissial</h1>
+        <h1>Agenda paroissial illustré</h1>
         <div id="events-container"></div>
     </div>
-
-    <footer>
-        <a href="https://www.cathobel.be/">Cathobel.be</a>
-        <a href="/politique-de-confidentialite">Politique de confidentialité</a>
-        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
-
-        <div class="contact-info">
-            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
-            <p>Téléphone : 02/384.25.12</p>
-            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
-        </div>
-    </footer>
 
     <script src="agenda.js"></script>
 </body>
