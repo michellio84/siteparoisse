@@ -3,6 +3,8 @@ const path = require('path');
 const matter = require('gray-matter');
 
 const eventsDirectory = path.join(process.cwd(), 'content/agenda');
+const outputDirectory = path.join(process.cwd(), 'public');
+const outputFilePath = path.join(outputDirectory, 'agenda-index.json');
 
 function generateAgendaIndex() {
     const fileNames = fs.readdirSync(eventsDirectory);
@@ -17,7 +19,13 @@ function generateAgendaIndex() {
         };
     });
 
-    fs.writeFileSync('public/agenda-index.json', JSON.stringify(events, null, 2));
+    // Créez le répertoire 'public' s'il n'existe pas
+    if (!fs.existsSync(outputDirectory)) {
+        fs.mkdirSync(outputDirectory);
+    }
+
+    fs.writeFileSync(outputFilePath, JSON.stringify(events, null, 2));
+    console.log('agenda-index.json generated successfully');
 }
 
 generateAgendaIndex();
