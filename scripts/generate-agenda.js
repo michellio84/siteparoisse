@@ -16,10 +16,11 @@ const events = fs.readdirSync(contentDir)
       date: data.date,
       slug: filename.slice(0, -3), // Remove .md extension
       image: data.image,
-      description: data.description
+      description: data.description,
+      location: data.location // Ajout de la propriété location
     };
 })
   .sort((a, b) => new Date(b.date) - new Date(a.date));
 
 fs.writeFileSync(outputFile, JSON.stringify(events, null, 2));
-console.log('index.json generated successfully');
+console.log('agenda-index.json generated successfully');
