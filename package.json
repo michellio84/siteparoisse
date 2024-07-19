@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Description de votre projet",
   "scripts": {
-    "generate-index": "node scripts/generate-index.js"
+    "generate-index": "node scripts/generate-index.js",
+    "generate-agenda": "node scripts/generate-agenda.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.3"

@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm run generate-index"
+  command = "npm install && npm run generate-index && npm run generate-agenda"
   publish = "."
 
 [[redirects]]
