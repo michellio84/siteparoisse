@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded and parsed');
 
-    fetch('agenda-index.json')
+    fetch('/content/actualites/agenda-index.json')
         .then(response => {
             console.log('Fetch response:', response);
             return response.json();
@@ -32,16 +32,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Fetch the markdown content for each article
                 fetch(`/content/actualites/${article.slug}.md`)
                     .then(response => {
-                        console.log(`Fetch markdown response for ${article.slug}:`, response);
+                        console.log(`Fetch markdown response for ${event.slug}:`, response);
                         return response.text();
                     })
                     .then(markdown => {
-                        console.log(`Markdown content for ${article.slug}:`, markdown);
+                        console.log(`Markdown content for ${event.slug}:`, markdown);
                         const contentElement = document.createElement('div');
                         contentElement.innerHTML = marked(markdown); // Utilisation d'un parseur Markdown
                         articleElement.appendChild(contentElement);
                     })
-                    .catch(error => console.error(`Error loading content for ${article.slug}:`, error));
+                    .catch(error => console.error(`Error loading content for ${event.slug}:`, error));
 
             });
         });
