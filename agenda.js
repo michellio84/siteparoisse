@@ -45,5 +45,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
             });
         });
-         .catch(error => console.error('Error loading articles:', error));
+         .catch(error => console.error('Error loading events:', error));
 });
