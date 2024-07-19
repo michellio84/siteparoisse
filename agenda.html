@@ -1,165 +1,81 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda - Paroisse Saint-Étienne de Braine-L'Alleud</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Agenda paroissial</title>
     <style>
-        :root {
-            --dark-chocolate: #614E3F;
-            --light-chocolate: #8B7260;
-            --beige: #F1E7DC;
-            --taupe: #8E8279;
-            --warm-white: #FAF6F2;
-            --accent-green: #7D8F69;
-        }
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--warm-white);
-            color: var(--dark-chocolate);
-        }
-        .top-bar {
-            background-color: var(--taupe);
-            color: var(--beige);
-            padding: 1em;
+        .event-item {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
         }
-        .church-icon {
-            font-size: 2em;
-            color: var(--beige);
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .image-container {
+            flex: 0 0 200px;
+            margin-right: 20px;
         }
-        .church-icon:hover {
-            color: var(--warm-white);
+        .image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
         }
-        nav {
-            display: flex;
+        .event-content {
+            flex: 1;
         }
-        nav a {
-            color: var(--beige);
-            text-decoration: none;
-            margin: 0 1em;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        nav a:hover, nav a.active {
-            color: var(--warm-white);
-        }
-        .content {
-            max-width: 800px;
-            margin: 2em auto;
-            padding: 0 1em;
-        }
-        h1 {
-            color: var(--dark-chocolate);
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-        }
-        .event {
-            background-color: var(--beige);
-            border-radius: 8px;
-            padding: 1.5em;
-            margin-bottom: 2em;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        .event:hover {
-            transform: translateY(-5px);
-        }
-        .event h2 {
-            color: var(--dark-chocolate);
+        .event-content h2 {
             margin-top: 0;
         }
         .event-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1em;
+            margin-bottom: 10px;
         }
         .event-icon {
-            font-size: 1.2em;
-            color: var(--accent-green);
-            margin-right: 0.5em;
+            margin-right: 5px;
         }
         .event-description {
-            line-height: 1.6;
+            margin-top: 10px;
         }
         .event-link {
             display: inline-block;
-            margin-top: 1em;
-            padding: 0.5em 1em;
-            background-color: var(--accent-green);
-            color: var(--warm-white);
+            margin-top: 10px;
+            color: #007bff;
             text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-            align-self: flex-start;
         }
         .event-link:hover {
-            background-color: var(--dark-chocolate);
-        }
-        .event-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1em;
-        }
-        footer {
-            background-color: var(--taupe);
-            color: var(--beige);
-            text-align: center;
-            padding: 2em;
-            margin-top: 2em;
-        }
-        footer a {
-            color: var(--warm-white);
-            text-decoration: none;
-            margin: 0 1em;
+            text-decoration: underline;
         }
     </style>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <div class="top-bar">
-        <a href= "/" class="church-icon">
-            <i class="fas fa-church"></i>
-        </a>
+        <a href="/" class="church-icon"></a>
         <nav>
-            <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaire</a>
-            <a href="agenda.html" class="active">Agenda</a>
-            <a href="actualite.html">Actualité</a>
-            <a href="contact.html">Contact</a>
-            <a href="histoire.html">Histoire</a>
+            <a href="/index.html">Accueil</a>
+            <a href="/horaire.html">Horaire</a>
+            <a href="/agenda.html" class="active">Agenda</a>
+            <a href="/actualite.html">Actualité</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/histoire.html">Histoire</a>
         </nav>
     </div>
 
     <div class="content">
         <h1>Agenda paroissial</h1>
-        <div id="events-container"></div> <!-- Conteneur pour les événements -->
+        <div id="events-container"></div>
     </div>
 
     <footer>
         <a href="https://www.cathobel.be/">Cathobel.be</a>
         <a href="/politique-de-confidentialite">Politique de confidentialité</a>
         <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+
         <div class="contact-info">
             <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
             <p>Téléphone : 02/384.25.12</p>
             <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
         </div>
     </footer>
-    <script src="agenda.js"></script> <!-- Ajouter le script -->
+
+    <script src="agenda.js"></script>
 </body>
 </html>

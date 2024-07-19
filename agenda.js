@@ -11,21 +11,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById('events-container');
             data.forEach(event => {
                 const eventElement = document.createElement('div');
-                eventElement.className = 'event';
+                eventElement.className = 'event-item';
                 eventElement.innerHTML = `
-                    <div class="event-image">
+                    <div class="image-container">
                         <img src="${event.image}" alt="${event.title}" >
                     </div>    
-                    <h2>${event.title}</h2>
-                    <div class="event-info">
-                        <i class="fas fa-calendar-alt event-icon"></i>
-                        <span>${new Date(event.date).toLocaleDateString()}</span>
+                    <div class="event-content">
+                        <h2>${event.title}</h2>
+                        <div class="event-info">
+                            <i class="fas fa-calendar-alt event-icon"></i>
+                            <span>${new Date(event.date).toLocaleDateString()}</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt event-icon"></i>
+                            <span>${event.location}</span>
+                        </div>
+                        <p class="event-description">${event.description}</p>
+                        <a href="${event.link}" class="event-link">En savoir plus</a>
                     </div>
-                    <div class="event-info">
-                        <i class="fas fa-map-marker-alt event-icon"></i>
-                        <span>${event.location}</span>
-                    </div>
-                    <p class="event-description">${event.description}</p>
                 `;
                 container.appendChild(eventElement);
                 // Fetch the markdown content for each article
@@ -41,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         eventElement.appendChild(contentElement);
                     })
                     .catch(error => console.error(`Error loading content for ${event.slug}:`, error));
-
             });
         });
 });
