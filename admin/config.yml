@@ -1,3 +1,13 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads" # Dossier pour les fichiers téléchargés
+public_folder: "/images/uploads" # URL publique pour les fichiers téléchargés
+
+media_library:
+  name: uploadcare # ou "default"
+
 collections:
   - name: "actualites"
     label: "Actualités"
