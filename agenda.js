@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded and parsed');
 
-    fetch('/content/actualites/agenda-index.json')
+    fetch('/content/agenda/agenda-index.json')
         .then(response => {
             console.log('Fetch response:', response);
             return response.json();
@@ -26,11 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span>${event.location}</span>
                     </div>
                     <p class="event-description">${event.description}</p>
-                    <a href="${event.link}" class="event-link">En savoir plus</a>
                 `;
                 container.appendChild(eventElement);
                 // Fetch the markdown content for each article
-                fetch(`/content/actualites/${article.slug}.md`)
+                fetch(`/content/agenda/${event.slug}.md`)
                     .then(response => {
                         console.log(`Fetch markdown response for ${event.slug}:`, response);
                         return response.text();
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         console.log(`Markdown content for ${event.slug}:`, markdown);
                         const contentElement = document.createElement('div');
                         contentElement.innerHTML = marked(markdown); // Utilisation d'un parseur Markdown
-                        articleElement.appendChild(contentElement);
+                        eventElement.appendChild(contentElement);
                     })
                     .catch(error => console.error(`Error loading content for ${event.slug}:`, error));
 
