@@ -1,6 +1,6 @@
-[build]
+[[build]
   command = "npm install && npm run generate-index && npm run generate-agenda"
-  publish = "."
+  publish = "public"
 
 [[redirects]]
   from = "/*"
