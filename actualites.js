@@ -1,49 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log('DOM fully loaded and parsed');
-
-    fetch('/content/agenda/agenda-index.json')
+    
+    fetch('/content/actualites/index.json')
         .then(response => {
             console.log('Fetch response:', response);
             return response.json();
         })
         .then(data => {
             console.log('Fetched data:', data);
-            const container = document.getElementById('events-container');
-            data.forEach(event => {
-                const eventElement = document.createElement('div');
-                eventElement.className = 'event-item';
-                eventElement.innerHTML = `
-                    <img src="${event.image}" alt="${event.title}">
-                    <h2>${event.title}</h2>
-                    <div class="event-info">
-                        <i class="fas fa-calendar-alt event-icon"></i>
-                        <span>${new Date(event.date).toLocaleDateString()}</span>
+            const container = document.getElementById('news-container');
+            data.forEach(article => {
+                const articleElement = document.createElement('div');
+                articleElement.className = 'news-item';
+                articleElement.innerHTML = `
+                    <div class="image-container">
+                        <img src="${article.image}" alt="${article.title}">
                     </div>
-                    ${event.location ? `
-                    <div class="event-info">
-                        <i class="fas fa-map-marker-alt event-icon"></i>
-                        <span>${event.location}</span>
-                    </div>
-                    ` : ''}
-                    <p class="event-description">${event.description}</p>
-                    <a href="#" class="event-link">En savoir plus</a>
+                    <h2>${article.title}</h2>
+                    <p class="date">Publié le ${new Date(article.date).toLocaleDateString()}</p>
+                    <p>${article.description}</p>
                 `;
-                container.appendChild(eventElement);
+                container.appendChild(articleElement);
 
-                // Fetch the markdown content for each event
-                fetch(`/content/agenda/${event.slug}.md`)
+                // Fetch the markdown content for each article
+                fetch(`/content/actualites/${article.slug}.md`)
                     .then(response => {
-                        console.log(`Fetch markdown response for ${event.slug}:`, response);
+                        console.log(`Fetch markdown response for ${article.slug}:`, response);
                         return response.text();
                     })
                     .then(markdown => {
-                        console.log(`Markdown content for ${event.slug}:`, markdown);
+                        console.log(`Markdown content for ${article.slug}:`, markdown);
                         const contentElement = document.createElement('div');
                         contentElement.innerHTML = marked(markdown); // Utilisation d'un parseur Markdown
-                        eventElement.appendChild(contentElement);
+                        articleElement.appendChild(contentElement);
                     })
-                    .catch(error => console.error(`Error loading content for ${event.slug}:`, error));
+                    .catch(error => console.error(`Error loading content for ${article.slug}:`, error));
             });
         })
-        .catch(error => console.error('Error loading events:', error));
+        .catch(error => console.error('Error loading articles:', error));
 });
