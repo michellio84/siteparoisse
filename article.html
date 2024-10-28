@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="top-bar">
+        <a href="/" class="church-icon">
+            <i class="fas fa-church"></i>
+        </a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="horaire.html">Horaire</a>
+            <a href="agenda.html">Agenda</a>
+            <a href="actualite.html">Actualité</a>
+            <a href="contact.html">Contact</a>
+            <a href="histoire.html">Histoire</a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h1 id="article-title"></h1>
+        <p id="article-date" class="date"></p>
+        <div id="article-content"></div>
+    </div>
+
+    <footer>
+        <a href="https://www.cathobel.be/">Cathobel.be</a>
+        <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+        <div class="contact-info">
+            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
+            <p>Téléphone : 02/384.25.12</p>
+            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Récupère le slug de l'article dans l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get('slug');
+
+        if (slug) {
+            // Charge le fichier markdown de l'article
+            fetch(`/content/actualites/${slug}.md`)
+                .then(response => response.text())
+                .then(markdown => {
+                    // Convertit le markdown en HTML et l'insère dans la page
+                    document.getElementById('article-content').innerHTML = marked(markdown);
+                })
+                .catch(error => console.error('Erreur lors du chargement du contenu de l\'article :', error));
+            
+            // Charge les métadonnées de l'article pour afficher le titre et la date
+            fetch('/content/actualites/index.json')
+                .then(response => response.json())
+                .then(data => {
+                    const article = data.find(item => item.slug === slug);
+                    if (article) {
+                        document.getElementById('article-title').textContent = article.title;
+                        document.getElementById('article-date').textContent = `Publié le ${new Date(article.date).toLocaleDateString()}`;
+                    }
+                })
+                .catch(error => console.error('Erreur lors du chargement des métadonnées de l\'article :', error));
+        } else {
+            document.getElementById('article-content').innerHTML = "<p>Article introuvable.</p>";
+        }
+    </script>
+</body>
+</html>
