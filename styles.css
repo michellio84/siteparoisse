@@ -36,7 +36,7 @@ body {
 }
 .event-item img {
     width: 100%; /* Largeur fixe, ou spécifie une valeur en pixels, ex: 300px */
-    height: 600px; /* Hauteur fixe, ajuste selon le design souhaité */
+    height: 700px; /* Hauteur fixe, ajuste selon le design souhaité */
     object-fit: cover; /* Remplit l'image pour éviter les déformations */
     border-radius: 8px; /* Coins arrondis pour un effet uniforme */
     margin-bottom: 10px; /* Espace sous l'image */
