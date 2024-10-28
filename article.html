@@ -109,7 +109,7 @@
     <div class="content">
         <h1 id="article-title">Titre de l'Article</h1>
         <p id="article-date" class="date">Publié le 00/00/0000</p>
-       
+        <p id="article-description" class="description">Description de l'article</p>
         <div id="article-content" class="article-content"></div>
     </div>
 
@@ -124,7 +124,7 @@
         </div>
     </footer>
 
-    <script>
+   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const slug = urlParams.get('slug');
 
@@ -135,28 +135,29 @@
                 return response.text();
             })
             .then(markdown => {
-                // Extraction des métadonnées et du contenu
+                console.log("Contenu brut du fichier Markdown :", markdown);
+                
                 const metadataPattern = /---\n([\s\S]*?)\n---/;
                 const metadataMatch = markdown.match(metadataPattern);
                 let metadata = {};
-                
+
                 if (metadataMatch) {
                     const rawMetadata = metadataMatch[1];
                     rawMetadata.split('\n').forEach(line => {
                         const [key, value] = line.split(': ');
                         metadata[key.trim()] = value ? value.trim() : "";
                     });
-                    // Retrait des métadonnées du contenu principal
                     markdown = markdown.replace(metadataPattern, '').trim();
                 }
 
-                // Affichage des métadonnées si elles existent
+                console.log("Métadonnées extraites :", metadata);
+                console.log("Contenu principal après extraction des métadonnées :", markdown);
+
                 document.getElementById('article-title').textContent = metadata.title || "Titre manquant";
                 document.getElementById('article-date').textContent = metadata.date ? 
                     `Publié le ${new Date(metadata.date).toLocaleDateString()}` : "Date non spécifiée";
                 document.getElementById('article-description').textContent = metadata.description || "";
 
-                // Affichage du contenu principal de l'article
                 document.getElementById('article-content').innerHTML = markdown ? marked.parse(markdown) : "Contenu manquant.";
             })
             .catch(error => console.error("Erreur lors du chargement du contenu de l'article :", error));
@@ -164,5 +165,6 @@
         document.getElementById('article-content').innerHTML = "<p>Article introuvable.</p>";
     }
 </script>
+
 </body>
 </html>
