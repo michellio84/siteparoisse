@@ -49,22 +49,28 @@
             fetch(`/content/actualites/${slug}.md`)
                 .then(response => response.text())
                 .then(markdown => {
-                    // Convertit le markdown en HTML et l'insère dans la page
+                    // Extraction des métadonnées et du contenu principal
+                    const metadataPattern = /---\n([\s\S]*?)\n---/;
+                    const metadataMatch = markdown.match(metadataPattern);
+                    let metadata = {};
+                    
+                    if (metadataMatch) {
+                        // Convertir les métadonnées en un objet JavaScript
+                        const rawMetadata = metadataMatch[1];
+                        rawMetadata.split('\n').forEach(line => {
+                            const [key, value] = line.split(': ');
+                            metadata[key.trim()] = value?.trim();
+                        });
+                        // Supprimer les métadonnées du markdown
+                        markdown = markdown.replace(metadataPattern, '');
+                    }
+                    
+                    // Affichage du titre, de la date et du contenu
+                    document.getElementById('article-title').textContent = metadata.title || "Article";
+                    document.getElementById('article-date').textContent = `Publié le ${new Date(metadata.date).toLocaleDateString()}`;
                     document.getElementById('article-content').innerHTML = marked(markdown);
                 })
-                .catch(error => console.error('Erreur lors du chargement du contenu de l\'article :', error));
-            
-            // Charge les métadonnées de l'article pour afficher le titre et la date
-            fetch('/content/actualites/index.json')
-                .then(response => response.json())
-                .then(data => {
-                    const article = data.find(item => item.slug === slug);
-                    if (article) {
-                        document.getElementById('article-title').textContent = article.title;
-                        document.getElementById('article-date').textContent = `Publié le ${new Date(article.date).toLocaleDateString()}`;
-                    }
-                })
-                .catch(error => console.error('Erreur lors du chargement des métadonnées de l\'article :', error));
+                .catch(error => console.error("Erreur lors du chargement du contenu de l'article :", error));
         } else {
             document.getElementById('article-content').innerHTML = "<p>Article introuvable.</p>";
         }
