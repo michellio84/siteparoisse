@@ -26,13 +26,7 @@
             color: #614E3F;
             margin-bottom: 1em;
         }
-        #article-date {
-            display: block;
-            font-style: italic;
-            color: #8B7260;
-            margin-bottom: 0.5em;
-        }
-        #article-description {
+        #article-date, #article-description {
             display: block;
             font-style: italic;
             color: #8B7260;
@@ -48,12 +42,48 @@
 </head>
 <body>
     <div class="content">
-        <h1 id="article-title">Test numéro 2</h1>
-        <p id="article-date">Publié le 28/10/2024</p>
-        <p id="article-description">Descriptif d'un autre article blog</p>
-        <div id="article-content">
-            <p>Il s'agit d'un test d'un nouvel article pour voir si cela fonctionne.</p>
-        </div>
+        <h1 id="article-title">Titre de l'Article</h1>
+        <p id="article-date">Publié le 00/00/0000</p>
+        <p id="article-description">Description de l'article</p>
+        <div id="article-content"></div>
     </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get('slug');
+
+        if (slug) {
+            fetch(`/content/actualites/${slug}.md`)
+                .then(response => {
+                    if (!response.ok) throw new Error("Erreur HTTP " + response.status);
+                    return response.text();
+                })
+                .then(markdown => {
+                    const metadataPattern = /---\n([\s\S]*?)\n---/;
+                    const metadataMatch = markdown.match(metadataPattern);
+                    let metadata = {};
+                    
+                    if (metadataMatch) {
+                        const rawMetadata = metadataMatch[1];
+                        rawMetadata.split('\n').forEach(line => {
+                            const [key, value] = line.split(': ');
+                            metadata[key.trim()] = value ? value.trim() : "";
+                        });
+                        markdown = markdown.replace(metadataPattern, '').trim();
+                    }
+
+                    document.getElementById('article-title').textContent = metadata.title || "Titre manquant";
+                    document.getElementById('article-date').textContent = metadata.date ? 
+                        `Publié le ${new Date(metadata.date).toLocaleDateString()}` : "Date non spécifiée";
+                    document.getElementById('article-description').textContent = metadata.description || "";
+
+                    const contentElement = document.getElementById('article-content');
+                    contentElement.innerHTML = markdown ? marked.parse(markdown) : "Contenu manquant.";
+                })
+                .catch(error => console.error("Erreur lors du chargement du contenu de l'article :", error));
+        } else {
+            document.getElementById('article-content').innerHTML = "<p>Article introuvable.</p>";
+        }
+    </script>
 </body>
 </html>
