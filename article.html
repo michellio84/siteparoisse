@@ -8,42 +8,65 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> <!-- Charger marked ici -->
     
     <style>
+        :root {
+            --dark-chocolate: #614E3F;
+            --light-chocolate: #8B7260;
+            --beige: #F1E7DC;
+            --taupe: #8E8279;
+            --warm-white: #FAF6F2;
+        }
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: var(--warm-white);
+            color: var(--dark-chocolate);
         }
         .top-bar {
-            background-color: #8E8279;
-            color: #f1e7dc;
+            background-color: var(--taupe);
+            color: var(--beige);
             padding: 1em;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .top-bar a {
-            color: #f1e7dc;
+        .church-icon {
+            font-size: 2em;
+            color: var(--beige);
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .church-icon:hover {
+            color: var(--warm-white);
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: var(--beige);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            color: var(--warm-white);
         }
         .content {
             max-width: 800px;
-            margin: 3em auto;
-            padding: 2em;
+            margin: 2em auto;
+            padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         h1 {
-            color: #614E3F;
+            color: var(--dark-chocolate);
             font-size: 2em;
             margin-bottom: 0.3em;
         }
         .date {
-            color: #8B7260;
+            color: var(--light-chocolate);
             font-style: italic;
             margin-bottom: 0.5em;
         }
@@ -56,23 +79,20 @@
         .article-content {
             line-height: 1.6;
             font-size: 1.1em;
-            color: #333;
+            color: var(--dark-chocolate);
             margin-top: 1.5em;
         }
-        .article-content p {
-            margin-bottom: 1em;
-        }
         footer {
-            background-color: #8E8279;
-            color: #f1e7dc;
+            background-color: var(--taupe);
+            color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
         }
         footer a {
-            color: #f1e7dc;
+            color: var(--warm-white);
             text-decoration: none;
-            margin: 0 10px;
+            margin: 0 1em;
         }
         .contact-info {
             font-size: 0.9em;
@@ -82,12 +102,17 @@
 </head>
 <body>
     <div class="top-bar">
-        <a href="/">Accueil</a> | 
-        <a href="horaire.html">Horaire</a> | 
-        <a href="agenda.html">Agenda</a> | 
-        <a href="actualite.html">Actualité</a> | 
-        <a href="contact.html">Contact</a> | 
-        <a href="histoire.html">Histoire</a>
+        <a href= "/" class="church-icon">
+            <i class="fas fa-church"></i>
+        </a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="horaire.html">Horaire</a>
+            <a href="agenda.html">Agenda</a>
+            <a href="actualite.html">Actualité</a>
+            <a href="contact.html">Contact</a>
+            <a href="histoire.html">Histoire</a>
+        </nav>
     </div>
 
     <div class="content">
@@ -109,58 +134,40 @@
     </footer>
 
     <script>
-        // Vérification que la fonction marked est bien chargée
         if (typeof marked !== 'function') {
             console.error("Erreur: La fonction marked n'est pas disponible.");
         } else {
             console.log("La fonction marked est chargée et prête à l'emploi.");
         }
 
-        // Récupère le slug de l'article dans l'URL
         const urlParams = new URLSearchParams(window.location.search);
         const slug = urlParams.get('slug');
 
         if (slug) {
-            console.log("Chargement du fichier pour le slug:", slug);
-
-            // Charge le fichier markdown de l'article
             fetch(`/content/actualites/${slug}.md`)
                 .then(response => {
                     if (!response.ok) throw new Error("Erreur HTTP " + response.status);
                     return response.text();
                 })
                 .then(markdown => {
-                    console.log("Markdown brut chargé:", markdown);
-
-                    // Extraction des métadonnées et du contenu principal
                     const metadataPattern = /---\n([\s\S]*?)\n---/;
                     const metadataMatch = markdown.match(metadataPattern);
                     let metadata = {};
                     
                     if (metadataMatch) {
-                        console.log("Métadonnées trouvées:", metadataMatch[1]);
-
-                        // Convertir les métadonnées en un objet JavaScript
                         const rawMetadata = metadataMatch[1];
                         rawMetadata.split('\n').forEach(line => {
                             const [key, value] = line.split(': ');
                             metadata[key.trim()] = value?.trim();
                         });
-
-                        // Supprimer les métadonnées du markdown
                         markdown = markdown.replace(metadataPattern, '');
-                    } else {
-                        console.warn("Pas de métadonnées trouvées.");
                     }
                     
-                    // Affichage du titre, de la date, du descriptif et du contenu
                     document.getElementById('article-title').textContent = metadata.title || "Article";
                     document.getElementById('article-date').textContent = `Publié le ${new Date(metadata.date).toLocaleDateString()}`;
                     document.getElementById('article-description').textContent = metadata.description || "";
 
-                    // Conversion du contenu markdown en HTML
                     document.getElementById('article-content').innerHTML = marked.parse(markdown);
-                    console.log("Contenu de l'article affiché.");
                 })
                 .catch(error => console.error("Erreur lors du chargement du contenu de l'article :", error));
         } else {
