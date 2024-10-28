@@ -24,6 +24,7 @@
     <div class="content">
         <h1 id="article-title"></h1>
         <p id="article-date" class="date"></p>
+        <p id="article-description" class="description"></p> <!-- Ajout du descriptif -->
         <div id="article-content"></div>
     </div>
 
@@ -65,9 +66,10 @@
                         markdown = markdown.replace(metadataPattern, '');
                     }
                     
-                    // Affichage du titre, de la date et du contenu
+                    // Affichage du titre, de la date, du descriptif et du contenu
                     document.getElementById('article-title').textContent = metadata.title || "Article";
                     document.getElementById('article-date').textContent = `Publié le ${new Date(metadata.date).toLocaleDateString()}`;
+                    document.getElementById('article-description').textContent = metadata.description || "";
                     document.getElementById('article-content').innerHTML = marked(markdown);
                 })
                 .catch(error => console.error("Erreur lors du chargement du contenu de l'article :", error));
