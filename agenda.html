@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
+<base href="/">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda paroissial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
+        :root {
+            --dark-chocolate: #614E3F;
+            --light-chocolate: #8B7260;
+            --beige: #F1E7DC;
+            --taupe: #8E8279;
+            --warm-white: #FAF6F2;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f0eb;
@@ -14,14 +22,35 @@
             padding: 0;
         }
         .top-bar {
-            background-color: #807062;
-            padding: 10px 0;
-            text-align: center;
+            background-color: var(--taupe);
+            color: var(--beige);
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .top-bar a {
-            color: white;
+        .church-icon {
+            font-size: 2em;
+            color: var(--beige);
             text-decoration: none;
-            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .church-icon:hover {
+            color: var(--warm-white);
+        }
+    
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: var(--beige);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            color: var(--warm-white);
         }
         .content {
             max-width: 800px;
