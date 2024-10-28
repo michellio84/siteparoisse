@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> <!-- Charger marked ici -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
     <style>
+        /* Variables et styles généraux */
         :root {
             --dark-chocolate: #614E3F;
             --light-chocolate: #8B7260;
@@ -17,41 +18,26 @@
         }
         body {
             font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: var(--warm-white);
             color: var(--dark-chocolate);
+            margin: 0;
         }
+        /* Barre de navigation */
         .top-bar {
             background-color: var(--taupe);
-            color: var(--beige);
             padding: 1em;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        .church-icon {
-            font-size: 2em;
             color: var(--beige);
-            text-decoration: none;
-            transition: color 0.3s ease;
         }
-        .church-icon:hover {
-            color: var(--warm-white);
-        }
-        nav {
-            display: flex;
-        }
-        nav a {
+        .top-bar a {
             color: var(--beige);
             text-decoration: none;
             margin: 0 1em;
             font-weight: 600;
-            transition: all 0.3s ease;
         }
-        nav a:hover, nav a.active {
-            color: var(--warm-white);
-        }
+        /* Contenu de l'article */
         .content {
             max-width: 800px;
             margin: 2em auto;
@@ -60,51 +46,38 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        h1 {
+        .content h1 {
             color: var(--dark-chocolate);
             font-size: 2em;
-            margin-bottom: 0.3em;
+            margin-bottom: 0.2em;
         }
-        .date {
+        .date, .description {
             color: var(--light-chocolate);
             font-style: italic;
-            margin-top: 0; /* Correction pour aligner date sous le titre */
+            margin-bottom: 0.5em;
         }
         .description {
             color: #666;
             font-size: 1.1em;
             margin-bottom: 1.5em;
-            font-style: italic;
         }
         .article-content {
             line-height: 1.6;
             font-size: 1.1em;
-            color: var(--dark-chocolate);
             margin-top: 1.5em;
         }
+        /* Pied de page */
         footer {
             background-color: var(--taupe);
             color: var(--beige);
             text-align: center;
             padding: 2em;
-            margin-top: 2em;
-        }
-        footer a {
-            color: var(--warm-white);
-            text-decoration: none;
-            margin: 0 1em;
-        }
-        .contact-info {
-            font-size: 0.9em;
-            line-height: 1.6;
         }
     </style>
 </head>
 <body>
     <div class="top-bar">
-        <a href= "/" class="church-icon">
-            <i class="fas fa-church"></i>
-        </a>
+        <a href="/" class="church-icon"><i class="fas fa-church"></i></a>
         <nav>
             <a href="index.html">Accueil</a>
             <a href="horaire.html">Horaire</a>
@@ -117,7 +90,7 @@
 
     <div class="content">
         <h1 id="article-title">Titre de l'Article</h1>
-        <p id="article-date" class="date">Publié le 00/00/0000</p> <!-- Correction pour s'assurer que la date soit bien positionnée -->
+        <p id="article-date" class="date">Publié le 00/00/0000</p>
         <p id="article-description" class="description">Description de l'article</p>
         <div id="article-content" class="article-content"></div>
     </div>
@@ -134,12 +107,6 @@
     </footer>
 
     <script>
-        if (typeof marked !== 'function') {
-            console.error("Erreur: La fonction marked n'est pas disponible.");
-        } else {
-            console.log("La fonction marked est chargée et prête à l'emploi.");
-        }
-
         const urlParams = new URLSearchParams(window.location.search);
         const slug = urlParams.get('slug');
 
