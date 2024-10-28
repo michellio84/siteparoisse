@@ -153,18 +153,26 @@
                 console.log("Métadonnées extraites :", metadata);
                 console.log("Contenu principal après extraction des métadonnées :", markdown);
 
+                // Insertion des valeurs dans le DOM
                 document.getElementById('article-title').textContent = metadata.title || "Titre manquant";
+                console.log("Titre inséré :", document.getElementById('article-title').textContent);
+
                 document.getElementById('article-date').textContent = metadata.date ? 
                     `Publié le ${new Date(metadata.date).toLocaleDateString()}` : "Date non spécifiée";
+                console.log("Date insérée :", document.getElementById('article-date').textContent);
+
                 document.getElementById('article-description').textContent = metadata.description || "";
+                console.log("Description insérée :", document.getElementById('article-description').textContent);
 
                 document.getElementById('article-content').innerHTML = markdown ? marked.parse(markdown) : "Contenu manquant.";
+                console.log("Contenu principal inséré :", document.getElementById('article-content').innerHTML);
             })
             .catch(error => console.error("Erreur lors du chargement du contenu de l'article :", error));
     } else {
         document.getElementById('article-content').innerHTML = "<p>Article introuvable.</p>";
     }
 </script>
+
 
 </body>
 </html>
