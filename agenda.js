@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <i class="fas fa-map-marker-alt event-icon"></i>
                         <span>${event.location}</span>
                     </div>
-                    <p class="event-description">${event.description}</p>
+                    <p class="event-description"><em>${event.description}</em></p>
                     <a href="${event.link}" class="event-link">En savoir plus</a>
                 `;
                 container.appendChild(eventElement);
