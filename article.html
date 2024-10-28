@@ -8,103 +8,45 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
     <style>
-        /* Variables et styles généraux */
-        :root {
-            --dark-chocolate: #614E3F;
-            --light-chocolate: #8B7260;
-            --beige: #F1E7DC;
-            --taupe: #8E8279;
-            --warm-white: #FAF6F2;
-        }
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--warm-white);
-            color: var(--dark-chocolate);
-            margin: 0;
-        }
-        /* Barre de navigation */
-        .top-bar {
-            background-color: var(--taupe);
-            padding: 1em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--beige);
-        }
-        .top-bar a {
-            color: var(--beige);
-            text-decoration: none;
-            margin: 0 1em;
-            font-weight: 600;
-        }
-    /* Style temporaire pour diagnostiquer */
+    /* Styles de diagnostic pour forcer chaque élément sur une ligne séparée */
     .content {
         max-width: 800px;
         margin: 2em auto;
-        padding: 0 1em;
-        background-color: #F1E7DC; /* Fond pour différencier la section */
         padding: 2em;
+        background-color: #F1E7DC;
         border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    /* Titre */
     #article-title {
-        display: block !important;
+        display: block;
         font-size: 2em;
         color: #614E3F;
+        margin-bottom: 1em;
+    }
+
+    #article-date {
+        display: block; /* Assure que la date est sur sa propre ligne */
+        font-style: italic;
+        color: #8B7260;
         margin-bottom: 0.5em;
     }
 
-    /* Date */
-    #article-date {
-        display: block !important;
-        font-style: italic;
-        color: #8B7260;
-        margin-bottom: 1em;
-    }
-
-    /* Description */
     #article-description {
-        display: block !important;
+        display: block; /* Assure que la description est sur sa propre ligne */
         font-style: italic;
         color: #8B7260;
         margin-bottom: 1em;
     }
 
-    /* Contenu principal */
     #article-content {
-        display: block !important;
+        display: block;
         margin-top: 1em;
         line-height: 1.6;
         color: #534741;
     }
+</style>
 
-        /* Pied de page */
-        footer {
-            background-color: var(--taupe);
-            color: var(--beige);
-            text-align: center;
-            padding: 2em;
-        }
-             #article-title {
-             display: block !important /* Assure que le titre est en bloc */
-             font-size: 2em;
-             margin-bottom: 0.5em;
-        }
-
-            #article-date,
-            #article-description {
-            display: block !important; /* Assure que la date et la description s'affichent sous le titre */
-            font-style: italic;
-             color: #8B7260; /* Couleur douce */
-             margin-bottom: 1em; /* Espace pour séparer chaque élément */
-            }
-
-        #article-content {
-            display: block;
-            margin-top: 1.5em; /* Espace au-dessus du contenu principal */
-            }
-    </style>
 </head>
 <body>
     <div class="top-bar">
