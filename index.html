@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-<base href="/">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,20 +10,19 @@
 </head>
 <body>
     <div class="top-bar">
-        <a href= "/" class="church-icon">
+        <a href="/" class="church-icon">
             <i class="fas fa-church"></i>
         </a>
         <nav>
             <a href="index.html">Accueil</a>
             <a href="horaire.html">Horaires</a>
-            <a href="agenda.html" >Agenda</a>
+            <a href="agenda.html">Agenda</a>
             <a href="actualite.html">Actualité</a>
             <a href="contact.html">Contact</a>
             <a href="histoire.html">Histoire</a>
         </nav>
     </div>
 
-    <!-- Ajout de l'élément pour la date -->
     <div id="current-date" style="text-align: center; font-size: 24px; padding: 20px 0;"></div>
 
     <div class="banner">
@@ -35,64 +33,42 @@
     <div class="daily-schedule fade-in">
         <!-- Section des horaires dynamiques -->
         <div id="schedule-content">
-            <!-- Lundi à Vendredi -->
+            <!-- Horaires pour chaque jour de la semaine -->
             <div class="schedule-item weekday">
                 <i class="fas fa-clock schedule-icon"></i>
-                <h3>Messe</h3>
-                <p>Laudes à 8h30, Messe à 9h00</p>
+                <h3>Lundi</h3>
+                <p></p>
             </div>
-            <!-- Mercredi -->
+            <div class="schedule-item weekday">
+                <i class="fas fa-clock schedule-icon"></i>
+                <h3>Mardi</h3>
+                <p></p>
+            </div>
             <div class="schedule-item wednesday">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Mercredi</h3>
-                <p>Laudes à 8h30, Messe à 9h00, Adoration jusqu'à 10h30</p>
-                <p>Après la messe, sacrement de réconciliation disponible</p>
+                <p></p>
             </div>
-            <!-- Vendredi -->
+            <div class="schedule-item weekday">
+                <i class="fas fa-clock schedule-icon"></i>
+                <h3>Jeudi</h3>
+                <p></p>
+            </div>
             <div class="schedule-item friday">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Vendredi</h3>
-                <p>Laudes à 8h30, Messe à 9h00, Adoration jusqu'à 10h30</p>
-                <p>Après la messe, sacrement de réconciliation disponible</p>
+                <p></p>
             </div>
-            <!-- Samedi -->
             <div class="schedule-item saturday">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Samedi</h3>
-                <p>Laudes à 8h30</p>
-                <p>Messe à 18h00</p>
+                <p></p>
             </div>
-            <!-- Dimanche -->
             <div class="schedule-item sunday">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Dimanche</h3>
-                <p>Messe des familles à 10h30</p>
+                <p></p>
             </div>
-        </div>
-    </div>
-
-    <div class="content">
-        <div class="service fade-in">
-            <a href="sacrements.html">
-                <img src="images/Préparation.png" alt="Préparation" class="service-image">
-            </a>
-            <i class="fas fa-book-open service-icon"></i>
-            <h3>Préparation</h3>
-            <p>Préparation aux sacrements et à la vie chrétienne</p>
-        </div>
-        <div class="service fade-in">
-            <img src="images/Accompagnement.jpeg" alt="Accompagnement" class="service-image">
-            <i class="fas fa-hands-helping service-icon"></i>
-            <h3>Accompagnement</h3>
-            <p>Soutien spirituel et pastoral</p>
-        </div>
-        <div class="service fade-in">
-            <a href="services.html">
-                <img src="images/Sacrements.jpg" alt="Sacrements" class="service-image">
-            </a>
-            <i class="fas fa-church service-icon"></i>
-            <h3>Services</h3>
-            <p>Célébration des sacrements</p>
         </div>
     </div>
 
@@ -123,7 +99,6 @@
             var saturday = scheduleContent.getElementsByClassName('saturday');
             var sunday = scheduleContent.getElementsByClassName('sunday');
 
-            // Masquer tous les horaires
             function hideAll() {
                 for (let item of weekday) item.style.display = 'none';
                 for (let item of wednesday) item.style.display = 'none';
@@ -132,32 +107,58 @@
                 for (let item of sunday) item.style.display = 'none';
             }
 
-            hideAll(); // Masquer tous les horaires au début
+            hideAll();
 
-            // Afficher les horaires en fonction du jour
-            if (day >= 1 && day <= 5) { // Lundi à Vendredi
-                for (let item of weekday) item.style.display = 'block';
-                if (day === 3) { // Mercredi
-                    for (let item of wednesday) item.style.display = 'block';
+            // Afficher les horaires pour chaque jour spécifique
+            if (day === 1) { // Lundi
+                for (let item of weekday) {
+                    item.style.display = 'block';
+                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)';
                 }
-                if (day === 5) { // Vendredi
-                    for (let item of friday) item.style.display = 'block';
+            } else if (day === 2) { // Mardi
+                for (let item of weekday) {
+                    item.style.display = 'block';
+                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)';
+                }
+            } else if (day === 3) { // Mercredi
+                for (let item of wednesday) {
+                    item.style.display = 'block';
+                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique';
+                }
+            } else if (day === 4) { // Jeudi
+                for (let item of weekday) {
+                    item.style.display = 'block';
+                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)';
+                }
+            } else if (day === 5) { // Vendredi
+                for (let item of friday) {
+                    item.style.display = 'block';
+                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique';
                 }
             } else if (day === 6) { // Samedi
-                for (let item of saturday) item.style.display = 'block';
+                for (let item of saturday) {
+                    item.style.display = 'block';
+                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n18h00 Messe (Eucharistie)';
+                }
             } else if (day === 0) { // Dimanche
-                for (let item of sunday) item.style.display = 'block';
+                for (let item of sunday) {
+                    item.style.display = 'block';
+                    item.querySelector('p').textContent = '10h30 Messe (Eucharistie)';
+                }
             }
         });
     </script>
-            if (window.netlifyIdentity) {
-  window.netlifyIdentity.on("init", user => {
-    if (!user) {
-      window.netlifyIdentity.on("login", () => {
-        document.location.href = "/admin/";
-      });
-    }
-  });
-}
+
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
