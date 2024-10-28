@@ -68,7 +68,7 @@
         .date {
             color: var(--light-chocolate);
             font-style: italic;
-            margin-bottom: 0.5em;
+            margin-top: 0; /* Correction pour aligner date sous le titre */
         }
         .description {
             color: #666;
@@ -117,7 +117,7 @@
 
     <div class="content">
         <h1 id="article-title">Titre de l'Article</h1>
-        <p id="article-date" class="date">Date de publication</p>
+        <p id="article-date" class="date">Publié le 00/00/0000</p> <!-- Correction pour s'assurer que la date soit bien positionnée -->
         <p id="article-description" class="description">Description de l'article</p>
         <div id="article-content" class="article-content"></div>
     </div>
