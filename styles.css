@@ -35,7 +35,7 @@ body {
     color: var(--beige); /* Beige au survol */
 }
 .event-item img {
-    width: 400px; /* Largeur fixe, ou spécifie une valeur en pixels, ex: 300px */
+    width: 700px; /* Largeur fixe, ou spécifie une valeur en pixels, ex: 300px */
     height: 100%; /* Hauteur fixe, ajuste selon le design souhaité */
     object-fit: cover; /* Remplit l'image pour éviter les déformations */
     border-radius: 8px; /* Coins arrondis pour un effet uniforme */
