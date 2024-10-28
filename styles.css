@@ -34,6 +34,13 @@ body {
 .church-icon:hover {
     color: var(--beige); /* Beige au survol */
 }
+.event-item img {
+    max-width: 100%; /* Ne dépasse pas le conteneur */
+    height: auto; /* Conserve les proportions */
+    border-radius: 8px; /* Coins arrondis */
+    margin-bottom: 10px; /* Espace sous l'image */
+    object-fit: cover; /* Remplit le conteneur de manière uniforme */
+}
 
 nav {
     display: flex;
