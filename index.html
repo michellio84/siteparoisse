@@ -34,37 +34,37 @@
     <!-- Section des horaires -->
     <div class="daily-schedule fade-in">
         <div id="schedule-content">
-            <div class="schedule-item weekday">
+            <div class="schedule-item" data-day="1">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Lundi</h3>
                 <p></p>
             </div>
-            <div class="schedule-item weekday">
+            <div class="schedule-item" data-day="2">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Mardi</h3>
                 <p></p>
             </div>
-            <div class="schedule-item wednesday">
+            <div class="schedule-item" data-day="3">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Mercredi</h3>
                 <p></p>
             </div>
-            <div class="schedule-item weekday">
+            <div class="schedule-item" data-day="4">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Jeudi</h3>
                 <p></p>
             </div>
-            <div class="schedule-item friday">
+            <div class="schedule-item" data-day="5">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Vendredi</h3>
                 <p></p>
             </div>
-            <div class="schedule-item saturday">
+            <div class="schedule-item" data-day="6">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Samedi</h3>
                 <p></p>
             </div>
-            <div class="schedule-item sunday">
+            <div class="schedule-item" data-day="0">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Dimanche</h3>
                 <p></p>
@@ -118,8 +118,7 @@
             document.getElementById('current-date').textContent = formattedDate;
 
             var day = currentDate.getDay(); // 0 = Dimanche, 1 = Lundi, etc.
-            var scheduleContent = document.getElementById('schedule-content');
-            var scheduleItems = scheduleContent.getElementsByClassName('schedule-item');
+            var scheduleItems = document.getElementsByClassName('schedule-item');
 
             // Masquer tous les horaires au départ
             function hideAll() {
@@ -140,8 +139,12 @@
             };
 
             // Afficher les horaires du jour actuel
-            scheduleItems[day].style.display = 'block';
-            scheduleItems[day].querySelector('p').textContent = horaires[day];
+            for (let item of scheduleItems) {
+                if (parseInt(item.getAttribute('data-day')) === day) {
+                    item.style.display = 'block';
+                    item.querySelector('p').textContent = horaires[day];
+                }
+            }
         });
     </script>
 
