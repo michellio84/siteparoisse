@@ -23,6 +23,7 @@
         </nav>
     </div>
 
+    <!-- Affichage de la date actuelle -->
     <div id="current-date" style="text-align: center; font-size: 24px; padding: 20px 0;"></div>
 
     <div class="banner">
@@ -30,10 +31,9 @@
         <p>Une communauté chrétienne vivante au cœur de Braine-L'Alleud</p>
     </div>
 
+    <!-- Section des horaires -->
     <div class="daily-schedule fade-in">
-        <!-- Section des horaires dynamiques -->
         <div id="schedule-content">
-            <!-- Horaires pour chaque jour de la semaine -->
             <div class="schedule-item weekday">
                 <i class="fas fa-clock schedule-icon"></i>
                 <h3>Lundi</h3>
@@ -72,6 +72,32 @@
         </div>
     </div>
 
+    <!-- Autres sections originales -->
+    <div class="content">
+        <div class="service fade-in">
+            <a href="sacrements.html">
+                <img src="images/Préparation.png" alt="Préparation" class="service-image">
+            </a>
+            <i class="fas fa-book-open service-icon"></i>
+            <h3>Préparation</h3>
+            <p>Préparation aux sacrements et à la vie chrétienne</p>
+        </div>
+        <div class="service fade-in">
+            <img src="images/Accompagnement.jpeg" alt="Accompagnement" class="service-image">
+            <i class="fas fa-hands-helping service-icon"></i>
+            <h3>Accompagnement</h3>
+            <p>Soutien spirituel et pastoral</p>
+        </div>
+        <div class="service fade-in">
+            <a href="services.html">
+                <img src="images/Sacrements.jpg" alt="Sacrements" class="service-image">
+            </a>
+            <i class="fas fa-church service-icon"></i>
+            <h3>Services</h3>
+            <p>Célébration des sacrements</p>
+        </div>
+    </div>
+
     <footer>
         <a href="https://www.cathobel.be/">Cathobel.be</a>
         <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
@@ -93,59 +119,29 @@
 
             var day = currentDate.getDay(); // 0 = Dimanche, 1 = Lundi, etc.
             var scheduleContent = document.getElementById('schedule-content');
-            var weekday = scheduleContent.getElementsByClassName('weekday');
-            var wednesday = scheduleContent.getElementsByClassName('wednesday');
-            var friday = scheduleContent.getElementsByClassName('friday');
-            var saturday = scheduleContent.getElementsByClassName('saturday');
-            var sunday = scheduleContent.getElementsByClassName('sunday');
+            var scheduleItems = scheduleContent.getElementsByClassName('schedule-item');
 
+            // Masquer tous les horaires au départ
             function hideAll() {
-                for (let item of weekday) item.style.display = 'none';
-                for (let item of wednesday) item.style.display = 'none';
-                for (let item of friday) item.style.display = 'none';
-                for (let item of saturday) item.style.display = 'none';
-                for (let item of sunday) item.style.display = 'none';
+                for (let item of scheduleItems) item.style.display = 'none';
             }
 
-            hideAll();
+            hideAll(); // Masquer tous les horaires
 
-            // Afficher les horaires pour chaque jour spécifique
-            if (day === 1) { // Lundi
-                for (let item of weekday) {
-                    item.style.display = 'block';
-                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)';
-                }
-            } else if (day === 2) { // Mardi
-                for (let item of weekday) {
-                    item.style.display = 'block';
-                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)';
-                }
-            } else if (day === 3) { // Mercredi
-                for (let item of wednesday) {
-                    item.style.display = 'block';
-                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique';
-                }
-            } else if (day === 4) { // Jeudi
-                for (let item of weekday) {
-                    item.style.display = 'block';
-                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)';
-                }
-            } else if (day === 5) { // Vendredi
-                for (let item of friday) {
-                    item.style.display = 'block';
-                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique';
-                }
-            } else if (day === 6) { // Samedi
-                for (let item of saturday) {
-                    item.style.display = 'block';
-                    item.querySelector('p').textContent = '8h30 Prière du matin (Laudes)\n18h00 Messe (Eucharistie)';
-                }
-            } else if (day === 0) { // Dimanche
-                for (let item of sunday) {
-                    item.style.display = 'block';
-                    item.querySelector('p').textContent = '10h30 Messe (Eucharistie)';
-                }
-            }
+            // Définir les horaires pour chaque jour
+            const horaires = {
+                1: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)', // Lundi
+                2: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)', // Mardi
+                3: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique', // Mercredi
+                4: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)', // Jeudi
+                5: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique', // Vendredi
+                6: '8h30 Prière du matin (Laudes)\n18h00 Messe (Eucharistie)', // Samedi
+                0: '10h30 Messe (Eucharistie)' // Dimanche
+            };
+
+            // Afficher les horaires du jour actuel
+            scheduleItems[day].style.display = 'block';
+            scheduleItems[day].querySelector('p').textContent = horaires[day];
         });
     </script>
 
