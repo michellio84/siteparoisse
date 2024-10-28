@@ -12,29 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
             data.forEach(article => {
                 const articleElement = document.createElement('div');
                 articleElement.className = 'news-item';
+                
+                // Structure simplifiée pour afficher uniquement la liste avec titre, date, et description
                 articleElement.innerHTML = `
-                    <div class="image-container">
-                        <img src="${article.image}" alt="${article.title}">
-                    </div>
-                    <h2>${article.title}</h2>
+                    <h2><a href="/actualite/${article.slug}.html">${article.title}</a></h2>
                     <p class="date">Publié le ${new Date(article.date).toLocaleDateString()}</p>
                     <p>${article.description}</p>
                 `;
                 container.appendChild(articleElement);
-
-                // Fetch the markdown content for each article
-                fetch(`/content/actualites/${article.slug}.md`)
-                    .then(response => {
-                        console.log(`Fetch markdown response for ${article.slug}:`, response);
-                        return response.text();
-                    })
-                    .then(markdown => {
-                        console.log(`Markdown content for ${article.slug}:`, markdown);
-                        const contentElement = document.createElement('div');
-                        contentElement.innerHTML = marked(markdown); // Utilisation d'un parseur Markdown
-                        articleElement.appendChild(contentElement);
-                    })
-                    .catch(error => console.error(`Error loading content for ${article.slug}:`, error));
             });
         })
         .catch(error => console.error('Error loading articles:', error));
