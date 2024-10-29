@@ -112,6 +112,10 @@
             font-size: 1.5em;
             margin-right: 0.5em;
             color: var(--light-chocolate);
+            transition: color 0.3s ease; /* Transition pour la couleur de l'icône */
+        }
+        .contact-link:hover .sacrament-icon {
+            color: var(--warm-white); /* Change la couleur de l'icône lors du survol */
         }
         .info-button {
             background-color: var(--dark-chocolate);
@@ -138,8 +142,15 @@
             transition: color 0.3s ease;
         }
         .contact-link:hover {
-            color: var(--light-chocolate);
+            color: var(--warm-white); /* Change la couleur du texte et de l'icône lors du survol */
+            transform: scale(1.03); /* Agrandit légèrement le titre et l'icône */
+            transition: transform 0.3s ease, color 0.3s ease; /* Pour un effet de transition doux */
         }
+
+        .contact-link:hover h2 {
+            color: var(--warm-white); /* Assure le changement de couleur du titre lors du hover */
+            }
+
         .sacraments-image {
             width: 100%;
             max-width: 800px;
@@ -181,15 +192,21 @@
        </div>
 
         <div class="sacrament-info">
-            <h2><i class="fas fa-bread-slice sacrament-icon"></i>Communion</h2>
+            <a href="communion.html" class="contact-link">
+                <h2><i class="fas fa-bread-slice sacrament-icon"></i>Communion</h2>
+            </a>
         </div>
 
         <div class="sacrament-info">
-            <h2><i class="fas fa-dove sacrament-icon"></i>Confirmation</h2>
+            <a href="confirmation.html" class="contact-link">
+             <h2><i class="fas fa-dove sacrament-icon"></i>Confirmation</h2>
+            </a>
         </div>
 
         <div class="sacrament-info">
+            <a href="mariage.html" class="contact-link">
             <h2><i class="fas fa-ring sacrament-icon"></i>Mariage</h2>
+            </a>
         </div>
 
         <a href="contact.html" class="contact-link">
