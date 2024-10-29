@@ -69,11 +69,17 @@
             display: flex;
             align-items: center;
         }
+        .sacrament-info h2 {
+            margin-top: 0; /* Supprime l'espace au-dessus du titre */
+            padding-top: 0; /* Supprime tout padding éventuel en haut du titre */
+        }
+
         .sacrament-info {
             background-color: var(--beige);
             border-radius: 8px;
             padding: 1.5em;
-            margin-bottom: 1.5em;
+            margin-bottom: 1em;
+            margin-top: 0;
         }
         .sacrament-info h3 {
             color: var(--dark-chocolate);
@@ -83,19 +89,22 @@
             margin-left: 1.5em;
         }
         footer {
-            background-color: var(--taupe);
+            background-color: var(--taupe); /* Même fond que la barre du top */
             color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
+            font-size: 1em; /* Taille cohérente avec la barre du top */
         }
+
         footer a {
             color: var(--warm-white);
             text-decoration: none;
             margin: 0 1em;
+            font-weight: 600; /* Cohérent avec les liens de la barre du top */
         }
         .contact-info {
-            margin-top: 1.5em;
+            margin-top: 1em;
             font-size: 0.9em;
             line-height: 1.6;
         }
@@ -150,7 +159,7 @@
         </a>
         <nav>
             <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaire</a>
+            <a href="horaire.html">Horaires</a>
             <a href="agenda.html" class="active">Agenda</a>
             <a href="actualite.html">Actualité</a>
             <a href="contact.html">Contact</a>
@@ -163,36 +172,24 @@
         
         <img src="/images/sacrements2.jpg" alt="Image représentant les sept sacrements de l'Église catholique" class="sacraments-image" width="800" height="450">
         
-        <p>À la paroisse Saint-Étienne de Braine-L'Alleud, nous accompagnons les fidèles dans leur cheminement spirituel à travers la préparation et la célébration des sacrements de l'Église catholique. Voici un aperçu de notre approche pour chaque sacrement :</p>
+        <p> <i> À la paroisse Saint-Étienne de Braine-L'Alleud, nous accompagnons les fidèles dans leur cheminement spirituel à travers la préparation et la célébration des sacrements de l'Église catholique. Voici un aperçu de notre approche pour chaque sacrement :<i></p>
 
-        <div class="sacrament-info">
-            <h2><i class="fas fa-water sacrament-icon"></i>Baptême</h2>
-            <p>Le baptême est le premier des sacrements, marquant l'entrée dans la communauté chrétienne. Nous proposons des séances de préparation pour les parents et parrains/marraines, ainsi que des célébrations individuelles ou communautaires.</p>
-            <a href="bapteme.html" class="info-button">Plus d'informations</a>
-        </div>
+       <div class="sacrament-info">
+            <a href="bapteme.html" class="contact-link">
+                <h2><i class="fas fa-water sacrament-icon"></i> Baptême</h2>
+            </a>
+       </div>
 
         <div class="sacrament-info">
             <h2><i class="fas fa-bread-slice sacrament-icon"></i>Communion</h2>
-            <p>La préparation à la Première Communion s'étend sur deux années, comprenant une année d'éveil à la foi et une année de l'Eucharistie.</p>
-            <a href="communion.html" class="info-button">Plus d'informations</a>
         </div>
 
         <div class="sacrament-info">
             <h2><i class="fas fa-dove sacrament-icon"></i>Confirmation</h2>
-            <p>La préparation à la Confirmation se déroule sur deux années supplémentaires, avec l'Année de l'Écoute et l'Année de l'Envoi.</p>
-            <a href="confirmation.html" class="info-button">Plus d'informations</a>
         </div>
 
         <div class="sacrament-info">
             <h2><i class="fas fa-ring sacrament-icon"></i>Mariage</h2>
-            <p>La préparation au mariage comprend des rencontres individuelles, un parcours en groupe, et une journée de retraite pour les fiancés.</p>
-            <a href="mariage.html" class="info-button">Plus d'informations</a>
-        </div>
-
-        <div class="sacrament-info">
-            <h2><i class="fas fa-cross sacrament-icon"></i>Ordination</h2>
-            <p>Nous accompagnons les personnes qui discernent un appel à la prêtrise ou au diaconat avec un soutien spirituel et communautaire.</p>
-            <a href="https://st-etienne-braine.be/ordination" class="info-button">Plus d'informations</a>
         </div>
 
         <a href="contact.html" class="contact-link">
