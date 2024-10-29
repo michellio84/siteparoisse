@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<base href="/">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <base href="/">
+    <title>Membres de l'Équipe - Paroisse Saint-Étienne de Braine-L'Alleud</title>
     <style>
         :root {
             --dark-chocolate: #614E3F;
@@ -13,13 +10,16 @@
             --taupe: #8E8279;
             --warm-white: #FAF6F2;
         }
+
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--warm-white);
             color: var(--dark-chocolate);
+            line-height: 1.6;
         }
+
         .top-bar {
             background-color: var(--taupe);
             color: var(--beige);
@@ -28,18 +28,22 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .church-icon {
             font-size: 2em;
             color: var(--beige);
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
         .church-icon:hover {
             color: var(--warm-white);
         }
+
         nav {
             display: flex;
         }
+
         nav a {
             color: var(--beige);
             text-decoration: none;
@@ -47,108 +51,88 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        nav a:hover, nav a.active {
+
+        nav a:hover {
             color: var(--warm-white);
         }
+
         .content {
-            max-width: 800px;
+            max-width: 900px; /* Taille maximale pour tous les contenus */
             margin: 2em auto;
-            padding: 0 1em;
+            padding: 0 2em;
+            width: 100%;
         }
-        h1 {
-            color: var(--dark-chocolate);
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-        }
-        .contact-info, .contact-form {
+
+        .encart {
             background-color: var(--beige);
             border-radius: 8px;
             padding: 1.5em;
-            margin-bottom: 2em;
+            margin-bottom: 1.5em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Harmonise la largeur des encarts */
         }
-        .contact-info h2, .contact-form h2 {
+
+        h1, h2, h3 {
             color: var(--dark-chocolate);
-            margin-top: 0;
+            font-family: 'Playfair Display', serif;
         }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1em;
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            text-align: center;
         }
-        .contact-icon {
-            font-size: 1.5em;
-            color: var(--light-chocolate);
-            margin-right: 0.5em;
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 1.5em;
+            border-bottom: 2px solid var(--light-chocolate);
+            padding-bottom: 0.3em;
         }
-        form {
-            display: grid;
-            gap: 1em;
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 1.2em;
         }
-        label {
-            font-weight: bold;
+
+        .contact-info p, .member-card p {
+            margin: 0.5em 0;
         }
-        input, textarea {
-            width: 100%;
-            padding: 0.5em;
-            border: 1px solid var(--light-chocolate);
-            border-radius: 4px;
-        }
-        button {
-            background-color: var(--dark-chocolate);
-            color: var(--warm-white);
-            border: none;
-            padding: 0.5em 1em;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: var(--light-chocolate);
-        }
+
         .map {
-            width: 100%;
-            height: 300px;
+            width: 100%; /* Prend toute la largeur de son conteneur */
+            max-width: 900px; /* Même largeur que les autres éléments */
+            height: 400px; /* Ajustable selon les besoins */
             border: none;
-            border-radius: 8px;
+            margin-bottom: 1.5em; /* Alignement visuel avec les autres blocs */
         }
+
         footer {
-            background-color: var(--taupe);
+            background-color: var(--taupe); /* Même fond que la barre du top */
             color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
+            font-size: 1em; /* Taille cohérente avec la barre du top */
         }
+
         footer a {
             color: var(--warm-white);
             text-decoration: none;
             margin: 0 1em;
-        }
-        .contact-button {
-            display: block;
-            width: 200px;
-            margin: 2em auto;
-            padding: 1em;
-            background-color: var(--dark-chocolate);
-            color: var(--warm-white);
-            text-align: center;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        .contact-button:hover {
-            background-color: var(--light-chocolate);
+            font-weight: 600; /* Cohérent avec les liens de la barre du top */
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="top-bar">
-        <a href= "/" class="church-icon">
+        <a href="/" class="church-icon">
             <i class="fas fa-church"></i>
         </a>
         <nav>
             <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaire</a>
+            <a href="horaire.html">Horaires</a>
             <a href="agenda.html" class="active">Agenda</a>
             <a href="actualite.html">Actualité</a>
             <a href="contact.html">Contact</a>
@@ -159,15 +143,19 @@
     <div class="content">
         <h1>Contact</h1>
 
-        <div class="contact-info">
+        <div class="encart contact-info">
             <h2>Nos coordonnées</h2>
             <div class="contact-item">
                 <i class="fas fa-map-marker-alt contact-icon"></i>
-                <span>3 rue Sainte-Anne, 1420 Braine-l'Alleud</span>
+                <span>Église : Place Abbé Renard, 1420 Braine-l'Alleud</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <span>Cure : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</span>
             </div>
             <div class="contact-item">
                 <i class="fas fa-phone contact-icon"></i>
-                <span>02/384.25.12</span>
+                <span>Secrétariat : 02/384.25.12</span>
             </div>
             <div class="contact-item">
                 <i class="fas fa-envelope contact-icon"></i>
@@ -177,14 +165,54 @@
 
         <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.5201953108384!2d4.366307615741785!3d50.724056079515454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c6b867df70e3%3A0x407b1aef6e7eb20!2sRue%20Sainte-Anne%203%2C%201420%20Braine-l'Alleud%2C%20Belgique!5e0!3m2!1sfr!2sfr!4v1621424189545!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy"></iframe>
 
-        <a href="membres.html" class="contact-button">Équipe pastorale</a>
+        <h1>Membres de l'Équipe Paroissiale</h1>
+
+        <h2>Équipe des prêtres et diacre</h2>
+
+        <div class="encart member-card">
+            <h3>Nicolas Favart (curé)</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> 02/386.01.60</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:henef2303@gmail.com">henef2303@gmail.com</a></p>
+            </div>
+        </div>
+
+        <div class="encart member-card">
+            <h3>Antonio Luque Benitez (vicaire)</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:luquebenitez@hotmail.com">luquebenitez@hotmail.com</a></p>
+            </div>
+        </div>
+
+        <div class="encart member-card">
+            <h3>Marc Giraud (vicaire)</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:mpmgiraud@yahoo.fr">mpmgiraud@yahoo.fr</a></p>
+            </div>
+        </div>
+
+        <h2>Animatrice paroissiale</h2>
+
+        <div class="encart member-card">
+            <h3>Charlotte de Mahieu</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> 02/386.01.63</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:charlotte.demahieu@gmail.com">charlotte.demahieu@gmail.com</a></p>
+            </div>
+        </div>
+
+        <h2>Secrétaire</h2>
+
+        <div class="encart member-card">
+            <h3>Miriam Stamboulie</h3>
+        </div>
     </div>
 
     <footer>
         <a href="https://www.cathobel.be/">Cathobel.be</a>
         <a href="/politique-de-confidentialite">Politique de confidentialité</a>
         <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
-        <div class="contact-info2">
+        <div class="contact-info">
             <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
             <p>Téléphone : 02/384.25.12</p>
             <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
