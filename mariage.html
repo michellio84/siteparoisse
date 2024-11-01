@@ -71,14 +71,21 @@
             font-size: 1.4em;
             margin-top: 1.2em;
         }
-        .marriage-image {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            margin: 2em auto;
+        .mariage-image {
+           width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            margin: 0 auto;
             display: block;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: filter 0.3s ease, transform 0.3s ease;
+            filter: grayscale(20%); /* Gris léger */
+        }
+        .mariage-image:hover {
+            filter: grayscale(0%); /* Revenir aux couleurs normales */
+            transform: scale(1.05); /* Légère mise en avant */
         }
         .info-box {
             background-color: var(--beige);
@@ -154,7 +161,7 @@
         <p>Pour approfondir les 4 piliers du mariage, les fiancés rencontreront un prêtre et un couple  accompagnateur.
             Pour connaître les dates disponibles et autres informations, veuillez contacter :<a href="mailto:secretariatstetienne@gmail.com">secrétariat
             </p>
-          
+
 </div>
         
     <footer>

@@ -151,15 +151,22 @@
             }
 
         .sacraments-image {
-            width: 100%; /* Prend toute la largeur du conteneur de texte */
-            max-width: 800px; /* Fixe la largeur maximale, ajustable selon la mise en page */
-            height: 400px; /* Fixe une hauteur pour harmoniser les dimensions */
-            object-fit: cover; /* Recadre l'image pour remplir l'espace sans déformer */
+           width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
             margin: 0 auto;
             display: block;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: filter 0.3s ease, transform 0.3s ease;
+            filter: grayscale(20%); /* Gris léger */
         }
+        .sacraments-image:hover {
+            filter: grayscale(0%); /* Revenir aux couleurs normales */
+            transform: scale(1.05); /* Légère mise en avant */
+        }
+
 
          .service-icon {
             font-size: 1.5em;
