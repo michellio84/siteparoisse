@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <title>Salle Paroissiale - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <style>
+        :root {
+            --dark-chocolate: #614E3F;
+            --light-chocolate: #8B7260;
+            --beige: #F1E7DC;
+            --taupe: #8E8279;
+            --warm-white: #FAF6F2;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-chocolate);
+            line-height: 1.6;
+
+            /* Fond en dégradé avec un effet marqué vers le blanc */
+            background: linear-gradient(120deg, var(--warm-white), #fdfdfd, #ffffff, #f1e7dc, #ffffff);
+            background-size: 250% 250%;
+            animation: gradientBackground 12s ease infinite;
+        }
+        .top-bar {
+            background-color: var(--taupe);
+            color: var(--beige);
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .church-icon {
+            font-size: 2em;
+            color: var(--beige);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .church-icon:hover {
+            color: var(--warm-white);
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: var(--beige);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--warm-white);
+        }
+        .content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 2em;
+        }
+        h1, h2, h3 {
+            color: var(--dark-chocolate);
+            font-family: 'Playfair Display', serif;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 1.5em;
+            border-bottom: 2px solid var(--light-chocolate);
+            padding-bottom: 0.3em;
+        }
+        h3 {
+            font-size: 1.4em;
+            margin-top: 1.2em;
+        }
+        .salle-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: filter 0.3s ease, transform 0.3s ease;
+            filter: grayscale(20%);
+        }
+        .salle-image:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+        .info-box {
+            background-color: var(--beige);
+            border-radius: 8px;
+            padding: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .contact-button {
+            display: block;
+            width: 200px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: var(--dark-chocolate);
+            color: var(--warm-white);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .contact-button:hover {
+            background-color: var(--light-chocolate);
+        }
+        .map-container {
+            margin: 2em auto;
+            max-width: 800px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: var(--taupe);
+            color: var(--beige);
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: var(--warm-white);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600;
+        }
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid var(--light-chocolate);
+            padding-left: 1em;
+            margin-left: 0;
+        }
+
+        /* Animation du dégradé de fond */
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="top-bar">
+        <a href="/" class="church-icon">
+            <i class="fas fa-church"></i>
+        </a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="horaire.html">Horaires</a>
+            <a href="agenda.html" class="active">Agenda</a>
+            <a href="actualite.html">Actualité</a>
+            <a href="contact.html">Contact</a>
+            <a href="histoire.html">Histoire</a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h1>Salle Paroissiale - La Closière</h1>
+        
+        <img src="/images/salle_closiere.jpg" alt="Image de la salle paroissiale La Closière" class="salle-image" width="600" height="400">
+        
+        <blockquote>
+            La Closière est un local à vocation pastorale au service des différentes activités de la paroisse. En fonction des disponibilités, elle accueille d’autres personnes ou groupements, moyennant une contribution forfaitaire.
+        </blockquote>
+
+        <h2>Informations pratiques</h2>
+        <p>Le parking devant la cure et celui attenant à la Closière ne sont pas accessibles aux occupants de la salle. Les soirées dansantes ne sont pas autorisées pour préserver la tranquillité des voisins tout proches. Toute nuisance sonore est interdite après 22h et la salle doit être libérée à 24h au plus tard.</p>
+
+        <h2>Pour réserver La Closière</h2>
+        <p>Pour toutes informations et pour les réservations, veuillez contacter :</p>
+        <div class="info-box">
+            <p><strong>Miriam Stamboulie</strong><br>Secrétariat paroissial</p>
+            <p>Disponible du lundi au vendredi de 8h30 à 12h15</p>
+            <p>Téléphone : 02/384.25.12</p>
+            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
+        </div>
+
+        <!-- Google Maps Encart -->
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.215657264246!2d4.372208915745636!3d50.67901757950361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c0e7ed0a5c47%3A0x30dbf0e9d972a85d!2sParoisse%20Saint-%C3%89tienne%2C%203%20Rue%20Sainte-Anne%2C%201420%20Braine-l&#39;Alleud%2C%20Belgique!5e0!3m2!1sfr!2sbe!4v1634316004307!5m2!1sfr!2sbe" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://www.cathobel.be/">Cathobel.be</a>
+        <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
+        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+        <div class="contact-info">
+            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
+            <p>Téléphone : 02/384.25.12</p>
+            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
+        </div>
+    </footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>
+</html>
