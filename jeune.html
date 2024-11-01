@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html>
 <head>
     <base href="/">
-    <title>L'Onction des Malades - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <title>Pôle Jeunes - Paroisse Saint-Étienne de Braine-L'Alleud</title>
     <style>
         :root {
             --dark-chocolate: #614E3F;
@@ -10,16 +11,16 @@
             --taupe: #8E8279;
             --warm-white: #FAF6F2;
         }
-         body {
+        body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
             color: var(--dark-chocolate);
             line-height: 1.6;
-            
-         /* Fond en dégradé avec un effet marqué vers le blanc */
+
+            /* Fond en dégradé avec un effet marqué vers le blanc */
             background: linear-gradient(120deg, var(--warm-white), #fdfdfd, #ffffff, #f1e7dc, #ffffff);
-            background-size: 250% 250%; /* Augmente la fluidité de l’animation */
+            background-size: 250% 250%;
             animation: gradientBackground 12s ease infinite;
         }
 
@@ -29,6 +30,7 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+
         .top-bar {
             background-color: var(--taupe);
             color: var(--beige);
@@ -59,98 +61,86 @@
         nav a:hover {
             color: var(--warm-white);
         }
+
         .content {
             max-width: 800px;
             margin: 2em auto;
             padding: 0 2em;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 2em;
         }
+
         h1, h2, h3 {
             color: var(--dark-chocolate);
             font-family: 'Playfair Display', serif;
         }
+
         h1 {
             font-size: 2.5em;
             margin-bottom: 0.5em;
             text-align: center;
         }
-        h2 {
-            font-size: 1.8em;
-            margin-top: 1.5em;
-            border-bottom: 2px solid var(--light-chocolate);
-            padding-bottom: 0.3em;
+
+        .pole-jeunes-text {
+            flex: 1;
         }
-        h3 {
-            font-size: 1.4em;
-            margin-top: 1.2em;
-        }
-        .onction-image {
-           width: 100%;
-            max-width: 800px;
-            height: 400px;
-            object-fit: cover;
-            margin: 0 auto;
-            display: block;
+
+        .pole-jeunes-image {
+            width: 100%;
+            max-width: 350px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: filter 0.3s ease, transform 0.3s ease;
-            filter: grayscale(20%); /* Gris léger */
         }
-        .onction-image:hover {
-            filter: grayscale(0%); /* Revenir aux couleurs normales */
-            transform: scale(1.05); /* Légère mise en avant */
-        }
+
         .info-box {
             background-color: var(--beige);
             border-radius: 8px;
             padding: 1.5em;
-            margin-bottom: 1.5em;
+            margin-top: 1.5em;
         }
+
         .contact-button {
-            display: block;
-            width: 200px;
-            margin: 2em auto;
-            padding: 1em;
+            display: inline-block;
+            padding: 0.75em 1.5em;
             background-color: var(--dark-chocolate);
             color: var(--warm-white);
             text-align: center;
             text-decoration: none;
             border-radius: 4px;
             transition: background-color 0.3s ease;
+            margin-top: 1em;
         }
         .contact-button:hover {
             background-color: var(--light-chocolate);
         }
+
         footer {
-            background-color: var(--taupe); /* Même fond que la barre du top */
+            background-color: var(--taupe);
             color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
-            font-size: 1em; /* Taille cohérente avec la barre du top */
+            font-size: 1em;
         }
 
         footer a {
             color: var(--warm-white);
             text-decoration: none;
             margin: 0 1em;
-            font-weight: 600; /* Cohérent avec les liens de la barre du top */
-        }
-        blockquote {
-            font-style: italic;
-            border-left: 4px solid var(--light-chocolate);
-            padding-left: 1em;
-            margin-left: 0;
+            font-weight: 600;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="top-bar">
-        <a href= "/" class="church-icon">
+        <a href="/" class="church-icon">
             <i class="fas fa-church"></i>
         </a>
         <nav>
-           <a href="index.html">Accueil</a>
+            <a href="index.html">Accueil</a>
             <a href="horaire.html">Horaires</a>
             <a href="agenda.html" class="active">Agenda</a>
             <a href="actualite.html">Actualité</a>
@@ -160,39 +150,22 @@
     </div>
 
     <div class="content">
-        <h1>Le Sacrement de l'Onction des Malades</h1>
+        <!-- Affiche Pôle Jeunes -->
+        <img src="/images/2.png" alt="Affiche Pôle Jeunes" class="pole-jeunes-image">
         
-        <img src="/images/onction.png" alt="Prêtre administrant l'onction des malades" class="onction-image" width="600" height="400">
-        
-        <blockquote>
-           « Le sacrement de l’Onction des malades a pour but de conférer une grâce spéciale au chrétien qui éprouve les difficultés inhérentes à l’état de maladie grave ou à la vieillesse. » (CEC 1527)
+        <!-- Texte pour Pôle Jeunes -->
+        <div class="pole-jeunes-text">
+            <h1>Pôle Jeunes - Amitié, Partage, Prière</h1>
+            <p>Les soirées du Pôle Jeunes de l'Unité Pastorale de Braine-l'Alleud sont un moment privilégié pour les jeunes de 11 à 17 ans. Ces rencontres, axées sur l'amitié, le partage et la prière, permettent aux participants de vivre leur foi de manière conviviale et profonde.</p>
+            <p>le vendredi, de 18h30 à 20h30, les jeunes se retrouvent à <strong>La Closière</strong>, un espace chaleureux et accueillant, situé rue Sainte-Anne 3, à Braine-l'Alleud.</p>
             
-        </blockquote>
+            <div class="info-box">
+                <h2>Programme des soirées</h2>
+                <p>Pour découvrir les horaires et les dates des rencontres, consultez la page <a href="actualite.html">Actualités</a>.</p>
+            </div>
 
-        <h2>Qu'est-ce que l'Onction des Malades ?</h2>
-        <p>Le sacrement de l'onction des malades n'est pas un sacrement réservé aux derniers moments comme le laissait entendre les expressions « extrême onction » et « derniers sacrements ». La pratique ancienne réservait en effet ce sacrement aux grands malades à l'article de la mort.</p>
-
-        <div class="info-box">
-            <h3>À qui s'adresse ce sacrement ?</h3>
-            <ul>
-                <li>Aux fidèles dont la santé commence à être dangereusement atteinte par la maladie ou la vieillesse</li>
-                <li>Aux malades au moment où la maladie devient une épreuve difficile à supporter</li>
-                <li>À ceux qui vont subir une opération sérieuse</li>
-                <li>Aux personnes âgées dont les forces déclinent beaucoup</li>
-            </ul>
-            <p><strong>Note importante :</strong> L'onction des malades ne remplace en aucun cas les soins médicaux.</p>
+            <a href="mailto:secretariatstetienne@gmail.com" class="contact-button">Contactez-nous</a>
         </div>
-
-
-        <h2>Comment recevoir l'Onction des Malades ?</h2>
-        <p>Si vous-même ou un proche souhaitez recevoir le sacrement de l'Onction des Malades, vous pouvez :</p>
-        <ul>
-            <li>Contacter le secrétariat paroissial pour prendre rendez-vous avec un prêtre</li>
-            <li>Participer à la célébration communautaire de l'Onction des Malades, organisée une fois par an dans notre paroisse</li>
-            <li>En cas d'urgence, contacter directement un prêtre</li>
-        </ul>
-
-        <a href="contact.html" class="contact-button">Nous contacter</a>
     </div>
 
     <footer>
@@ -205,4 +178,6 @@
             <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
         </div>
     </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body></html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>
+</html>
