@@ -1,0 +1,91 @@
+/* Styles de base */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.banner {
+    text-align: center;
+    padding: 20px;
+}
+
+.daily-schedule {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Media queries pour les appareils mobiles */
+@media screen and (max-width: 768px) {
+    /* Navigation */
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .top-bar a {
+        display: block;
+        padding: 10px;
+        margin: 5px 0;
+    }
+    
+    /* Planning quotidien */
+    .daily-schedule {
+        grid-template-columns: 1fr;  /* Affiche un jour par ligne */
+    }
+    
+    .schedule-item {
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    /* Services */
+    .content {
+        grid-template-columns: 1fr;  /* Services en colonne */
+    }
+    
+    .service {
+        margin-bottom: 20px;
+    }
+    
+    .service-image {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    /* Textes */
+    .banner h1 {
+        font-size: 24px;  /* Titre plus petit sur mobile */
+    }
+    
+    /* Contact info */
+    .contact-info {
+        text-align: center;
+        padding: 15px;
+    }
+}
+
+/* Media queries pour les très petits écrans (iPhone SE, etc.) */
+@media screen and (max-width: 375px) {
+    .banner h1 {
+        font-size: 20px;
+    }
+    
+    .opening-hours {
+        font-size: 16px;
+    }
+}
