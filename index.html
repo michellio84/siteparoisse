@@ -4,187 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Variables CSS */
-        :root {
-            --dark-chocolate: #614E3F;
-            --light-chocolate: #8B7260;
-            --beige: #F1E7DC;
-            --taupe: #8E8279;
-            --warm-white: #FAF6F2;
-        }
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-        /* Styles de base */
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--dark-chocolate);
-            line-height: 1.6;
-            background-color: var(--warm-white);
-        }
-
-        .top-bar {
-            background-color: var(--taupe);
-            color: var(--beige);
-            padding: 1em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .church-icon {
-            font-size: 2em;
-            color: var(--beige);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .church-icon:hover {
-            color: var(--warm-white);
-        }
-
-        nav {
-            display: flex;
-        }
-
-        nav a {
-            color: var(--beige);
-            text-decoration: none;
-            margin: 0 1em;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--warm-white);
-        }
-
-        .banner {
-            text-align: center;
-            padding: 2em 1em;
-            background: var(--light-chocolate);
-            color: var(--warm-white);
-        }
-
-        .banner h1 {
-            font-size: 2.5em;
-            margin: 0.5em 0;
-        }
-
-        .banner p {
-            font-size: 1.2em;
-            margin: 0;
-        }
-
-        /* Horaires */
-        .opening-hours {
-            text-align: center;
-            font-size: 18px;
-            padding: 10px 0;
-            color: var(--dark-chocolate);
-            font-weight: bold;
-        }
-
-        .daily-schedule {
-            display: flex;
-            justify-content: center;
-            gap: 1em;
-            flex-wrap: wrap;
-            padding: 10px;
-        }
-
-        .schedule-item {
-            background-color: var(--beige);
-            border-radius: 8px;
-            padding: 1em;
-            text-align: center;
-            width: 100%;
-            max-width: 200px;
-            margin: 0.5em;
-        }
-
-        .schedule-icon {
-            font-size: 1.5em;
-            color: var(--light-chocolate);
-            margin-bottom: 0.5em;
-        }
-
-        /* Services */
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1em;
-            padding: 2em 1em;
-        }
-
-        .service {
-            text-align: center;
-            width: 100%;
-            max-width: 250px;
-            background-color: var(--beige);
-            border-radius: 8px;
-            padding: 1em;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .service img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 0.5em;
-        }
-
-        .service-icon {
-            font-size: 2em;
-            color: var(--light-chocolate);
-            margin-top: 0.5em;
-        }
-
-        /* Pied de page */
-        footer {
-            background-color: var(--taupe);
-            color: var(--beige);
-            text-align: center;
-            padding: 2em;
-            margin-top: 2em;
-            font-size: 1em;
-        }
-
-        footer a {
-            color: var(--warm-white);
-            text-decoration: none;
-            margin: 0 1em;
-            font-weight: 600;
-        }
-
-        /* Media Query pour les petits écrans (iPhone) */
-        @media (max-width: 768px) {
-            /* Ajustement pour la bannière */
-            .banner h1 {
-                font-size: 1.8em;
-            }
-            .banner p {
-                font-size: 1em;
-            }
-            .service, .schedule-item {
-                max-width: 100%;
-            }
-            .top-bar {
-                flex-direction: column;
-            }
-            nav {
-                flex-direction: column;
-                gap: 0.5em;
-                margin-top: 0.5em;
-            }
-            .daily-schedule, .content {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="top-bar">
@@ -210,28 +33,76 @@
     </div>
 
     <!-- Section des horaires -->
-    <div class="opening-hours">OUVERTURE DE l’église : 8h30 à 18h</div>
+    <div class="opening-hours" style="text-align: center; font-size: 18px; padding: 10px 0;">
+        <strong>OUVERTURE DE l’église :</strong> 8h30 à 18h
+    </div>
 
-    <div class="daily-schedule">
-        <div class="schedule-item" data-day="1">
-            <i class="fas fa-clock schedule-icon"></i>
-            <h3>Lundi</h3>
-            <p></p>
+    <div class="daily-schedule fade-in">
+        <div id="schedule-content">
+            <div class="schedule-item" data-day="1">
+                <i class="fas fa-clock schedule-icon"></i>
+                <h3>Lundi</h3>
+                <p></p>
+            </div>
+            <div class="schedule-item" data-day="2">
+                <i class="fas fa-clock schedule-icon"></i>
+                <h3>Mardi</h3>
+                <p></p>
+            </div>
+            <div class="schedule-item" data-day="3">
+                <i class="fas fa-clock schedule-icon"></i>
+                <h3>Mercredi</h3>
+                <p></p>
+            </div>
+            <div class="schedule-item" data-day="4">
+                <i class="fas fa-clock schedule-icon"></i>
+                <h3>Jeudi</h3>
+                <p></p>
+            </div>
+            <div class="schedule-item" data-day="5">
+                <i class="fas fa-clock schedule-icon"></i>
+                <h3>Vendredi</h3>
+                <p></p>
+            </div>
+            <div class="schedule-item" data-day="6">
+                <i class="fas fa-clock schedule-icon"></i>
+                <h3>Samedi</h3>
+                <p></p>
+            </div>
+            <div class="schedule-item" data-day="0">
+                <i class="fas fa-clock schedule-icon"></i>
+                <h3>Dimanche</h3>
+                <p></p>
+            </div>
         </div>
-        <!-- Autres jours -->
     </div>
 
     <!-- Autres sections originales -->
     <div class="content">
-        <div class="service">
+        <div class="service fade-in">
             <a href="sacrements.html">
-                <img src="images/Préparation.png" alt="Préparation">
+                <img src="images/Préparation.png" alt="Préparation" class="service-image">
             </a>
             <i class="fas fa-book-open service-icon"></i>
             <h3>Préparation</h3>
             <p>Préparation aux sacrements et à la vie chrétienne</p>
         </div>
-        <!-- Autres services -->
+        <div class="service fade-in">
+            <a href="acompagnement.html">
+                <img src="images/Accompagnement.jpeg" alt="Accompagnement" class="service-image">
+            </a>
+            <i class="fas fa-hands-helping service-icon"></i>
+            <h3>Accompagnement</h3>
+            <p>Soutien spirituel et pastoral</p>
+        </div>
+        <div class="service fade-in">
+            <a href="services.html">
+                <img src="images/Sacrements.jpg" alt="Sacrements" class="service-image">
+            </a>
+            <i class="fas fa-church service-icon"></i>
+            <h3>Autres Services</h3>
+            <p></p>
+        </div>
     </div>
 
     <footer>
@@ -253,19 +124,28 @@
             var formattedDate = currentDate.toLocaleDateString('fr-FR', options);
             document.getElementById('current-date').textContent = formattedDate;
 
-            var day = currentDate.getDay();
+            var day = currentDate.getDay(); // 0 = Dimanche, 1 = Lundi, etc.
             var scheduleItems = document.getElementsByClassName('schedule-item');
 
+            // Masquer tous les horaires au départ
+            function hideAll() {
+                for (let item of scheduleItems) item.style.display = 'none';
+            }
+
+            hideAll(); // Masquer tous les horaires
+
+            // Définir les horaires pour chaque jour
             const horaires = {
-                1: '8h30 Prière du matin\n9h00 Messe',
-                2: '8h30 Prière du matin\n9h00 Messe',
-                3: '8h30 Prière du matin\n9h00 Messe\n9h30 Confessions\n9h30 à 10h30 Adoration',
-                4: '8h30 Prière du matin\n9h00 Messe',
-                5: '8h30 Prière du matin\n9h00 Messe\n9h30 Confessions\n9h30 à 10h30 Adoration',
-                6: '8h30 Prière du matin\n18h00 Messe',
-                0: '10h30 Messe'
+                1: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)', // Lundi
+                2: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)', // Mardi
+                3: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique', // Mercredi
+                4: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)', // Jeudi
+                5: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique', // Vendredi
+                6: '8h30 Prière du matin (Laudes)\n18h00 Messe (Eucharistie)', // Samedi
+                0: '10h30 Messe (Eucharistie)' // Dimanche
             };
 
+            // Afficher les horaires du jour actuel
             for (let item of scheduleItems) {
                 if (parseInt(item.getAttribute('data-day')) === day) {
                     item.style.display = 'block';
@@ -273,6 +153,18 @@
                 }
             }
         });
+    </script>
+
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
     </script>
 </body>
 </html>
