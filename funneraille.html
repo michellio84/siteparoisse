@@ -12,23 +12,24 @@
             --warm-white: #FAF6F2;
         }
         body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--warm-white);
-            color: var(--dark-chocolate);
-            line-height: 1.6;
-            background: linear-gradient(120deg, var(--warm-white), var(--beige));
-            background-size: 400% 400%;
-            animation: gradientAnimation 15s ease infinite;
-            }       
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--dark-chocolate);
+    line-height: 1.6;
 
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-            }
-        }
+    /* Nouveau fond en dégradé animé */
+    background: linear-gradient(120deg, var(--warm-white), var(--beige), var(--taupe));
+    background-size: 200% 200%;
+    animation: gradientBackground 15s ease infinite;
+}
+
+/* Animation du dégradé de fond */
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
         .top-bar {
             background-color: var(--taupe);
             color: var(--beige);
