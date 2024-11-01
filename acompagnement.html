@@ -1,7 +1,7 @@
 <html>
 <head>
     <base href="/">
-    <title>Services - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <title>Acompagnement</title>
     <style>
         :root {
             --dark-chocolate: #614E3F;
@@ -73,23 +73,31 @@
             background-color: var(--beige);
             border-radius: 8px;
             padding: 1.5em;
-            margin-bottom: 1.5em;
+            margin-bottom: 1em;
+            margin-top: 0;
+        }
+
+        .service-info h2 {
+            margin-top: 0; /* Supprime l'espace au-dessus du titre */
+            padding-top: 0; /* Supprime tout padding éventuel en haut du titre */
         }
         .service-info h3 {
             color: var(--dark-chocolate);
             margin-top: 0;
         }
         footer {
-            background-color: var(--taupe);
+            background-color: var(--taupe); /* Même fond que la barre du top */
             color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
+            font-size: 1em; /* Taille cohérente avec la barre du top */
         }
         footer a {
             color: var(--warm-white);
             text-decoration: none;
             margin: 0 1em;
+            font-weight: 600; /* Cohérent avec les liens de la barre du top */
         }
         .contact-info {
             margin-top: 1.5em;
@@ -125,9 +133,15 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        .contact-link:hover {
-            color: var(--light-chocolate);
+         .contact-link:hover {
+            color: var(--warm-white); /* Change la couleur du texte et de l'icône lors du survol */
+            transform: scale(1.03); /* Agrandit légèrement le titre et l'icône */
+            transition: transform 0.3s ease, color 0.3s ease; /* Pour un effet de transition doux */
         }
+          .contact-link:hover h2 {
+            color: var(--warm-white); /* Assure le changement de couleur du titre lors du hover */
+            }
+
         .services-image {
             width: 100%;
             max-width: 800px;
@@ -156,33 +170,33 @@
     </div>
 
     <div class="content">
-        <h1>Services</h1>
+        <h1>Accompagnement</h1>
         
         <img src="/images/services.jpeg" alt="Image représentant les services paroissiaux" class="services-image" width="600" height="350">
         
         <p>À la paroisse Saint-Étienne de Braine-L'Alleud, nous proposons divers services pour accompagner notre communauté dans les moments importants de la vie chrétienne. Voici un aperçu des services que nous offrons :</p>
 
         <div class="service-info">
-            <h2><i class="fas fa-hands-praying service-icon"></i>Réconciliation (Confession)</h2>
+            <a href="jeune.html" class="contact-link">
+            <h2><i class="fas fa-hands-praying service-icon"></i>Pour les jeunes</h2>
+            </a>
         </div>
 
         <div class="service-info">
-            <h2><i class="fas fa-hand-holding-medical service-icon"></i>Onction des malades</h2>
-            <p>Ce sacrement est proposé sur demande, à domicile ou à l'hôpital, ainsi que lors d'une célébration communautaire annuelle. Il apporte réconfort et force spirituelle aux personnes confrontées à la maladie ou à la vieillesse.</p>
-            <a href="onction.html" class="info-button">
+            <a href="adultes.html" class="contact-link">
+            <h2><i class="fas fa-hands-praying service-icon"></i>Pour les adultes</h2>
+            </a>
         </div>
-
         <div class="service-info">
-            <h2><i class="fas fa-cross service-icon"></i>Funérailles</h2>
-            <p>Nous accompagnons les familles endeuillées dans l'organisation et la célébration des funérailles chrétiennes. Notre équipe pastorale offre soutien, écoute et prière pour traverser ces moments difficiles.</p>
-            <a href="funneraille.html" class="info-button">Plus d'informations</a>
+             <a href="onction.html" class="contact-link">
+            <h2><i class="fas fa-hands-praying service-icon"></i>Pour les malades</h2>
+           </a>
         </div>
 
-        <a href="https://st-etienne-braine.be/contact" class="contact-link">
-            <i class="fas fa-envelope"></i> Contactez-nous pour plus d'informations sur nos services
+        <a href="contact.html" class="contact-link">
+            <i class="fas fa-envelope"></i> Contactez-nous pour plus d'informations sur les services
         </a>
-    </div>
-
+     </div>
     <footer>
         <a href="https://www.cathobel.be/">Cathobel.be</a>
         <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
