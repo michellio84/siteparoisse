@@ -7,6 +7,7 @@
     --white: #FFFFFF;
 }
 
+/* Style général */
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
@@ -15,6 +16,7 @@ body {
     color: var(--dark-chocolate);
 }
 
+/* Barre supérieure */
 .top-bar {
     background-color: var(--dark-chocolate); 
     color: var(--beige);
@@ -26,29 +28,21 @@ body {
 
 .church-icon {
     font-size: 2em;
-    color: var(--white); /* Blanc */
+    color: var(--white);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .church-icon:hover {
-    color: var(--beige); /* Beige au survol */
+    color: var(--beige);
 }
-.event-item img {
-    width: 700px; /* Largeur fixe, ou spécifie une valeur en pixels, ex: 300px */
-    height: 100%; /* Hauteur fixe, ajuste selon le design souhaité */
-    object-fit: cover; /* Remplit l'image pour éviter les déformations */
-    border-radius: 8px; /* Coins arrondis pour un effet uniforme */
-    margin-bottom: 10px; /* Espace sous l'image */
-}
-
 
 nav {
     display: flex;
 }
 
 nav a {
-    color: var(--white); /* Liens en blanc */
+    color: var(--white);
     text-decoration: none;
     margin: 0 1em;
     font-weight: 600;
@@ -56,16 +50,17 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--beige); /* Liens deviennent beige au survol */
+    color: var(--beige);
 }
 
+/* Bannière */
 .banner {
     width: 100%;
     height: 600px;
     background-image: url('images/Eglise Saint Etienne.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Parallaxe */
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,18 +73,18 @@ nav a:hover {
     font-family: 'Playfair Display', serif;
     font-size: 3em;
     margin-bottom: 0.5em;
-    position: relative;
 }
 
 .banner p {
-        color: var(--white);
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        font-family: 'Playfair Display', serif;
-        font-size: 1.5em;
-        max-width: 800px;
-        margin: 0 auto;
-    }
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
+/* Horaires */
 .daily-schedule {
     background-color: var(--beige);
     padding: 2em;
@@ -121,6 +116,7 @@ nav a:hover {
     margin-bottom: 0.5em;
 }
 
+/* Services */
 .content {
     display: flex;
     flex-wrap: wrap;
@@ -165,23 +161,22 @@ nav a:hover {
     margin-bottom: 1em;
 }
 
+/* Footer */
+footer {
+    background-color: var(--dark-chocolate);
+    color: var(--beige);
+    text-align: center;
+    padding: 2em;
+    margin-top: 2em;
+    font-size: 1em;
+}
 
-
- footer {
-            background-color: var(--dark-chocolate); /* Même fond que la barre du top */
-            color: var(--beige);
-            text-align: center;
-            padding: 2em;
-            margin-top: 2em;
-            font-size: 1em; /* Taille cohérente avec la barre du top */
-        }
-
-        footer a {
-            color: var(--warm-white);
-            text-decoration: none;
-            margin: 0 1em;
-            font-weight: 600; /* Cohérent avec les liens de la barre du top */
-        }
+footer a {
+    color: var(--warm-white);
+    text-decoration: none;
+    margin: 0 1em;
+    font-weight: 600;
+}
 
 .contact-info {
     margin-top: 1.5em;
@@ -189,6 +184,7 @@ nav a:hover {
     line-height: 1.6;
 }
 
+/* Animation */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -196,4 +192,54 @@ nav a:hover {
 
 .fade-in {
     animation: fadeIn 1s ease-in;
+}
+
+/* Menu latéral caché par défaut en dehors de la vue mobile */
+.side-menu {
+    width: 250px;
+    height: 100%;
+    background-color: var(--dark-chocolate);
+    position: fixed;
+    top: 0;
+    left: -250px; /* En dehors de l'écran par défaut */
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding-top: 60px; /* Espace pour le titre ou icônes */
+}
+
+.side-menu nav a {
+    color: var(--beige);
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.side-menu nav a:hover {
+    background-color: var(--light-chocolate);
+}
+
+/* Bouton de menu hamburger caché sur desktop */
+.menu-button {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5em;
+    cursor: pointer;
+    display: none;
+}
+
+/* Spécifique aux mobiles */
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none; /* Cache le menu de navigation standard */
+    }
+    .menu-button {
+        display: block; /* Affiche le menu hamburger */
+    }
+}
+
+/* Classe pour ouvrir le menu latéral */
+.side-menu.open {
+    left: 0; /* Déplace le menu latéral à l'intérieur de l'écran */
 }
