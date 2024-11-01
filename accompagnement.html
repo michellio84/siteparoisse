@@ -1,7 +1,7 @@
 <html>
 <head>
     <base href="/">
-    <title>Préparation aux Sacrements - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <title>Services - Paroisse Saint-Étienne de Braine-L'Alleud</title>
     <style>
         :root {
             --dark-chocolate: #614E3F;
@@ -69,52 +69,37 @@
             display: flex;
             align-items: center;
         }
-        .sacrament-info h2 {
-            margin-top: 0; /* Supprime l'espace au-dessus du titre */
-            padding-top: 0; /* Supprime tout padding éventuel en haut du titre */
-        }
-
-        .sacrament-info {
+        .service-info {
             background-color: var(--beige);
             border-radius: 8px;
             padding: 1.5em;
-            margin-bottom: 1em;
-            margin-top: 0;
+            margin-bottom: 1.5em;
         }
-        .sacrament-info h3 {
+        .service-info h3 {
             color: var(--dark-chocolate);
             margin-top: 0;
         }
-        .year-info {
-            margin-left: 1.5em;
-        }
         footer {
-            background-color: var(--taupe); /* Même fond que la barre du top */
+            background-color: var(--taupe);
             color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
-            font-size: 1em; /* Taille cohérente avec la barre du top */
         }
-
         footer a {
             color: var(--warm-white);
             text-decoration: none;
             margin: 0 1em;
-            font-weight: 600; /* Cohérent avec les liens de la barre du top */
         }
         .contact-info {
-            margin-top: 1em;
+            margin-top: 1.5em;
             font-size: 0.9em;
             line-height: 1.6;
         }
-        .sacrament-icon {
+        .service-icon {
             font-size: 1.5em;
             margin-right: 0.5em;
             color: var(--light-chocolate);
-        }
-        .contact-link:hover{
-            color: var(--warm-white); /* Change la couleur de l'icône lors du survol */
         }
         .info-button {
             background-color: var(--dark-chocolate);
@@ -141,16 +126,9 @@
             transition: color 0.3s ease;
         }
         .contact-link:hover {
-            color: var(--warm-white); /* Change la couleur du texte et de l'icône lors du survol */
-            transform: scale(1.03); /* Agrandit légèrement le titre et l'icône */
-            transition: transform 0.3s ease, color 0.3s ease; /* Pour un effet de transition doux */
+            color: var(--light-chocolate);
         }
-
-        .contact-link:hover h2 {
-            color: var(--warm-white); /* Assure le changement de couleur du titre lors du hover */
-            }
-
-        .sacraments-image {
+        .services-image {
             width: 100%;
             max-width: 800px;
             height: auto;
@@ -158,12 +136,6 @@
             display: block;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-         .service-icon {
-            font-size: 1.5em;
-            margin-right: 0.5em;
-            color: var(--light-chocolate);
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -175,7 +147,7 @@
         </a>
         <nav>
             <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaires</a>
+            <a href="horaire.html">Horaire</a>
             <a href="agenda.html" class="active">Agenda</a>
             <a href="actualite.html">Actualité</a>
             <a href="contact.html">Contact</a>
@@ -184,46 +156,33 @@
     </div>
 
     <div class="content">
-        <h1>Préparation aux Sacrements</h1>
+        <h1>Services</h1>
         
-        <img src="/images/sacrements2.jpg" alt="Image représentant les sept sacrements de l'Église catholique" class="sacraments-image" width="800" height="450">
+        <img src="/images/services.jpeg" alt="Image représentant les services paroissiaux" class="services-image" width="600" height="350">
         
-        <p> <i> À la paroisse Saint-Étienne de Braine-L'Alleud, nous accompagnons les fidèles dans leur cheminement spirituel à travers la préparation et la célébration des sacrements de l'Église catholique. Voici un aperçu de notre approche pour chaque sacrement :<i></p>
+        <p>À la paroisse Saint-Étienne de Braine-L'Alleud, nous proposons divers services pour accompagner notre communauté dans les moments importants de la vie chrétienne. Voici un aperçu des services que nous offrons :</p>
 
-       <div class="sacrament-info">
-            <a href="bapteme.html" class="contact-link">
-                <h2><i class="fas fa-water sacrament-icon"></i> Baptême</h2>
-            </a>
-       </div>
-
-        <div class="sacrament-info">
-            <a href="communion.html" class="contact-link">
-                <h2><i class="fas fa-book sacrament-icon"></i>Catéchèse des enfants</h2>
-            </a>
+        <div class="service-info">
+            <h2><i class="fas fa-hands-praying service-icon"></i>Réconciliation (Confession)</h2>
         </div>
 
-        <div class="sacrament-info">
-            <a href="confirmation.html" class="contact-link">
-             <h2><i class="fas fa-dove sacrament-icon"></i>Confirmation</h2>
-            </a>
+        <div class="service-info">
+            <h2><i class="fas fa-hand-holding-medical service-icon"></i>Onction des malades</h2>
+            <p>Ce sacrement est proposé sur demande, à domicile ou à l'hôpital, ainsi que lors d'une célébration communautaire annuelle. Il apporte réconfort et force spirituelle aux personnes confrontées à la maladie ou à la vieillesse.</p>
+            <a href="onction.html" class="info-button">
         </div>
 
-        <div class="sacrament-info">
-            <a href="mariage.html" class="contact-link">
-            <h2><i class="fas fa-ring sacrament-icon"></i>Mariage</h2>
-            </a>
-        </div>
-
-         <div class="sacrament-info">
-            <a href="funneraille.html" class="contact-link">
+        <div class="service-info">
             <h2><i class="fas fa-cross service-icon"></i>Funérailles</h2>
-            </a>
+            <p>Nous accompagnons les familles endeuillées dans l'organisation et la célébration des funérailles chrétiennes. Notre équipe pastorale offre soutien, écoute et prière pour traverser ces moments difficiles.</p>
+            <a href="funneraille.html" class="info-button">Plus d'informations</a>
         </div>
 
-        <a href="contact.html" class="contact-link">
-            <i class="fas fa-envelope"></i> Contactez-nous pour plus d'informations sur les sacrements
+        <a href="https://st-etienne-braine.be/contact" class="contact-link">
+            <i class="fas fa-envelope"></i> Contactez-nous pour plus d'informations sur nos services
         </a>
     </div>
+
     <footer>
         <a href="https://www.cathobel.be/">Cathobel.be</a>
         <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
