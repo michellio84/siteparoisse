@@ -16,7 +16,7 @@ body {
 }
 
 .top-bar {
-    background-color: var(--taupe); /* Gris taupe */
+    background-color: var(--dark-chocolate); 
     color: var(--beige);
     padding: 1em;
     display: flex;
