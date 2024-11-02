@@ -180,12 +180,31 @@ nav a:hover {
 }
 /* Limite la taille des images dans la section agenda */
 .event-item img {
-    max-width: 500px; /* Ajustez cette largeur maximale selon vos préférences */
+    max-width: 600px; /* Ajustez cette largeur maximale selon vos préférences */
     height: auto;
     display: block;
     margin: 0 auto; /* Centre l'image dans son conteneur */
 }
+/* Centrer le conteneur d'événements */
 
+#events-container {
+    display: flex;              /* Utiliser le flex pour gérer la disposition */
+    flex-direction: column;     /* Organise les articles verticalement */
+    align-items: center;        /* Centre les articles horizontalement */
+    width: 100%;                /* Occupe toute la largeur */
+    margin: 0 auto;             /* Centre le conteneur */
+}
+
+/* Limite la taille des articles pour qu'ils ne s'étendent pas trop */
+.event-item {
+    width: 100%;
+    max-width: 800px;           /* Définit une largeur maximale pour chaque article */
+    margin-bottom: 20px;        /* Espace entre les articles */
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+}
 
 
  footer {
