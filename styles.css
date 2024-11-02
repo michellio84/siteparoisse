@@ -178,6 +178,13 @@ nav a:hover {
     animation: fadeIn 2s ease-out forwards;
     opacity: 0;
 }
+/* Limite la taille des images dans la section agenda */
+.event-item img {
+    max-width: 300px; /* Ajustez cette largeur maximale selon vos préférences */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centre l'image dans son conteneur */
+}
 
 
 
