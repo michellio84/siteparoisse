@@ -180,7 +180,7 @@ nav a:hover {
 }
 /* Limite la taille des images dans la section agenda */
 .event-item img {
-    max-width: 300px; /* Ajustez cette largeur maximale selon vos préférences */
+    max-width: 500px; /* Ajustez cette largeur maximale selon vos préférences */
     height: auto;
     display: block;
     margin: 0 auto; /* Centre l'image dans son conteneur */
