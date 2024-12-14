@@ -1,5 +1,5 @@
 ---
-title: "Préparez vos cœurs pour Noël : horaires et événements de la paroisse"
+title: horaires et événements de la paroisse
 date: 2024-12-14T15:42:48.347Z
 description: Actualités de Noël et de fin d'année
 ---
