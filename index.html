@@ -209,21 +209,9 @@
             }
             return response.text();
         })
-        .then(md => {
-            // Extraction du frontmatter
-            const frontmatter = md.match(/---([\s\S]*?)---/);
-            if (frontmatter) {
-                const yaml = frontmatter[1];
-                const messageMatch = yaml.match(/message:\s*(.+?)(?:\n|$)/s);
-                if (messageMatch) {
-                    const message = messageMatch[1].trim();
-                    document.getElementById('announcement-text').textContent = message;
-                } else {
-                    console.error('Message non trouvé dans le fichier Markdown.');
-                }
-            } else {
-                console.error('Pas de frontmatter YAML trouvé.');
-            }
+        .then(message => {
+            // Directement utiliser le contenu du fichier
+            document.getElementById('announcement-text').textContent = message.trim();
         })
         .catch(error => console.error('Erreur lors du chargement du message :', error));
 });
