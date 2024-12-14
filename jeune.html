@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <title>Pôle Jeunes - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --dark-chocolate: #614E3F;
+            --light-chocolate: #8B7260;
+            --beige: #F1E7DC;
+            --taupe: #8E8279;
+            --warm-white: #FAF6F2;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-chocolate);
+            line-height: 1.6;
+
+            /* Fond en dégradé avec un effet marqué vers le blanc */
+            background: linear-gradient(120deg, var(--warm-white), #fdfdfd, #ffffff, #f1e7dc, #ffffff);
+            background-size: 250% 250%;
+            animation: gradientBackground 12s ease infinite;
+        }
+
+        /* Animation du dégradé de fond */
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .top-bar {
+            background-color: var(--dark-chocolate);
+            color: var(--beige);
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .church-icon {
+            font-size: 2em;
+            color: var(--beige);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .church-icon:hover {
+            color: var(--warm-white);
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: var(--beige);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--warm-white);
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 2em;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 2em;
+        }
+
+        h1, h2, h3 {
+            color: var(--dark-chocolate);
+            font-family: 'Playfair Display', serif;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+
+        .pole-jeunes-text {
+            flex: 1;
+        }
+
+        .pole-jeunes-image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box {
+            background-color: var(--beige);
+            border-radius: 8px;
+            padding: 1.5em;
+            margin-top: 1.5em;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 0.75em 1.5em;
+            background-color: var(--dark-chocolate);
+            color: var(--warm-white);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-top: 1em;
+        }
+        .contact-button:hover {
+            background-color: var(--light-chocolate);
+        }
+
+        footer {
+            background-color: var(--dark-chocolate);
+            color: var(--beige);
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: var(--warm-white);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="top-bar">
+        <a href="/" class="church-icon">
+            <i class="fas fa-church"></i>
+        </a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="horaire.html">Horaires</a>
+            <a href="agenda.html" class="active">Agenda</a>
+            <a href="actualite.html">Actualité</a>
+            <a href="contact.html">Contact</a>
+            <a href="histoire.html">Histoire</a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <!-- Affiche Pôle Jeunes -->
+        <img src="/images/jeunes.png" alt="Affiche Pôle Jeunes" class="pole-jeunes-image">
+        
+        <!-- Texte pour Pôle Jeunes -->
+        <div class="pole-jeunes-text">
+            <h1>Pôle Jeunes </h1>
+            <h2>Amitié, Partage, Prière</h2>
+            <p>Les soirées du Pôle Jeunes de l'Unité Pastorale de Braine-l'Alleud sont un moment privilégié pour les jeunes de 11 à 18 ans. Ces rencontres, axées sur l'amitié, le partage et la prière, permettent aux participants de vivre leur foi de manière conviviale et profonde.</p>
+            <p>Le vendredi, de 18h30 à 20h30, les jeunes se retrouvent à <strong>La Closière</strong>, un espace chaleureux et accueillant, situé rue Sainte-Anne 3, à Braine-l'Alleud.</p>
+            
+            <div class="info-box">
+                <h2>Programme des soirées</h2>
+                <p>Pour découvrir les horaires et les dates des rencontres, consultez la page <a href="agenda.html">Agenda</a>.</p>
+            </div>
+
+            <a href="mailto:charlotte.demahieu@gmail.com" class="contact-button">Contactez-nous</a>
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://www.cathobel.be/">Cathobel.be</a>
+        <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
+        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+        <div class="contact-info">
+            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
+            <p>Téléphone : 02/384.25.12</p>
+            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
+        </div>
+    </footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>
+</html>

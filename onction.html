@@ -2,6 +2,7 @@
 <head>
     <base href="/">
     <title>L'Onction des Malades - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
             --dark-chocolate: #614E3F;
@@ -10,16 +11,27 @@
             --taupe: #8E8279;
             --warm-white: #FAF6F2;
         }
-        body {
+         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--warm-white);
             color: var(--dark-chocolate);
             line-height: 1.6;
+            
+         /* Fond en dégradé avec un effet marqué vers le blanc */
+            background: linear-gradient(120deg, var(--warm-white), #fdfdfd, #ffffff, #f1e7dc, #ffffff);
+            background-size: 250% 250%; /* Augmente la fluidité de l’animation */
+            animation: gradientBackground 12s ease infinite;
+        }
+
+        /* Animation du dégradé de fond */
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .top-bar {
-            background-color: var(--taupe);
+            background-color: var(--dark-chocolate);
             color: var(--beige);
             padding: 1em;
             display: flex;
@@ -73,13 +85,20 @@
             margin-top: 1.2em;
         }
         .onction-image {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            margin: 2em auto;
+           width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            margin: 0 auto;
             display: block;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: filter 0.3s ease, transform 0.3s ease;
+            filter: grayscale(20%); /* Gris léger */
+        }
+        .onction-image:hover {
+            filter: grayscale(0%); /* Revenir aux couleurs normales */
+            transform: scale(1.05); /* Légère mise en avant */
         }
         .info-box {
             background-color: var(--beige);
@@ -103,16 +122,19 @@
             background-color: var(--light-chocolate);
         }
         footer {
-            background-color: var(--taupe);
+            background-color: var(--dark-chocolate); /* Même fond que la barre du top */
             color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
+            font-size: 1em; /* Taille cohérente avec la barre du top */
         }
+
         footer a {
             color: var(--warm-white);
             text-decoration: none;
             margin: 0 1em;
+            font-weight: 600; /* Cohérent avec les liens de la barre du top */
         }
         blockquote {
             font-style: italic;
@@ -130,7 +152,7 @@
         </a>
         <nav>
            <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaire</a>
+            <a href="horaire.html">Horaires</a>
             <a href="agenda.html" class="active">Agenda</a>
             <a href="actualite.html">Actualité</a>
             <a href="contact.html">Contact</a>
@@ -139,46 +161,16 @@
     </div>
 
     <div class="content">
-        <h1>Le Sacrement de l'Onction des Malades</h1>
+        <h1>Malades</h1>
         
         <img src="/images/onction.png" alt="Prêtre administrant l'onction des malades" class="onction-image" width="600" height="400">
         
         <blockquote>
-            "Par l'onction sacrée des malades et la prière des prêtres, c'est l'Église tout entière qui recommande les malades au Seigneur souffrant et glorifié, pour qu'il les soulage et les sauve." (Concile Vatican II, Lumen Gentium, 11)
+           « Le sacrement de l’Onction des malades a pour but de conférer une grâce spéciale au chrétien qui éprouve les difficultés inhérentes à l’état de maladie grave ou à la vieillesse. » (CEC 1527)
+            
         </blockquote>
-
-        <h2>Qu'est-ce que l'Onction des Malades ?</h2>
-        <p>Le sacrement de l'onction des malades n'est pas un sacrement réservé aux derniers moments comme le laissait entendre les expressions « extrême onction » et « derniers sacrements ». La pratique ancienne réservait en effet ce sacrement aux grands malades à l'article de la mort.</p>
-
-        <div class="info-box">
-            <h3>À qui s'adresse ce sacrement ?</h3>
-            <ul>
-                <li>Aux fidèles dont la santé commence à être dangereusement atteinte par la maladie ou la vieillesse</li>
-                <li>Aux malades au moment où la maladie devient une épreuve difficile à supporter</li>
-                <li>À ceux qui vont subir une opération sérieuse</li>
-                <li>Aux personnes âgées dont les forces déclinent beaucoup</li>
-            </ul>
-            <p><strong>Note importante :</strong> L'onction des malades ne remplace en aucun cas les soins médicaux.</p>
-        </div>
-
-        <h2>Le sens du sacrement</h2>
-        <p>L'Onction des Malades est un sacrement de guérison et de réconfort. Il apporte :</p>
-        <ul>
-            <li>La grâce du réconfort, de la paix et du courage pour surmonter les difficultés de la maladie ou de la vieillesse</li>
-            <li>L'union du malade à la passion du Christ, pour son bien et celui de toute l'Église</li>
-            <li>Le pardon des péchés si le malade n'a pas pu l'obtenir par le sacrement de la Pénitence</li>
-            <li>Le rétablissement de la santé, si cela convient au salut spirituel</li>
-        </ul>
-
-        <h2>Comment recevoir l'Onction des Malades ?</h2>
-        <p>Si vous-même ou un proche souhaitez recevoir le sacrement de l'Onction des Malades, vous pouvez :</p>
-        <ul>
-            <li>Contacter le secrétariat paroissial pour prendre rendez-vous avec un prêtre</li>
-            <li>Participer à la célébration communautaire de l'Onction des Malades, organisée une fois par an dans notre paroisse</li>
-            <li>En cas d'urgence, contacter directement un prêtre</li>
-        </ul>
-
-        <a href="contact.html" class="contact-button">Nous contacter</a>
+        <p>Un prêtre ou un autre membre de notre équipe peut se rendre à domicile, à l’hôpital ou en maison de repos. Nous proposerons alors un accompagnement spirituel, l’administration de la Communion et/ou le sacrement des malades.</p>
+         <a href="mailto:charlotte.demahieu@gmail.com" class="contact-button">Contactez-nous</a>
     </div>
 
     <footer>

@@ -2,6 +2,7 @@
 <head>
     <base href="/">
     <title>Sacrement de la Réconciliation - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
             --dark-chocolate: #614E3F;
@@ -14,12 +15,16 @@
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--warm-white);
             color: var(--dark-chocolate);
             line-height: 1.6;
+            
+         /* Fond en dégradé avec un effet marqué vers le blanc */
+            background: linear-gradient(120deg, var(--warm-white), #fdfdfd, #ffffff, #f1e7dc, #ffffff);
+            background-size: 250% 250%; /* Augmente la fluidité de l’animation */
+            animation: gradientBackground 12s ease infinite;
         }
         .top-bar {
-            background-color: var(--taupe);
+            background-color: var(--dark-chocolate);
             color: var(--beige);
             padding: 1em;
             display: flex;
@@ -73,13 +78,20 @@
             margin-top: 1.2em;
         }
         .reconciliation-image {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            margin: 2em auto;
+           width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            margin: 0 auto;
             display: block;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: filter 0.3s ease, transform 0.3s ease;
+            filter: grayscale(20%); /* Gris léger */
+        }
+        .reconciliation-image:hover {
+            filter: grayscale(0%); /* Revenir aux couleurs normales */
+            transform: scale(1.05); /* Légère mise en avant */
         }
         .info-box {
             background-color: var(--beige);
@@ -103,16 +115,19 @@
             background-color: var(--light-chocolate);
         }
         footer {
-            background-color: var(--taupe);
+            background-color: var(--dark-chocolate); /* Même fond que la barre du top */
             color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
+            font-size: 1em; /* Taille cohérente avec la barre du top */
         }
+
         footer a {
             color: var(--warm-white);
             text-decoration: none;
             margin: 0 1em;
+            font-weight: 600; /* Cohérent avec les liens de la barre du top */
         }
         blockquote {
             font-style: italic;
@@ -130,7 +145,7 @@
         </a>
         <nav>
             <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaire</a>
+            <a href="horaire.html">Horaires</a>
             <a href="agenda.html" class="active">Agenda</a>
             <a href="actualite.html">Actualité</a>
             <a href="contact.html">Contact</a>
@@ -141,31 +156,20 @@
     <div class="content">
         <h1>Le Sacrement de la Réconciliation</h1>
         
-        <img src="/images/reconciliation.jpg" alt="Image symbolisant la réconciliation et le pardon" class="reconciliation-image" width="600" height="400">
+        <img src="/images/reconciliation.png" alt="Image symbolisant la réconciliation et le pardon" class="reconciliation-image" width="600" height="400">
         
         <blockquote>
-            "Le Seigneur Jésus-Christ est le médecin de nos âmes et de nos corps. II a pardonné ses péchés au paralytique et il lui a rendu la santé du corps (Marc 2, 1-12). Il a voulu que son Église continue son œuvre de guérison et de salut, par la force de l'Esprit Saint. C'est le but du sacrement de la Réconciliation."
+            « Le pardon des péchés commis après le Baptême est accordé par un sacrement propre appelé sacrement de la conversion, de la confession, de la pénitence ou de la réconciliation. » CEC 1486 
+            « Revenir à la communion avec Dieu après l’avoir perdue par le péché, est un mouvement né de la grâce du Dieu plein de miséricorde et soucieux du salut des hommes. Il faut demander ce don précieux pour soi-même comme pour autrui. » CEC1489
+
         </blockquote>
-
-        <h2>Le don du retour vers Dieu</h2>
-        <p>Le pardon des péchés commis après le Baptême est accordé par le sacrement dit de la conversion, de la confession, de la Pénitence ou de la Réconciliation.</p>
-        <p>Revenir à la communion avec Dieu par la conversion est un mouvement suscité par la grâce de Dieu plein de miséricorde et désireux de sauver tous les hommes. Nous devons demander cette grâce pour nous-mêmes comme pour les autres.</p>
-
-        <div class="info-box">
-            <h3>La réconciliation, une caractéristique fondamentale des chrétiens</h3>
-            <p>Se réconcilier est à la fois un commandement et un mouvement qui doit venir du cœur. Cette « libre contrainte » n'est vivable que si elle est comprise comme une manière d'entrer dans un mouvement d'amour qui nous dépasse car il vient de Dieu même. C'est pourquoi la réconciliation fait l'objet d'un sacrement, c'est-à-dire d'un don particulier de Dieu.</p>
-        </div>
-
         <h2>Recevoir le sacrement de la Réconciliation</h2>
         <p>Plusieurs possibilités s'offrent à vous pour recevoir ce beau sacrement au sein de notre paroisse :</p>
         <ul>
             <li>Tous les jours après la messe à l'église</li>
             <li>En dehors de ces heures, n'hésitez pas à sonner à la cure</li>
         </ul>
-
-        <p>La réconciliation est un chemin de grâce et de croissance spirituelle. N'hésitez pas à vous approcher de ce sacrement pour expérimenter la miséricorde de Dieu et renouveler votre relation avec Lui et avec vos frères et sœurs en Christ.</p>
-
-        <a href="contact.html" class="contact-button">Nous contacter</a>
+        <a href="contact.html" class="contact-button">Contactez-nous</a>
     </div>
 
     <footer>

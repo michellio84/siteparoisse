@@ -16,7 +16,7 @@ body {
 }
 
 .top-bar {
-    background-color: var(--taupe); /* Gris taupe */
+    background-color: var(--dark-chocolate); 
     color: var(--beige);
     padding: 1em;
     display: flex;
@@ -34,6 +34,14 @@ body {
 .church-icon:hover {
     color: var(--beige); /* Beige au survol */
 }
+.event-item img {
+    width: 700px; /* Largeur fixe, ou spécifie une valeur en pixels, ex: 300px */
+    height: 100%; /* Hauteur fixe, ajuste selon le design souhaité */
+    object-fit: cover; /* Remplit l'image pour éviter les déformations */
+    border-radius: 8px; /* Coins arrondis pour un effet uniforme */
+    margin-bottom: 10px; /* Espace sous l'image */
+}
+
 
 nav {
     display: flex;
@@ -157,21 +165,63 @@ nav a:hover {
     margin-bottom: 1em;
 }
 
-
-
-footer {
-    background-color: var(--taupe);
-    color: var(--beige);
-    text-align: center;
-    padding: 2em;
-    margin-top: 2em;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-footer a {
-    color: var(--warm-white);
-    text-decoration: none;
-    margin: 0 1em;
+.animated-title {
+    animation: fadeIn 1.5s ease-out forwards;
 }
+
+.animated-subtitle {
+    animation: fadeIn 2s ease-out forwards;
+    opacity: 0;
+}
+/* Limite la taille des images dans la section agenda */
+.event-item img {
+    max-width: 600px; /* Ajustez cette largeur maximale selon vos préférences */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centre l'image dans son conteneur */
+}
+/* Centrer le conteneur d'événements */
+
+#events-container {
+    display: flex;              /* Utiliser le flex pour gérer la disposition */
+    flex-direction: column;     /* Organise les articles verticalement */
+    align-items: center;        /* Centre les articles horizontalement */
+    width: 100%;                /* Occupe toute la largeur */
+    margin: 0 auto;             /* Centre le conteneur */
+}
+
+/* Limite la taille des articles pour qu'ils ne s'étendent pas trop */
+.event-item {
+    width: 100%;
+    max-width: 800px;           /* Définit une largeur maximale pour chaque article */
+    margin-bottom: 20px;        /* Espace entre les articles */
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+
+ footer {
+            background-color: var(--dark-chocolate); /* Même fond que la barre du top */
+            color: var(--beige);
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+            font-size: 1em; /* Taille cohérente avec la barre du top */
+        }
+
+        footer a {
+            color: var(--warm-white);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600; /* Cohérent avec les liens de la barre du top */
+        }
 
 .contact-info {
     margin-top: 1.5em;

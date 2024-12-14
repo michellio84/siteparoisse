@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span>${event.location}</span>
                     </div>
                     <p class="event-description"><em>${event.description}</em></p>
-                    <a href="${event.link}" class="event-link">En savoir plus</a>
                 `;
                 container.appendChild(eventElement);
             });

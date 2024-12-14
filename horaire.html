@@ -21,7 +21,7 @@
             color: var(--dark-chocolate);
         }
         .top-bar {
-            background-color: var(--taupe);
+            background-color: var(--dark-chocolate);
             color: var(--beige);
             padding: 1em;
             display: flex;
@@ -84,16 +84,19 @@
             font-weight: bold;
         }
         footer {
-            background-color: var(--taupe);
+            background-color: var(--dark-chocolate); /* Même fond que la barre du top */
             color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
+            font-size: 1em; /* Taille cohérente avec la barre du top */
         }
+
         footer a {
             color: var(--warm-white);
             text-decoration: none;
             margin: 0 1em;
+            font-weight: 600; /* Cohérent avec les liens de la barre du top */
         }
         .contact-info {
             margin-top: 1.5em;
@@ -110,65 +113,107 @@
         </a>
         <nav>
             <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaire</a>
-            <a href="agenda.html" ">Agenda</a>
-            <a href="actualite.html">Actualité</a>
+            <a href="horaire.html">Horaires</a>
+            <a href="agenda.html" >Agenda</a>
+            <a href="actualite.html">Actualités</a>
             <a href="contact.html">Contact</a>
             <a href="histoire.html">Histoire</a>
         </nav>
     </div>
 
     <div class="content">
-        <h1>Horaires des célébrations</h1>
-        <p>« Lorsque deux ou trois sont rassemblés en mon nom, je suis là, au milieu d’eux» (Mt 18, 20)</p>
+        <h1>Horaires</h1>
+        <p>« <i>Lorsque deux ou trois sont rassemblés en mon nom, je suis là, au milieu d’eux <i>» (Mt 18, 20)</p>
 
         <div class="schedule">
-            <h2>De lundi à vendredi</h2>
+            <h2>Lundi</h2>
             <div class="schedule-item">
-                <span class="day">Lundi à vendredi</span>
-                <span class="time">Laudes à 8h30, Messe à 9h00</span>
+                <span class="time">8h30 Prière du matin (Laudes) 
+                </span>
+            </div>
+            <div class="schedule-item">
+                <span class="time">9h00 Messe (Eucharistie)
+                </span>
+            </div>
+        </div>
+        <div class="schedule">
+            <h2>Mardi</h2>
+            <div class="schedule-item">
+                <span class="time">8h30 Prière du matin (Laudes)
+                </span>
+            </div>
+            <div class="schedule-item">
+                <span class="time">9h00 Messe (Eucharistie)
+                </span>
             </div>
         </div>
 
         <div class="schedule">
             <h2>Mercredi</h2>
             <div class="schedule-item">
-                <span class="day">Mercredi</span>
-                <span class="time">Laudes à 8h30, Messe à 9h00, Adoration jusqu'à 10h30</span>
+                <span class="time">8h30 Prière du matin (Laudes) 
+                </span>
             </div>
             <div class="schedule-item">
-                <span>Après la messe, sacrement de réconciliation disponible</span>
+                <span class="time">9h00 Messe (Eucharistie)
+                </span>
+            </div>
+            <div class="schedule-item">
+                <span>9h30 Confessions
+                </span>
+            </div>
+            <div class="schedule-item">
+                <span>9h30 à 10h30 Adoration eucharistique
+                </span>
+            </div>
+        </div>
+
+        <div class="schedule">
+            <h2>Jeudi</h2>
+            <div class="schedule-item">
+                <span class="time">8h30 Prière du matin (Laudes) 
+                </span>
+            </div>
+            <div class="schedule-item">
+                <span class="time">9h00 Messe (Eucharistie)
+                </span>
             </div>
         </div>
 
         <div class="schedule">
             <h2>Vendredi</h2>
             <div class="schedule-item">
-                <span class="day">Vendredi</span>
-                <span class="time">Laudes à 8h30, Messe à 9h00, Adoration jusqu'à 10h30</span>
+                <span class="time">8h30 Prière du matin (Laudes) 
+                </span>
             </div>
             <div class="schedule-item">
-                <span>Après la messe, sacrement de réconciliation disponible</span>
+                <span class="time">9h00 Messe (Eucharistie)
+                </span>
+            </div>
+            <div class="schedule-item">
+                <span>9h30 Confessions
+                </span>
+            </div>
+            <div class="schedule-item">
+                <span>9h30 à 10h30 Adoration eucharistique
+                </span>
             </div>
         </div>
 
         <div class="schedule">
             <h2>Samedi</h2>
             <div class="schedule-item">
-                <span class="day">Samedi</span>
-                <span class="time">Laudes à 8h30</span>
+                <span class="time">8h30 Prière du matin (Laudes) </span>
             </div>
             <div class="schedule-item">
-                <span class="day">Samedi</span>
-                <span class="time">Messe à 18h00</span>
+                <span class="time">18h00 Messe (Eucharistie)</span>
             </div>
         </div>
 
         <div class="schedule">
             <h2>Dimanche</h2>
             <div class="schedule-item">
-                <span class="day">Dimanche</span>
-                <span class="time">Messe des familles à 10h30</span>
+                <span class="time">10h30 Messe (Eucharistie)</span>
             </div>
         </div>
     </div>

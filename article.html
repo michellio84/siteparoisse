@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    <style>
+        .fas.fa-file-alt {
+               color: #8B7260; /* Couleur douce pour l'icône */
+                margin-right: 0.5em; /* Espace entre l'icône et le titre */
+                            }
+        :root {
+            --dark-chocolate: #614E3F;
+            --light-chocolate: #8B7260;
+            --beige: #F1E7DC;
+            --taupe: #8E8279;
+            --warm-white: #FAF6F2;
+            --white: #FFFFFF;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--warm-white);
+            color: var(--dark-chocolate);
+        }
+        .top-bar {
+            background-color: var(--dark-chocolate);
+            color: var(--beige);
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .church-icon {
+            font-size: 2em;
+            color: var(--beige);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .church-icon:hover {
+            color: var(--warm-white);
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: var(--beige);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            color: var(--warm-white);
+        }
+        .content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 2em;
+            background-color: var(--beige);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #article-title {
+            font-size: 2em;
+            color: var(--dark-chocolate);
+            margin-bottom: 0.5em;
+        }
+        #article-date, #article-description {
+            font-style: italic;
+            color: var(--light-chocolate);
+            margin-bottom: 1em;
+            display: block;
+        }
+        #article-content {
+            margin-top: 1em;
+            line-height: 1.6;
+            color: #534741;
+        }
+        footer {
+            background-color: var(--dark-chocolate); /* Même fond que la barre du top */
+            color: var(--beige);
+            text-align: center;
+            padding: 2em;
+            margin-top: 2em;
+            font-size: 1em; /* Taille cohérente avec la barre du top */
+        }
+
+        footer a {
+            color: var(--warm-white);
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: 600; /* Cohérent avec les liens de la barre du top */
+        }
+        .contact-info {
+            margin-top: 1.5em;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <div class="top-bar">
+        <a href="/" class="church-icon">
+            <i class="fas fa-church"></i>
+        </a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="horaire.html">Horaires</a>
+            <a href="agenda.html">Agenda</a>
+            <a href="actualite.html">Actualités</a>
+            <a href="contact.html">Contact</a>
+            <a href="histoire.html">Histoire</a>
+        </nav>
+    </div>
+
+    <!-- Contenu principal de l'article -->
+    <div class="content">
+        <h1 id="article-title">Titre de l'Article</h1>
+        <p id="article-date">Publié le 00/00/0000</p>
+        <p id="article-description">Description de l'article</p>
+        <div id="article-content"></div>
+    </div>
+
+    <!-- Script pour charger l'article -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get('slug');
+
+        if (slug) {
+            fetch(`/content/actualites/${slug}.md`)
+                .then(response => {
+                    if (!response.ok) throw new Error("Erreur HTTP " + response.status);
+                    return response.text();
+                })
+                .then(markdown => {
+                    const metadataPattern = /---\n([\s\S]*?)\n---/;
+                    const metadataMatch = markdown.match(metadataPattern);
+                    let metadata = {};
+                    
+                    if (metadataMatch) {
+                        const rawMetadata = metadataMatch[1];
+                        rawMetadata.split('\n').forEach(line => {
+                            const [key, value] = line.split(': ');
+                            metadata[key.trim()] = value ? value.trim() : "";
+                        });
+                        markdown = markdown.replace(metadataPattern, '').trim();
+                    }
+
+                    document.getElementById('article-title').textContent = metadata.title || "Titre manquant";
+                    document.getElementById('article-date').textContent = metadata.date ? 
+                        `Publié le ${new Date(metadata.date).toLocaleDateString()}` : "Date non spécifiée";
+                    document.getElementById('article-description').textContent = metadata.description || "";
+                    document.getElementById('article-content').innerHTML = markdown ? marked.parse(markdown) : "Contenu manquant.";
+                })
+                .catch(error => console.error("Erreur lors du chargement du contenu de l'article :", error));
+        } else {
+            document.getElementById('article-content').innerHTML = "<p>Article introuvable.</p>";
+        }
+    </script>
+
+    <!-- Pied de page -->
+    <footer>
+        <a href="https://www.cathobel.be/">Cathobel.be</a>
+        <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+        <div class="contact-info">
+            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
+            <p>Téléphone : 02/384.25.12</p>
+            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>

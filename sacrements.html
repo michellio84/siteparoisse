@@ -1,7 +1,8 @@
 <html>
 <head>
     <base href="/">
-    <title>Préparation aux Sacrements - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <title>Préparation - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
             --dark-chocolate: #614E3F;
@@ -14,12 +15,23 @@
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--warm-white);
             color: var(--dark-chocolate);
             line-height: 1.6;
+            
+         /* Fond en dégradé avec un effet marqué vers le blanc */
+            background: linear-gradient(120deg, var(--warm-white), #fdfdfd, #ffffff, #f1e7dc, #ffffff);
+            background-size: 250% 250%; /* Augmente la fluidité de l’animation */
+            animation: gradientBackground 12s ease infinite;
+        }
+
+        /* Animation du dégradé de fond */
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .top-bar {
-            background-color: var(--taupe);
+            background-color: var(--dark-chocolate);
             color: var(--beige);
             padding: 1em;
             display: flex;
@@ -69,11 +81,17 @@
             display: flex;
             align-items: center;
         }
+        .sacrament-info h2 {
+            margin-top: 0; /* Supprime l'espace au-dessus du titre */
+            padding-top: 0; /* Supprime tout padding éventuel en haut du titre */
+        }
+
         .sacrament-info {
             background-color: var(--beige);
             border-radius: 8px;
             padding: 1.5em;
-            margin-bottom: 1.5em;
+            margin-bottom: 1em;
+            margin-top: 0;
         }
         .sacrament-info h3 {
             color: var(--dark-chocolate);
@@ -83,19 +101,22 @@
             margin-left: 1.5em;
         }
         footer {
-            background-color: var(--taupe);
+            background-color: var(--dark-chocolate); /* Même fond que la barre du top */
             color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
+            font-size: 1em; /* Taille cohérente avec la barre du top */
         }
+
         footer a {
             color: var(--warm-white);
             text-decoration: none;
             margin: 0 1em;
+            font-weight: 600; /* Cohérent avec les liens de la barre du top */
         }
         .contact-info {
-            margin-top: 1.5em;
+            margin-top: 1em;
             font-size: 0.9em;
             line-height: 1.6;
         }
@@ -103,6 +124,9 @@
             font-size: 1.5em;
             margin-right: 0.5em;
             color: var(--light-chocolate);
+        }
+        .contact-link:hover{
+            color: var(--warm-white); /* Change la couleur de l'icône lors du survol */
         }
         .info-button {
             background-color: var(--dark-chocolate);
@@ -129,16 +153,37 @@
             transition: color 0.3s ease;
         }
         .contact-link:hover {
-            color: var(--light-chocolate);
+            color: var(--warm-white); /* Change la couleur du texte et de l'icône lors du survol */
+            transform: scale(1.03); /* Agrandit légèrement le titre et l'icône */
+            transition: transform 0.3s ease, color 0.3s ease; /* Pour un effet de transition doux */
         }
+
+        .contact-link:hover h2 {
+            color: var(--warm-white); /* Assure le changement de couleur du titre lors du hover */
+            }
+
         .sacraments-image {
-            width: 100%;
+           width: 100%;
             max-width: 800px;
-            height: auto;
-            margin: 0 auto 2em;
+            height: 400px;
+            object-fit: cover;
+            margin: 0 auto;
             display: block;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: filter 0.3s ease, transform 0.3s ease;
+            filter: grayscale(20%); /* Gris léger */
+        }
+        .sacraments-image:hover {
+            filter: grayscale(0%); /* Revenir aux couleurs normales */
+            transform: scale(1.05); /* Légère mise en avant */
+        }
+
+
+         .service-icon {
+            font-size: 1.5em;
+            margin-right: 0.5em;
+            color: var(--light-chocolate);
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -150,7 +195,7 @@
         </a>
         <nav>
             <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaire</a>
+            <a href="horaire.html">Horaires</a>
             <a href="agenda.html" class="active">Agenda</a>
             <a href="actualite.html">Actualité</a>
             <a href="contact.html">Contact</a>
@@ -159,50 +204,49 @@
     </div>
 
     <div class="content">
-        <h1>Préparation aux Sacrements</h1>
+        <h1>Préparations</h1>
         
-        <img src="/images/sacrements2.jpg" alt="Image représentant les sept sacrements de l'Église catholique" class="sacraments-image" width="800" height="450">
+        <img src="/images/sacrements.png" alt="Image représentant les sept sacrements de l'Église catholique" class="sacraments-image" width="800" height="450">
         
-        <p>À la paroisse Saint-Étienne de Braine-L'Alleud, nous accompagnons les fidèles dans leur cheminement spirituel à travers la préparation et la célébration des sacrements de l'Église catholique. Voici un aperçu de notre approche pour chaque sacrement :</p>
+        <p> <i> À la paroisse Saint-Étienne de Braine-L'Alleud, nous accompagnons les fidèles dans leur cheminement spirituel à travers la préparation et la célébration des sacrements de l'Église catholique.<i></p>
+
+       <div class="sacrament-info">
+            <a href="bapteme.html" class="contact-link">
+                <h2><i class="fas fa-water sacrament-icon"></i> Baptême</h2>
+            </a>
+       </div>
 
         <div class="sacrament-info">
-            <h2><i class="fas fa-water sacrament-icon"></i>Baptême</h2>
-            <p>Le baptême est le premier des sacrements, marquant l'entrée dans la communauté chrétienne. Nous proposons des séances de préparation pour les parents et parrains/marraines, ainsi que des célébrations individuelles ou communautaires.</p>
-            <a href="bapteme.html" class="info-button">Plus d'informations</a>
+            <a href="communion.html" class="contact-link">
+                <h2><i class="fas fa-book sacrament-icon"></i>Catéchèse des enfants</h2>
+            </a>
         </div>
 
         <div class="sacrament-info">
-            <h2><i class="fas fa-bread-slice sacrament-icon"></i>Communion</h2>
-            <p>La préparation à la Première Communion s'étend sur deux années, comprenant une année d'éveil à la foi et une année de l'Eucharistie.</p>
-            <a href="communion.html" class="info-button">Plus d'informations</a>
+            <a href="confirmation.html" class="contact-link">
+             <h2><i class="fas fa-dove sacrament-icon"></i>Confirmation</h2>
+            </a>
         </div>
 
         <div class="sacrament-info">
-            <h2><i class="fas fa-dove sacrament-icon"></i>Confirmation</h2>
-            <p>La préparation à la Confirmation se déroule sur deux années supplémentaires, avec l'Année de l'Écoute et l'Année de l'Envoi.</p>
-            <a href="confirmation.html" class="info-button">Plus d'informations</a>
-        </div>
-
-        <div class="sacrament-info">
+            <a href="mariage.html" class="contact-link">
             <h2><i class="fas fa-ring sacrament-icon"></i>Mariage</h2>
-            <p>La préparation au mariage comprend des rencontres individuelles, un parcours en groupe, et une journée de retraite pour les fiancés.</p>
-            <a href="mariage.html" class="info-button">Plus d'informations</a>
+            </a>
         </div>
 
-        <div class="sacrament-info">
-            <h2><i class="fas fa-cross sacrament-icon"></i>Ordination</h2>
-            <p>Nous accompagnons les personnes qui discernent un appel à la prêtrise ou au diaconat avec un soutien spirituel et communautaire.</p>
-            <a href="https://st-etienne-braine.be/ordination" class="info-button">Plus d'informations</a>
+         <div class="sacrament-info">
+            <a href="funneraille.html" class="contact-link">
+            <h2><i class="fas fa-cross service-icon"></i>Funérailles</h2>
+            </a>
         </div>
 
         <a href="contact.html" class="contact-link">
             <i class="fas fa-envelope"></i> Contactez-nous pour plus d'informations sur les sacrements
         </a>
     </div>
-
     <footer>
         <a href="https://www.cathobel.be/">Cathobel.be</a>
-        <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+        <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
         <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
         <div class="contact-info">
             <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>

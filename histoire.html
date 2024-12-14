@@ -2,6 +2,7 @@
 <head>
     <base href="/">
     <title>Histoire et Patrimoine - Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
             --dark-chocolate: #614E3F;
@@ -19,7 +20,7 @@
             line-height: 1.6;
         }
         .top-bar {
-            background-color: var(--taupe);
+            background-color: var(--dark-chocolate);
             color: var(--beige);
             padding: 1em;
             display: flex;
@@ -140,16 +141,19 @@
             background-color: var(--light-chocolate);
         }
         footer {
-            background-color: var(--taupe);
+            background-color: var(--dark-chocolate); /* Même fond que la barre du top */
             color: var(--beige);
             text-align: center;
             padding: 2em;
             margin-top: 2em;
+            font-size: 1em; /* Taille cohérente avec la barre du top */
         }
+
         footer a {
             color: var(--warm-white);
             text-decoration: none;
             margin: 0 1em;
+            font-weight: 600; /* Cohérent avec les liens de la barre du top */
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -161,7 +165,7 @@
         </a>
         <nav>
             <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaire</a>
+            <a href="horaire.html">Horaires</a>
             <a href="agenda.html" class="active">Agenda</a>
             <a href="actualite.html">Actualité</a>
             <a href="contact.html">Contact</a>
@@ -180,7 +184,7 @@
                     <div class="event-year">12ème siècle</div>
                     <p>Première mention de la paroisse et de son église. Un vestige de mur d'un chœur roman a été découvert lors de travaux en 1963.</p>
                 </div>
-                <img src="/images" alt="Ancien mur d'église romane, pierre taillée" class="event-image" width="360" height="200">
+                <img src="/images/Eglise Saint Etienne.png" alt="Ancien mur d'église romane, pierres taillées" class="event-image" width="360" height="200">
             </div>
             <div class="event">
                 <div class="event-content">
@@ -236,7 +240,6 @@
 
         <p>Ces divers éléments font de l'église Saint-Étienne un témoin vivant de l'histoire locale et un lieu de mémoire important pour la communauté de Braine-L'Alleud.</p>
 
-        <a href="https://st-etienne-braine.be/patrimoine-immobilier" class="patrimoine-btn">Découvrir le patrimoine immobilier de l'église</a>
     </div>
 
     <footer>
