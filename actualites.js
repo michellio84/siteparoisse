@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 // Ajoute une icône avant le titre
                 articleElement.innerHTML = `
-                    <h2><i class="fas fa-file-alt"></i> <a href="article.html?slug=${article.slug}">${article.title}</a></h2>
+                    <h2><i class="fas fa-file-alt"></i> <a href="article.html?slug=${article.slug}>${article.title}</a></h2>
                     <p class="date">Publié le ${new Date(article.date).toLocaleDateString()}</p>
                     <p>${article.description}</p>
                 `;
