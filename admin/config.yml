@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: main
-
+/* test changement. */
 media_folder: "images/uploads" # Dossier pour les fichiers téléchargé
 public_folder: "/images/uploads" # URL publique pour les fichiers téléchargés
 
@@ -37,3 +37,11 @@ collections:
     sort: "date:desc"
     summary: "{{title}} - {{date}}"
 
+   - name: "annonces"
+     label: "Annonces"
+     folder: "content/annonces"
+    create: true
+    slug: "message"
+    fields:
+     - { label: "Message", name: "message", widget: "string" }
+     summary: "{{message}}"
