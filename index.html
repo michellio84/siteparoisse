@@ -17,6 +17,7 @@
         font-size: 18px;
         font-weight: bold;
         overflow: hidden; /* Garde le texte dans les limites */
+        position: relative; /* Nécessaire pour contenir l'élément qui défile */
     }
 
     /* Animation du texte déroulant */
@@ -24,6 +25,8 @@
         display: inline-block;
         white-space: nowrap; /* Permet au texte de rester sur une seule ligne */
         animation: scroll-left 15s linear infinite; /* Ajuste la durée pour le défilement */
+        position: absolute; /* Nécessaire pour permettre le défilement */
+        left: 100%; /* Commence en dehors de l'écran, à droite */
     }
 
     /* Animation pour faire défiler le texte */
