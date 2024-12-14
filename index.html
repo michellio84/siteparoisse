@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-/* test */
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paroisse Saint-Étienne de Braine-L'Alleud</title>
@@ -11,33 +10,33 @@
 <style>
     /* Style du bandeau d'annonces */
     #announcement-banner {
-        background-color: #8B7260; /* Couleur de fond */
-        color: #fff; /* Couleur du texte */
+        background-color: #8B7260;
+        color: #fff;
         text-align: center;
         padding: 10px 0;
         font-size: 18px;
         font-weight: bold;
-        overflow: hidden; /* Empêche le texte de dépasser */
-        white-space: nowrap; /* Le texte reste sur une seule ligne */
+        overflow: hidden; /* Garde le texte dans les limites */
     }
 
     /* Animation du texte déroulant */
     #announcement-text {
         display: inline-block;
-        white-space: nowrap; /* Garde le texte en une seule ligne */
-        animation: scroll-left 20s linear infinite; /* Défilement lent et fluide */
+        white-space: nowrap; /* Permet au texte de rester sur une seule ligne */
+        animation: scroll-left 15s linear infinite; /* Ajuste la durée pour le défilement */
     }
 
-    /* Définir l'animation pour faire défiler le texte */
+    /* Animation pour faire défiler le texte */
     @keyframes scroll-left {
         0% {
-            transform: translateX(100%); /* Commence hors écran à droite */
+            transform: translateX(100%); /* Le texte commence hors de l'écran, à droite */
         }
         100% {
-            transform: translateX(-100%); /* Termine hors écran à gauche */
+            transform: translateX(-100%); /* Le texte finit hors de l'écran, à gauche */
         }
     }
 </style>
+
 </head>
 <body>
     <div class="top-bar">
@@ -203,8 +202,7 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-    // Charge le fichier Markdown contenant le message
-    fetch('/content/annonces/message.md') // URL du fichier Markdown
+    fetch('/content/annonces/message.md') // Chemin du fichier Markdown
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Erreur HTTP ${response.status}`);
@@ -212,14 +210,14 @@
             return response.text();
         })
         .then(md => {
-            // Extraire le frontmatter YAML (contenu entre les `---`)
+            // Extraire le contenu YAML du Markdown
             const frontmatter = md.match(/---([\s\S]*?)---/);
             if (frontmatter) {
-                const yaml = frontmatter[1]; // Contenu YAML
-                const messageMatch = yaml.match(/message:\s*(.*)/); // Extraire le message
+                const yaml = frontmatter[1];
+                const messageMatch = yaml.match(/message:\s*(.*)/);
                 if (messageMatch) {
                     const message = messageMatch[1].trim(); // Nettoyer les espaces
-                    document.getElementById('announcement-text').textContent = message; // Insérer le message
+                    document.getElementById('announcement-text').textContent = message; // Injecter le message
                 } else {
                     console.error('Message non trouvé dans le fichier Markdown.');
                 }
@@ -228,7 +226,7 @@
             }
         })
         .catch(error => console.error('Erreur lors du chargement du message :', error));
-      });
+});
     </script>
 </body>
 </html>
