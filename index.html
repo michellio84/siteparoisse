@@ -1,171 +1,47 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paroisse Saint-Étienne de Braine-L'Alleud</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+backend:
+  name: git-gateway
+  branch: main
+/* test changement. */
+media_folder: "images/uploads" # Dossier pour les fichiers téléchargé
+public_folder: "/images/uploads" # URL publique pour les fichiers téléchargés
 
-</head>
-<body>
-    <div class="top-bar">
-        <a href="/" class="church-icon">
-            <i class="fas fa-church"></i>
-        </a>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaires</a>
-            <a href="agenda.html">Agenda</a>
-            <a href="actualite.html">Actualités</a>
-            <a href="contact.html">Contact</a>
-            <a href="histoire.html">Histoire</a>
-        </nav>
-    </div>
+media_library:
+  name: uploadcare # ou "default"
 
-    <!-- Affichage de la date actuelle -->
-    <div id="current-date" style="text-align: center; font-size: 24px; padding: 20px 0;"></div>
-
-   <div class="banner">
-    <h1 class="animated-title">Paroisse Saint-Étienne de Braine-L'Alleud</h1>
-    <p class="animated-subtitle">Une communauté chrétienne vivante au cœur de Braine-L'Alleud</p>
-</div>
+collections:
+  - name: "actualites"
+    label: "Actualités"
+    folder: "content/actualites"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+    sort: "date:desc"
+    summary: "{{title}} - {{date}}"
 
 
-    <!-- Section des horaires -->
-    <div class="opening-hours" style="text-align: center; font-size: 18px; padding: 10px 0;">
-        <strong>Ouverture de l’église :</strong> 8h30 à 18h
-    </div>
+  - name: "agenda"
+    label: "Agenda"
+    folder: "content/agenda"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Lieu", name: "location", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+    sort: "date:desc"
+    summary: "{{title}} - {{date}}"
 
-    <div class="daily-schedule fade-in">
-        <div id="schedule-content">
-            <div class="schedule-item" data-day="1">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Lundi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="2">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Mardi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="3">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Mercredi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="4">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Jeudi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="5">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Vendredi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="6">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Samedi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="0">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Dimanche</h3>
-                <p></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Autres sections originales -->
-    <div class="content">
-        <div class="service fade-in">
-            <a href="sacrements.html">
-                <img src="images/Préparation.png" alt="Préparation" class="service-image">
-            </a>
-            <i class="fas fa-book-open service-icon"></i>
-            <h3>Préparation</h3>
-            <p>Baptême, Mariage,...</p>
-        </div>
-        <div class="service fade-in">
-            <a href="acompagnement.html">
-                <img src="images/Accompagnement.jpeg" alt="Accompagnement" class="service-image">
-            </a>
-            <i class="fas fa-hands-helping service-icon"></i>
-            <h3>Accompagnement</h3>
-            <p>Jeunes, Adultes, Malades</p>
-        </div>
-        <div class="service fade-in">
-            <a href="services.html">
-                <img src="images/Sacrements.jpg" alt="Sacrements" class="service-image">
-            </a>
-            <i class="fas fa-church service-icon"></i>
-            <h3>Autres Services</h3>
-            <p> Salle paroissiale,... </p>
-        </div>
-    </div>
-
-    <footer>
-        <a href="https://www.cathobel.be/">Cathobel.be</a>
-        <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
-        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
-        <div class="contact-info">
-            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
-            <p>Téléphone : 02/384.25.12</p>
-            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
-        </div>
-    </footer>
-
-    <script>
-        // Script pour afficher la date actuelle et les horaires dynamiques
-        document.addEventListener("DOMContentLoaded", function() {
-            var currentDate = new Date();
-            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            var formattedDate = currentDate.toLocaleDateString('fr-FR', options);
-            document.getElementById('current-date').textContent = formattedDate;
-
-            var day = currentDate.getDay(); // 0 = Dimanche, 1 = Lundi, etc.
-            var scheduleItems = document.getElementsByClassName('schedule-item');
-
-            // Masquer tous les horaires au départ
-            function hideAll() {
-                for (let item of scheduleItems) item.style.display = 'none';
-            }
-
-            hideAll(); // Masquer tous les horaires
-
-            // Définir les horaires pour chaque jour
-            const horaires = {
-                1: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)', // Lundi
-                2: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)', // Mardi
-                3: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique', // Mercredi
-                4: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)', // Jeudi
-                5: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique', // Vendredi
-                6: '8h30 Prière du matin (Laudes)\n18h00 Messe (Eucharistie)', // Samedi
-                0: '10h30 Messe (Eucharistie)' // Dimanche
-            };
-
-            // Afficher les horaires du jour actuel
-            for (let item of scheduleItems) {
-                if (parseInt(item.getAttribute('data-day')) === day) {
-                    item.style.display = 'block';
-                    item.querySelector('p').textContent = horaires[day];
-                }
-            }
-        });
-    </script>
-
-    <script>
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+   - name: "annonces"
+     label: "Annonces"
+     folder: "content/annonces"
+    create: true
+    slug: "message"
+    fields:
+     - { label: "Message", name: "message", widget: "string" }
+     summary: "{{message}}"
