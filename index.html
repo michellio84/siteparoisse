@@ -202,7 +202,7 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-    fetch('/content/annonces/message.md') // Chemin du fichier Markdown
+    fetch('/content/annonces/message.md')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Erreur HTTP ${response.status}`);
@@ -210,14 +210,14 @@
             return response.text();
         })
         .then(md => {
-            // Extraire le contenu YAML du Markdown
+            // Extraction du frontmatter
             const frontmatter = md.match(/---([\s\S]*?)---/);
             if (frontmatter) {
                 const yaml = frontmatter[1];
-                const messageMatch = yaml.match(/message:\s*(.*)/);
+                const messageMatch = yaml.match(/message:\s*(.+?)(?:\n|$)/s);
                 if (messageMatch) {
-                    const message = messageMatch[1].trim(); // Nettoyer les espaces
-                    document.getElementById('announcement-text').textContent = message; // Injecter le message
+                    const message = messageMatch[1].trim();
+                    document.getElementById('announcement-text').textContent = message;
                 } else {
                     console.error('Message non trouvé dans le fichier Markdown.');
                 }
