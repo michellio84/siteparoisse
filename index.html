@@ -23,7 +23,7 @@
     #announcement-text {
         display: inline-block;
         white-space: nowrap; /* Permet au texte de rester sur une seule ligne */
-        animation: scroll-left 15s linear infinite; /* Ajuste la durée pour le défilement */
+        animation: scroll-left 30s linear infinite; /* Ajuste la durée pour le défilement */
     }
 
     /* Animation pour faire défiler le texte */
@@ -201,7 +201,7 @@
     </script>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
+   document.addEventListener("DOMContentLoaded", function() {
     fetch('/content/annonces/message.md')
         .then(response => {
             if (!response.ok) {
@@ -210,8 +210,9 @@
             return response.text();
         })
         .then(message => {
-            // Directement utiliser le contenu du fichier
-            document.getElementById('announcement-text').textContent = message.trim();
+            // Supprimer "message:" s'il est au début du texte
+            message = message.replace(/^message:\s*/, '').trim();
+            document.getElementById('announcement-text').textContent = message;
         })
         .catch(error => console.error('Erreur lors du chargement du message :', error));
 });
