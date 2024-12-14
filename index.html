@@ -9,35 +9,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
-        /* Style du bandeau d'annonces */
-        #announcement-banner {
-            background-color: #8B7260; /* Couleur beige clair correspondant à votre style. */
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 18px;
-            font-weight: bold;
-            overflow: hidden; /* Empêche le texte de déborder */
-            white-space: nowrap; /* Empêche le texte de se casser en plusieurs lignes */
-            width: 100%;
-        }
+    /* Style du bandeau d'annonces */
+    #announcement-banner {
+        background-color: #8B7260; /* Couleur de fond */
+        color: #fff; /* Couleur du texte */
+        text-align: center;
+        padding: 10px 0;
+        font-size: 18px;
+        font-weight: bold;
+        overflow: hidden; /* Empêche le texte de dépasser */
+        white-space: nowrap; /* Le texte reste sur une seule ligne */
+    }
 
-        /* Animation du texte déroulant */
-        #announcement-text {
-            display: inline-block;
-            animation: scroll-left 10s linear infinite; /* Animation de défilement horizontal */
-        }
+    /* Animation du texte déroulant */
+    #announcement-text {
+        display: inline-block;
+        white-space: nowrap; /* Garde le texte en une seule ligne */
+        animation: scroll-left 20s linear infinite; /* Défilement lent et fluide */
+    }
 
-        /* Définir l'animation pour faire défiler le texte */
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(100%); /* Commence à droite, hors de l'écran */
-            }
-            100% {
-                transform: translateX(-100%); /* Finit à gauche, hors de l'écran */
-            }
+    /* Définir l'animation pour faire défiler le texte */
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(100%); /* Commence hors écran à droite */
         }
-    </style>
+        100% {
+            transform: translateX(-100%); /* Termine hors écran à gauche */
+        }
+    }
+</style>
 </head>
 <body>
     <div class="top-bar">
