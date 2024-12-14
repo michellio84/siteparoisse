@@ -203,15 +203,32 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Charge le fichier JSON contenant le message de l'annonce
-        fetch('/content/annonces/message.json')  // Assurez-vous que ce chemin est correct
-            .then(response => response.json())
-            .then(data => {
-                // Met à jour le texte du bandeau avec le message récupéré
-                document.getElementById('announcement-text').textContent = data.message;
-            })
-            .catch(error => console.error('Erreur lors du chargement du message:', error));
-    });
+    // Charge le fichier Markdown contenant le message
+    fetch('/content/annonces/message.md') // URL du fichier Markdown
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(md => {
+            // Extraire le frontmatter YAML (contenu entre les `---`)
+            const frontmatter = md.match(/---([\s\S]*?)---/);
+            if (frontmatter) {
+                const yaml = frontmatter[1]; // Contenu YAML
+                const messageMatch = yaml.match(/message:\s*(.*)/); // Extraire le message
+                if (messageMatch) {
+                    const message = messageMatch[1].trim(); // Nettoyer les espaces
+                    document.getElementById('announcement-text').textContent = message; // Insérer le message
+                } else {
+                    console.error('Message non trouvé dans le fichier Markdown.');
+                }
+            } else {
+                console.error('Pas de frontmatter YAML trouvé.');
+            }
+        })
+        .catch(error => console.error('Erreur lors du chargement du message :', error));
+      });
     </script>
 </body>
 </html>
