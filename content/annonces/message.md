@@ -1,3 +1,3 @@
 ---
-message: "11 février : journée mondiale des malades"
+message: "Vendredi 14 février : Soirée JEUNES de 18h30"
 ---
