@@ -208,7 +208,7 @@
             console.log("Message brut chargé :", message); // Debugging
 
             // Vérifier si c'est un format YAML
-            let yamlMatch = message.match(/message:\s*["']?(.*)["']?/i);
+           let yamlMatch = message.match(/message:\s*["']?(.*)["']?\s*$/i);
             if (yamlMatch) {
                 message = yamlMatch[1].trim();
             } else {
