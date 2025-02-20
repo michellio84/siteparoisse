@@ -203,16 +203,20 @@
     <script>
    document.addEventListener("DOMContentLoaded", function() {
     fetch('/content/annonces/message.md')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP ${response.status}`);
-            }
-            return response.text();
-        })
+        .then(response => response.text())
         .then(message => {
-            // Supprimer "message:" s'il est au début du texte
-            message = message.replace(/^message:\s*["']?|["']?$/g, '').trim();
-            document.getElementById('announcement-text').textContent = message;
+            // Extraire le texte depuis le tableau Markdown
+            let lines = message.split("\n");
+            let extractedMessage = "";
+
+            for (let i = 0; i < lines.length; i++) {
+                if (lines[i].startsWith("|") && !lines[i].includes("message")) {
+                    extractedMessage = lines[i].replace(/\|/g, "").trim(); // Supprime les '|'
+                    break;
+                }
+            }
+
+            document.getElementById('announcement-text').textContent = extractedMessage;
         })
         .catch(error => console.error('Erreur lors du chargement du message :', error));
 });
