@@ -211,7 +211,7 @@
         })
         .then(message => {
             // Supprimer "message:" s'il est au début du texte
-            message = message.replace(/^message\s*/, '').trim();
+            message = message.replace(/^message:\s*["']?|["']?$/g, '').trim();
             document.getElementById('announcement-text').textContent = message;
         })
         .catch(error => console.error('Erreur lors du chargement du message :', error));
