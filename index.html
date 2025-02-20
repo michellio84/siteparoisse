@@ -205,18 +205,25 @@
     fetch('/content/annonces/message.md')
         .then(response => response.text())
         .then(message => {
-            // Extraire le texte depuis le tableau Markdown
-            let lines = message.split("\n");
-            let extractedMessage = "";
+            console.log("Message brut chargé :", message); // Debugging
 
-            for (let i = 0; i < lines.length; i++) {
-                if (lines[i].startsWith("|") && !lines[i].includes("message")) {
-                    extractedMessage = lines[i].replace(/\|/g, "").trim(); // Supprime les '|'
-                    break;
+            // Vérifier si c'est un format YAML
+            let yamlMatch = message.match(/message:\s*["']?(.*)["']?/i);
+            if (yamlMatch) {
+                message = yamlMatch[1].trim();
+            } else {
+                // Sinon, essayer d'extraire depuis un tableau Markdown
+                let lines = message.split("\n").map(line => line.trim());
+                for (let line of lines) {
+                    if (line.startsWith("|") && !line.includes("message")) {
+                        message = line.replace(/\|/g, "").trim();
+                        break;
+                    }
                 }
             }
 
-            document.getElementById('announcement-text').textContent = extractedMessage;
+            console.log("Message extrait :", message); // Debugging
+            document.getElementById('announcement-text').textContent = message || "Aucune annonce disponible.";
         })
         .catch(error => console.error('Erreur lors du chargement du message :', error));
 });
