@@ -208,7 +208,7 @@
             console.log("Message brut chargé :", message); // Debugging
 
             // Vérifier si c'est un format YAML
-            let yamlMatch = message.match(/message:\s*["']?(.*)["']?\s*$/i);
+            let yamlMatch = message.match(/message:\s*["']?(.*)["']?/i);
             if (yamlMatch) {
                 message = yamlMatch[1].trim();
             } else {
@@ -222,14 +222,12 @@
                 }
             }
 
-            // Supprime les éventuels guillemets restants
-            message = message.replace(/^["']|["']$/g, '').trim();
-
             console.log("Message extrait :", message); // Debugging
             document.getElementById('announcement-text').textContent = message || "Aucune annonce disponible.";
         })
         .catch(error => console.error('Erreur lors du chargement du message :', error));
 });
+
     </script>
 </body>
 </html>
