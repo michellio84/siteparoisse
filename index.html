@@ -201,7 +201,7 @@
     </script>
 
     <script>
-   document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
     fetch('/content/annonces/message.md')
         .then(response => response.text())
         .then(message => {
@@ -221,6 +221,9 @@
                     }
                 }
             }
+
+            // Supprimer les éventuels guillemets restants
+            message = message.replace(/^["']|["']$/g, '').trim();
 
             console.log("Message extrait :", message); // Debugging
             document.getElementById('announcement-text').textContent = message || "Aucune annonce disponible.";
