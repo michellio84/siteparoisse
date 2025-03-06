@@ -182,7 +182,7 @@
             for (let item of scheduleItems) {
                 if (parseInt(item.getAttribute('data-day')) === day) {
                     item.style.display = 'block';
-                    item.querySelector('p').textContent = horaires[day];
+                    item.querySelector('p').innerHTML = horaires[day].replace(/\n/g, '<br>');
                 }
             }
         });
