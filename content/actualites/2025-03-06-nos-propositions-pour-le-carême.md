@@ -3,7 +3,7 @@ title: Nos propositions pour le Carême
 date: 2025-03-06T10:57:52.554Z
 description: Actualité
 ---
-![](/images/uploads/carême-25.jpg)
+![](/images/uploads/carême-resized.png)
 
 P﻿our ceux qui désirent approfondir la foi pendant ce Carême, voici quelques propositions :
 
