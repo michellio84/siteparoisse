@@ -1,3 +1,3 @@
 ---
-message: "vendredi 28 février : soirée JEUNES à 18h30."
+message: "Vendredi 14 mars : soirée JEUNES à 18h30."
 ---
