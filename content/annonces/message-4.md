@@ -1,3 +1,3 @@
 ---
-message: "MESSE DU SOIR : tous les mercredis à 18h00"
+message: "MESSE DU SOIR : tous les mercredis  de Carême à 18h00"
 ---
