@@ -1,5 +1,5 @@
 ---
-title: '"Randonnée  à vélo ce premier  Mai"'
+title: '"Randonnée  à vélo ce premier mai"'
 date: 2025-04-12T07:15:12.902Z
 image: /images/uploads/unité-pastorale-de-braine-l‘alleud-9-.png
 location: La Closière Rue Sainte-Anne, 3 1420 Braine-L'Alleud
