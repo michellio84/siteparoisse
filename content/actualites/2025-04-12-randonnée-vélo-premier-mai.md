@@ -1,5 +1,5 @@
 ---
-title: '"Randonnée Vélo premier Mai"'
+title: '"Randonnée Vélo premier mai"'
 date: 2025-04-12T07:24:32.837Z
 description: Détails et inscription à l'évènement
 ---
