@@ -1,5 +1,4 @@
 ---
-message: 'MESSE DU SOIR : tous les mercredis  de Carême à 18h30 -- Soirée Cinéma
-  "La Passion du Christ " samedi 12 avril -- "Randonnée à Vélo" le 1 mai,
-  détails dans la  section Agenda et Actualités du Site'
+message: Horaire de la Semaine Sainte voir Actualités-- "Randonnée à Vélo" le 1
+  mai, détails dans la  section Agenda et Actualités du Site
 ---
