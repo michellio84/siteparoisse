@@ -1,6 +1,6 @@
 ---
 title: "Soirée ADULTES dans la foi: "
-date: 2025-04-18T17:30:26.637Z
+date: 2025-05-02T17:30:26.637Z
 image: /images/uploads/250502.png
 location: Salle de la Closière, 3 rue Sainte-Anne 1420 Braine-l'Alleud
 description: Rencontre pour les adultes qui désirent approfondir et re-découvrir
