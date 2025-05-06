@@ -1,7 +1,7 @@
 ---
 title: Soirée Jeunes
-date: 2025-04-25T16:30:23.185Z
-image: /images/uploads/250425.png
+date: 2025-05-09T16:30:23.185Z
+image: /images/uploads/250509.png
 location: Salle de la Closière, 3 rue Sainte-Anne 1420 Braine-l'Alleud.
 description: Entretien de la foi autour d'une collation, de partages et de prières.
 ---
