@@ -1,3 +1,3 @@
 ---
-message: Vendredi à 18h30 soirée Jeunes
+message: Vendredi à 19h30, soirée adultes dans la Foi
 ---
