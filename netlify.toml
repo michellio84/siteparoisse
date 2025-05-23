@@ -1,7 +1,14 @@
-[build]
-command = "npm install && npm run generate-index && npm run generate-agenda && npm run generate-albums-index"
-publish = "."
+[[build]
+  command = "npm install && npm run generate-index && npm run generate-agenda && npm run generate-albums-index"
+  publish = "."
 
+# 1) Premièrement, on sert tous les JSON albums sans redirection
+[[redirects]]
+  from = "/content/albums/*"
+  to = "/content/albums/:splat"
+  status = 200
+
+# 2) Ensuite seulement, on redirige tout le reste vers index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
