@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galerie</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moments partagés</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    .album-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+    .album-container {
+      max-width: 800px;
+      margin: 40px auto;
       padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .album-card {
-      background: #F1E7DC;
+      background: #fff;
       border-radius: 8px;
-      padding: 1em;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
     }
     .album-title {
-      font-size: 1.2em;
-      margin-top: 0.5em;
+      font-size: 2em;
       color: #614E3F;
+      margin-bottom: 0.3em;
     }
     .album-date {
       font-size: 0.9em;
       color: #8B7260;
+      margin-bottom: 1.5em;
     }
     .album-preview {
       width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 4px;
-      margin-bottom: 10px;
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 20px;
+      background-color: #eee;
+      border-radius: 8px;
     }
     .album-button {
       display: inline-block;
       background-color: #8B7260;
       color: white;
-      padding: 8px 12px;
+      padding: 12px 24px;
       border-radius: 4px;
       text-decoration: none;
-      margin-top: 10px;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
     .album-button:hover {
       background-color: #614E3F;
@@ -62,14 +62,15 @@
       <a href="horaire.html">Horaires</a>
       <a href="agenda.html">Agenda</a>
       <a href="actualite.html">Actualités</a>
-      <a href="galerie.html" class="active">Galerie</a>
+      <a href="albums.html" class="active">Galerie</a>
       <a href="contact.html">Contact</a>
       <a href="histoire.html">Histoire</a>
     </nav>
   </div>
 
-  <h1 style="text-align: center; padding: 1em; color: #614E3F;">Moments partagés</h1>
-  <div class="album-grid" id="album-grid"></div>
+  <div class="album-container" id="album-grid">
+    <p>Chargement...</p>
+  </div>
 
   <footer style="background:#614E3F;color:#F1E7DC;text-align:center;padding:2em;margin-top:3em;">
     <a href="https://www.cathobel.be/">Cathobel.be</a>
@@ -83,31 +84,30 @@
   </footer>
 
   <script>
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get('slug');
-  console.log("Slug reçu :", slug);
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+    console.log("Slug reçu :", slug);
 
-  fetch('/content/albums/' + slug + '.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Fichier JSON non trouvé');
-      return res.json();
-    })
-    .then(data => {
-      const container = document.getElementById('album-grid');
-      container.innerHTML = `
-        <div class="album-card">
+    fetch('/content/albums/' + slug + '.json')
+      .then(res => {
+        if (!res.ok) throw new Error('Fichier JSON non trouvé');
+        return res.json();
+      })
+      .then(data => {
+        const container = document.getElementById('album-grid');
+        container.innerHTML = `
+          <h1 class="album-title">${data.title}</h1>
+          <p class="album-date">${new Date(data.date).toLocaleDateString('fr-FR')}</p>
           <img class="album-preview" src="${data.cover}" alt="Image de couverture">
-          <div class="album-title">${data.title}</div>
-          <div class="album-date">${new Date(data.date).toLocaleDateString('fr-FR')}</div>
-          <a class="album-button" href="${data.link}" target="_blank">Voir l’album Google</a>
-        </div>
-      `;
-    })
-    .catch(err => {
-      console.error("Erreur :", err.message);
-      document.getElementById('album-grid').innerHTML = '<p>Album introuvable</p>';
-    });
-</script>
-
+          <p>
+            <a class="album-button" href="${data.link}" target="_blank">Voir l’album sur Google Photos</a>
+          </p>
+        `;
+      })
+      .catch(err => {
+        console.error("Erreur :", err.message);
+        document.getElementById('album-grid').innerHTML = '<p style="color:#614E3F;">Album introuvable</p>';
+      });
+  </script>
 </body>
 </html>
