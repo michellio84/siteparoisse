@@ -1,0 +1,6 @@
+---
+title: Test 2 avec video
+date: 2025-05-23T08:12:59.644Z
+cover: /images/uploads/_phoenix1972_silhouette_of_a_woman_looking_to_the_church_back_v_d4180e13-5cf3-468e-abb3-552e7a89c149.png
+link: https://photos.app.goo.gl/U74Mvjr23iw5PPMu7
+---
