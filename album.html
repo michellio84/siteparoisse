@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .album-card {
+      background: #F1E7DC;
+      border-radius: 8px;
+      padding: 1em;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .album-title {
+      font-size: 1.2em;
+      margin-top: 0.5em;
+      color: #614E3F;
+    }
+    .album-date {
+      font-size: 0.9em;
+      color: #8B7260;
+    }
+    .album-preview {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .album-button {
+      display: inline-block;
+      background-color: #8B7260;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .album-button:hover {
+      background-color: #614E3F;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="index.html" class="church-icon">
+      <i class="fas fa-church"></i>
+    </a>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="horaire.html">Horaires</a>
+      <a href="agenda.html">Agenda</a>
+      <a href="actualite.html">Actualités</a>
+      <a href="galerie.html" class="active">Galerie</a>
+      <a href="contact.html">Contact</a>
+      <a href="histoire.html">Histoire</a>
+    </nav>
+  </div>
+
+  <h1 style="text-align: center; padding: 1em; color: #614E3F;">Moments partagés</h1>
+  <div class="album-grid" id="album-grid"></div>
+
+  <footer style="background:#614E3F;color:#F1E7DC;text-align:center;padding:2em;margin-top:3em;">
+    <a href="https://www.cathobel.be/">Cathobel.be</a>
+    <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
+    <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+    <div class="contact-info" style="margin-top:1.5em;font-size:0.9em;">
+      <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
+      <p>Téléphone : 02/384.25.12</p>
+      <p>Email : <a href="mailto:secretariatstetienne@gmail.com" style="color:white;">secretariatstetienne@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="albums.js"></script>
+</body>
+</html>
