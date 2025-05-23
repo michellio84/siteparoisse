@@ -82,6 +82,32 @@
     </div>
   </footer>
 
-  <script src="albums.js"></script>
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  console.log("Slug reçu :", slug);
+
+  fetch('/content/albums/' + slug + '.json')
+    .then(res => {
+      if (!res.ok) throw new Error('Fichier JSON non trouvé');
+      return res.json();
+    })
+    .then(data => {
+      const container = document.getElementById('album-grid');
+      container.innerHTML = `
+        <div class="album-card">
+          <img class="album-preview" src="${data.cover}" alt="Image de couverture">
+          <div class="album-title">${data.title}</div>
+          <div class="album-date">${new Date(data.date).toLocaleDateString('fr-FR')}</div>
+          <a class="album-button" href="${data.link}" target="_blank">Voir l’album Google</a>
+        </div>
+      `;
+    })
+    .catch(err => {
+      console.error("Erreur :", err.message);
+      document.getElementById('album-grid').innerHTML = '<p>Album introuvable</p>';
+    });
+</script>
+
 </body>
 </html>
