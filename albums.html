@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albums photos – Paroisse Saint-Étienne</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="/" class="church-icon">
+            <i class="fas fa-church"></i>
+        </a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="horaire.html">Horaires</a>
+            <a href="agenda.html">Agenda</a>
+            <a href="actualite.html">Actualités</a>
+            <a href="contact.html">Contact</a>
+            <a href="histoire.html">Histoire</a>
+            <a href="albums.html" class="active">Albums</a>
+        </nav>
+    </div>
+
+    <!-- Bandeau d'annonce -->
+    <div id="announcement-banner">
+        <span id="announcement-text"></span>
+    </div>
+
+    <main>
+        <h1 style="text-align:center; margin-top: 30px;">Nos albums photos</h1>
+        <div id="albums-container" class="albums-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 20px;">
+            <!-- Les albums s’afficheront ici dynamiquement -->
+        </div>
+    </main>
+
+    <footer>
+        <a href="https://www.cathobel.be/">Cathobel.be</a>
+        <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
+        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+        <div class="contact-info">
+            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
+            <p>Téléphone : 02/384.25.12</p>
+            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Bandeau d'annonce
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/content/annonces/message.md')
+                .then(response => response.text())
+                .then(message => {
+                    let yamlMatch = message.match(/message:\s*["']?([\s\S]*)["']?/i);
+                    if (yamlMatch) {
+                        message = yamlMatch[1].trim();
+                    } else {
+                        let lines = message.split("\n").map(line => line.trim());
+                        for (let line of lines) {
+                            if (line.startsWith("|") && !line.includes("message")) {
+                                message = line.replace(/\|/g, "").trim();
+                                break;
+                            }
+                        }
+                    }
+                    message = message.replace(/^["']|["']$/g, '').trim();
+                    document.getElementById('announcement-text').textContent = message || "Aucune annonce disponible.";
+                })
+                .catch(error => console.error('Erreur lors du chargement du message :', error));
+        });
+    </script>
+
+    <script src="albums.js"></script>
+</body>
+</html>
