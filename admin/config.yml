@@ -47,7 +47,7 @@ collections:
 
   - name: "albums"
     label: "Albums photos"
-    folder: "albums"
+    folder: "content/albums"
     create: true
     slug: "{{slug}}"
     fields:
