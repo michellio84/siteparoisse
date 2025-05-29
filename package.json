@@ -4,7 +4,8 @@
   "description": "Description de votre projet",
   "scripts": {
     "generate-index": "node scripts/generate-index.js",
-    "generate-agenda": "node scripts/generate-agenda.js"
+    "generate-agenda": "node scripts/generate-agenda.js",
+    "build": "echo 'Aucun build requis pour ce site statique 😇'"
   },
   "dependencies": {
     "gray-matter": "^4.0.3"
