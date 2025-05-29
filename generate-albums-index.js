@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const matter = require("gray-matter"); // Nécessite 'gray-matter'
 
 try {
   const inputDir = path.join(__dirname, "content/albums");
@@ -9,12 +10,12 @@ try {
 
   fs.readdirSync(inputDir).forEach(file => {
     const filePath = path.join(inputDir, file);
-    if (file.endsWith(".json")) {
+    if (file.endsWith(".md")) {
       const content = fs.readFileSync(filePath, "utf8");
-      const data = JSON.parse(content);
+      const { data } = matter(content);
 
       albums.push({
-        slug: path.basename(file, ".json"),
+        slug: path.basename(file, ".md"),
         title: data.title || "Sans titre",
         date: data.date || "",
         link: data.link || "#",
