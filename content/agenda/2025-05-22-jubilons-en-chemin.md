@@ -1,7 +1,7 @@
 ---
 title: Jubilons en Chemin
-date: 2025-06-09T07:27:32.705Z
-image: /images/uploads/unité-pastorale-de-braine-l‘alleud.png
+date: 2025-06-09T04:00:32.705Z
+image: /images/uploads/affiche-25.png
 location: Départ Eglise Saint-Sébastien
 description: >-
   Comme chaque année, notre paroisse se met en marche pour le traditionnel
