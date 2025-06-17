@@ -1,3 +1,3 @@
 ---
-message: "Vendredi à 19h30, soirée Adultes dans la Foi. "
+message: "Vendredi à 18h30, soirée pour les jeunes. "
 ---
