@@ -1,6 +1,14 @@
-"scripts": {
-  "generate-index": "node scripts/generate-index.js",
-  "generate-agenda": "node scripts/generate-agenda.js",
-  "generate-agenda-mfp": "node generate-agenda-mfp.js",
-  "build": "echo 'Aucun build requis pour ce site statique 😇'"
+{
+  "name": "siteparoisse",
+  "version": "1.0.0",
+  "description": "Site web de la paroisse Saint-Étienne",
+  "scripts": {
+    "generate-index": "node scripts/generate-index.js",
+    "generate-agenda": "node scripts/generate-agenda.js",
+    "generate-agenda-mfp": "node scripts/generate-agenda-mfp.js",
+    "build": "echo 'Aucun build requis pour ce site statique 😇'"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  }
 }

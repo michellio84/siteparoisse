@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
 
-const inputDir = path.join(__dirname, "content/mfp/agenda");
-const outputFile = path.join(__dirname, "agenda-mfp.json");
+const inputDir = path.join(process.cwd(), "content/mfp/agenda");
+const outputFile = path.join(process.cwd(), "agenda-mfp.json");
 
 try {
     const events = [];

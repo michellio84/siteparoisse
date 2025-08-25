@@ -1,6 +1,6 @@
 [build]
+  command = "npm install && npm run generate-index && npm run generate-agenda && node generate-albums-index.js && npm run generate-agenda-mfp && npm run build"
   publish = "."
-  command = "npm install && npm run generate-index && npm run generate-agenda && npm run generate-agenda-mfp && node generate-albums-index.js && npm run build"
 
 [[redirects]]
   from = "/*"
