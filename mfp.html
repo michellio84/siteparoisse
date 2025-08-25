@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Maisons Fraternelles de la Parole</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .section-bloc {
+            padding: 2em 1em;
+            margin: 3em auto;
+            max-width: 800px;
+            border-radius: 10px;
+        }
+        .agenda-bloc {
+            background-color: #f8f3ee;
+        }
+        .affiche-bloc {
+            background-color: #ffffff;
+        }
+        .temoignage-bloc {
+            background-color: #f1e7dc;
+        }
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a href="/" class="church-icon">
+            <i class="fas fa-church"></i>
+        </a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="agenda.html">Agenda</a>
+            <a href="actualite.html">Actualités</a>
+            <a href="contact.html">Contact</a>
+            <a href="histoire.html">Histoire</a>
+            <a href="mfp.html" class="active">Maisons Fraternelles</a>
+        </nav>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="content" style="max-width: 800px; margin: 2em auto; padding: 0 1em;">
+        <h1 style="text-align: center;">Maisons Fraternelles de la Parole</h1>
+        <p style="text-align: center;">
+            Les Maisons Fraternelles de la Parole sont des lieux d’accueil, de prière, et de partage fraternel autour de la Parole de Dieu.
+            Animées par des membres de notre paroisse, elles sont ouvertes à tous ceux qui souhaitent vivre un moment de foi en petit groupe.
+        </p>
+    </div>
+
+    <!-- Bloc Agenda -->
+    <section class="section-bloc agenda-bloc">
+        <h2>📅 Prochains événements</h2>
+        <div id="agenda-mfp">
+            <!-- Le contenu de l'agenda sera injecté ici par mfp.js -->
+        </div>
+    </section>
+
+    <!-- Bloc Affiches -->
+    <section class="section-bloc affiche-bloc">
+        <h2>🖼️ Affiches des rencontres</h2>
+        <div id="affiches-mfp">
+            <!-- Les affiches CMS seront injectées ici -->
+        </div>
+    </section>
+
+    <!-- Bloc Témoignages -->
+    <section class="section-bloc temoignage-bloc">
+        <h2>💬 Témoignages</h2>
+        <div id="temoignages-mfp">
+            <!-- Les témoignages CMS seront injectés ici -->
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <a href="https://www.cathobel.be/">Cathobel.be</a>
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
+        <div class="contact-info">
+            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
+            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <script src="mfp.js"></script>
+</body>
+</html>
