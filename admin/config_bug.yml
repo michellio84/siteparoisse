@@ -1,0 +1,78 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "actualites"
+    label: "Actualités"
+    folder: "content/actualites"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+    sort: "date:desc"
+    summary: "{{title}} - {{date}}"
+
+  - name: "agenda"
+    label: "Agenda"
+    folder: "content/agenda"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Lieu", name: "location", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+    sort: "date:desc"
+    summary: "{{title}} - {{date}}"
+
+  - name: "annonces"
+    label: "Annonces"
+    folder: "content/annonces"
+    create: true
+    slug: "message"
+    fields:
+      - { label: "Message", name: "message", widget: "string" }
+    summary: "{{message}}"
+
+  - name: "albums"
+    label: "Albums photos"
+    folder: "content/albums"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Lien Google Photos", name: "link", widget: "string" }
+      - { label: "Image de couverture", name: "cover", widget: "image" }
+
+  - name: "agenda_mfp"
+    label: "Agenda MFP"
+    folder: "content/mfp/agenda"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date de l'événement", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm" }
+      - { label: "Lieu", name: "lieu", widget: "string", required: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Affiche (optionnelle)", name: "affiche", widget: "image", required: false }
+
+  - name: "affiches_mfp"
+    label: "Affiches MFP"
+    folder: "content/mfp/affiches"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Affiche", name: "image", widget: "image" }
+      - { label: "Description", name: "body", widget: "markdown" }
+

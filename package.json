@@ -6,7 +6,8 @@
     "generate-index": "node scripts/generate-index.js",
     "generate-agenda": "node scripts/generate-agenda.js",
     "generate-agenda-mfp": "node scripts/generate-agenda-mfp.js",
-    "generate-affiches": "node scripts/generate-affiches-mfp.js", 
+    "generate-affiches": "node scripts/generate-affiches-mfp.js",
+    "generate-temoignages-mfp": "node scripts/generate-temoignages-mfp.js", 
     "build": "echo 'Aucun build requis pour ce site statique 😇'"
   },
   "dependencies": {
