@@ -1,10 +1,13 @@
 ---
 title: Calendrier Pôle Jeune 2025
-date: 2025-04-12T08:10:14.554Z
-image: /images/uploads/unité_pastorale_de_braine_l‘alleud_-9-.png
+date: 2025-08-26T09:42:18.112Z
+image: /images/uploads/3ème-trimestre-25.png
 location: La Closière (Salle Paroissiale) Rue Sainte-Anne, 3 1420 Braine-L'Alleud
-description: Les soirées "Adultes dans la Foi" de l'Unité Pastorale de
-  Braine-l'Alleud offrent aux adultes un espace pour redécouvrir et approfondir
-  leur foi. Ces rencontres sont l'occasion de partager des moments de réflexion
-  et d'échange dans un cadre convivial.
+description: >-
+  Les soirées du Pôle Jeunes de l'Unité Pastorale de Braine-l'Alleud sont un
+  moment privilégié pour les jeunes de 11 à 18 ans. Ces rencontres, axées sur
+  l'amitié, le partage et la prière, permettent aux participants de vivre leur
+  foi de manière conviviale et profonde.
+
+  Le vendredi, de 18h30 à 20h30, les jeunes se retrouvent à La Closière, un espace chaleureux et accueillant, situé rue Sainte-Anne 3, à Braine-l'Alleud.
 ---
