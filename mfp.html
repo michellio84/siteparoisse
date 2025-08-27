@@ -4,29 +4,131 @@
     <meta charset="UTF-8">
     <title>Maisons Fraternelles de la Parole</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf8f6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .top-bar {
+            background: #5a3e2b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8em 1.2em;
+        }
+        .top-bar nav a {
+            color: white;
+            margin-left: 1em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .top-bar nav a.active {
+            text-decoration: underline;
+        }
+        .content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+        h1, h2 {
+            font-family: "Segoe UI", sans-serif;
+        }
         .section-bloc {
             padding: 2em 1em;
             margin: 3em auto;
             max-width: 800px;
-            border-radius: 10px;
+            border-radius: 12px;
+        }
+        .section-bloc h2 {
+            font-size: 1.6em;
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            color: #4a2f1d;
         }
         .agenda-bloc {
-            background-color: #f8f3ee;
+            background-color: #f3ede8;
         }
         .affiche-bloc {
             background-color: #ffffff;
         }
         .temoignage-bloc {
-            background-color: #f1e7dc;
+            background-color: #f7f0ea;
         }
+        /* Cartes génériques */
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.2em;
+            margin-bottom: 1.5em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        /* Témoignages */
         #temoignages-mfp article {
-            margin-bottom: 2em;
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.2em;
+            margin-bottom: 1.5em;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
         }
         #temoignages-mfp h3 {
-            margin-bottom: 0.3em;
+            margin-top: 0;
+            color: #4a2f1d;
+        }
+        #temoignages-mfp .meta {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 0.8em;
+        }
+        #temoignages-mfp .body {
+            margin-top: 0.8em;
+            line-height: 1.5em;
+            position: relative;
+        }
+        #temoignages-mfp blockquote {
+            font-style: italic;
+            color: #444;
+            margin: 0.5em 0;
+            padding-left: 1em;
+            border-left: 3px solid #c59d7b;
+        }
+        /* Bouton Lire plus */
+        .read-more {
+            display: inline-block;
+            margin-top: 0.5em;
+            color: #5a3e2b;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 3em;
+            padding: 2em;
+            background: #5a3e2b;
+            color: white;
+            text-align: center;
+        }
+        footer a {
+            color: #ffddaa;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.3em; }
         }
     </style>
 </head>
@@ -47,7 +149,7 @@
     </div>
 
     <!-- Contenu principal -->
-    <div class="content" style="max-width: 800px; margin: 2em auto; padding: 0 1em;">
+    <div class="content">
         <h1 style="text-align: center;">Maisons Fraternelles de la Parole</h1>
         <p style="text-align: center;">
             Les Maisons Fraternelles de la Parole sont des lieux d’accueil, de prière, et de partage fraternel autour de la Parole de Dieu.
@@ -57,26 +159,20 @@
 
     <!-- Bloc Agenda -->
     <section class="section-bloc agenda-bloc">
-        <h2>📅 Prochains événements</h2>
-        <div id="agenda-mfp">
-            <!-- Le contenu de l'agenda sera injecté ici par mfp.js -->
-        </div>
+        <h2><i class="fas fa-calendar-alt"></i> Prochains événements</h2>
+        <div id="agenda-mfp"></div>
     </section>
 
     <!-- Bloc Affiches -->
     <section class="section-bloc affiche-bloc">
-        <h2>🖼️ Affiches des rencontres</h2>
-        <div id="affiches-mfp">
-            <!-- Les affiches CMS seront injectées ici -->
-        </div>
+        <h2><i class="fas fa-image"></i> Affiches des rencontres</h2>
+        <div id="affiches-mfp"></div>
     </section>
 
     <!-- Bloc Témoignages -->
     <section class="section-bloc temoignage-bloc">
-        <h2>💬 Témoignages</h2>
-        <div id="temoignages-mfp">
-            <!-- Les témoignages CMS seront injectés ici -->
-        </div>
+        <h2><i class="fas fa-comment-dots"></i> Témoignages</h2>
+        <div id="temoignages-mfp"></div>
     </section>
 
     <!-- Pied de page -->
@@ -86,7 +182,7 @@
         <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
         <div class="contact-info">
             <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
-            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
+            <p>Email : <a href="mailto:secretariatstetienne@gmail.com" style="color:#ffddaa;">secretariatstetienne@gmail.com</a></p>
         </div>
     </footer>
 
