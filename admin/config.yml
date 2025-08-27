@@ -83,8 +83,8 @@ collections:
     folder: "content/mfp/temoignages"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    media_folder: ""
-    public_folder: ""
+    media_folder: "images/mfp/temoignages"
+    public_folder: "/images/mfp/temoignages"
     sortable_fields: ["date", "title"]
     fields:
       - { label: "Titre", name: "title", widget: "string" }
@@ -95,4 +95,3 @@ collections:
       - { label: "Photo (optionnelle)", name: "image", widget: "image", required: false }
       - { label: "Lien vidéo (YouTube/Vimeo – optionnel)", name: "video", widget: "string", required: false }
       - { label: "Visible", name: "visible", widget: "boolean", default: true }
-
