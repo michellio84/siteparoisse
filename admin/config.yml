@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+
 media_folder: "images/uploads" # Dossier pour les fichiers téléchargés
 public_folder: "/images/uploads" # URL publique pour les fichiers téléchargés
 
@@ -20,7 +21,6 @@ collections:
       - { label: "Contenu", name: "body", widget: "markdown" }
     sort: "date:desc"
     summary: "{{title}} - {{date}}"
-
 
   - name: "agenda"
     label: "Agenda"
@@ -62,8 +62,19 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Titre", name: "title", widget: "string"}
-      - {label: "Date de l'événement", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm"}
-      - {label: "Lieu", name: "lieu", widget: "string", required: false}
-      - {label: "Description", name: "body", widget: "markdown"}
-      - {label: "Affiche (optionnelle)", name: "affiche", widget: "image", required: false}
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date de l'événement", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm" }
+      - { label: "Lieu", name: "lieu", widget: "string", required: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Affiche (optionnelle)", name: "affiche", widget: "image", required: false }
+
+  - name: "affiches_mfp"
+    label: "Affiches MFP"
+    folder: "content/mfp/affiches"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Affiche", name: "image", widget: "image" }
+      - { label: "Description", name: "body", widget: "markdown" }
