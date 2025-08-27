@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  // Chargement de l'agenda MFP
+  // === Chargement de l'agenda MFP ===
   const agendaContainer = document.getElementById("agenda-mfp");
 
   try {
@@ -34,13 +34,18 @@ document.addEventListener("DOMContentLoaded", async () => {
           });
           date.innerHTML = `<strong>Date :</strong> ${formattedDate}`;
 
-          const lieu = document.createElement("p");
           if (event.lieu) {
+            const lieu = document.createElement("p");
             lieu.innerHTML = `<strong>Lieu :</strong> ${event.lieu}`;
+            wrapper.appendChild(lieu);
           }
 
           const description = document.createElement("p");
           description.innerHTML = event.description || "";
+
+          wrapper.appendChild(title);
+          wrapper.appendChild(date);
+          wrapper.appendChild(description);
 
           if (event.affiche) {
             const img = document.createElement("img");
@@ -51,11 +56,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             wrapper.appendChild(img);
           }
 
-          wrapper.appendChild(title);
-          wrapper.appendChild(date);
-          if (event.lieu) wrapper.appendChild(lieu);
-          wrapper.appendChild(description);
-
           agendaContainer.appendChild(wrapper);
         });
     }
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     agendaContainer.innerHTML = "<p>Impossible de charger les événements.</p>";
   }
 
-  // Chargement des affiches MFP
+  // === Chargement des affiches MFP ===
   const affichesContainer = document.getElementById("affiches-mfp");
 
   try {
@@ -115,5 +115,70 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("Erreur lors du chargement des affiches :", error);
     affichesContainer.innerHTML = "<p>Impossible de charger les affiches.</p>";
+  }
+
+  // === Chargement des témoignages MFP ===
+  const temoignagesContainer = document.getElementById("temoignages-mfp");
+
+  try {
+    const res = await fetch("temoignages-mfp.json");
+    const temoignages = await res.json();
+
+    if (temoignages.length === 0) {
+      temoignagesContainer.innerHTML = "<p>Aucun témoignage disponible pour le moment.</p>";
+    } else {
+      temoignages.forEach(t => {
+        const article = document.createElement("article");
+        article.style.borderBottom = "1px solid #ccc";
+        article.style.padding = "1em 0";
+
+        const title = document.createElement("h3");
+        title.textContent = t.title;
+        article.appendChild(title);
+
+        const meta = document.createElement("p");
+        const formattedDate = new Date(t.date).toLocaleDateString("fr-FR", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        });
+        meta.innerHTML = `📅 ${formattedDate}${t.auteur ? " — ✍️ " + t.auteur : ""}`;
+        meta.style.fontSize = "0.9em";
+        meta.style.color = "#555";
+        article.appendChild(meta);
+
+        if (t.image) {
+          const img = document.createElement("img");
+          img.src = t.image;
+          img.alt = t.title;
+          img.style.maxWidth = "100%";
+          img.style.margin = "1em 0";
+          article.appendChild(img);
+        }
+
+        if (t.extrait) {
+          const extrait = document.createElement("p");
+          extrait.innerHTML = `<em>${t.extrait}</em>`;
+          article.appendChild(extrait);
+        }
+
+        if (t.body) {
+          const body = document.createElement("div");
+          body.innerHTML = t.body;
+          article.appendChild(body);
+        }
+
+        if (t.video) {
+          const videoLink = document.createElement("p");
+          videoLink.innerHTML = `<a href="${t.video}" target="_blank">🎥 Voir la vidéo</a>`;
+          article.appendChild(videoLink);
+        }
+
+        temoignagesContainer.appendChild(article);
+      });
+    }
+  } catch (error) {
+    console.error("Erreur lors du chargement des témoignages :", error);
+    temoignagesContainer.innerHTML = "<p>Impossible de charger les témoignages.</p>";
   }
 });
