@@ -1,8 +1,8 @@
-[[build]
-  command = "npm install && npm run generate-index && npm run generate-agenda && node generate-albums-index.js && npm run generate-affiches && npm run generate-agenda-mfp && npm run build"
-  publish = "."
+[build]
+command = "npm install && npm run generate-index && npm run generate-agenda && node generate-albums-index.js && npm run generate-affiches && npm run generate-agenda-mfp && npm run build"
+publish = "."
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200
