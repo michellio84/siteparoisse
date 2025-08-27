@@ -75,3 +75,24 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Affiche", name: "image", widget: "image" }
       - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "temoignages_mfp"
+    label: "MFP – Témoignages"
+    label_singular: "Témoignage"
+    description: "Témoignages pour la page MFP (Maisons Fraternelles de la Parole)"
+    folder: "content/mfp/temoignages"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: ""
+    public_folder: ""
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
+      - { label: "Auteur", name: "auteur", widget: "string", required: false }
+      - { label: "Extrait (court résumé)", name: "extrait", widget: "text", required: false }
+      - { label: "Texte (markdown)", name: "body", widget: "markdown" }
+      - { label: "Photo (optionnelle)", name: "image", widget: "image", required: false }
+      - { label: "Lien vidéo (YouTube/Vimeo – optionnel)", name: "video", widget: "string", required: false }
+      - { label: "Visible", name: "visible", widget: "boolean", default: true }
+
