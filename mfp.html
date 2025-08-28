@@ -12,34 +12,66 @@
       --shadow:0 3px 10px rgba(0,0,0,.12); --shadow-lg:0 14px 28px rgba(0,0,0,.18);
       --radius:12px;
     }
-    body{ font-family:Arial,sans-serif; background:var(--bg); margin:0; color:var(--ink); }
-    .top-bar{ background:var(--brand); color:#fff; display:flex; align-items:center; justify-content:space-between; padding:.8em 1.2em; }
+    *{ box-sizing:border-box }
+    body{ font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,Helvetica, sans-serif; background:var(--bg); color:var(--ink); margin:0 }
+
+    /* Top Bar */
+    .top-bar{ background:var(--brand); color:#fff; display:flex; align-items:center; justify-content:space-between; padding:.8em 1.2em }
     .top-bar nav a{ color:#fff; text-decoration:none; font-weight:700; margin-left:1em }
     .top-bar nav a.active{ text-decoration:underline }
+
+    /* Intro */
     .content{ max-width:800px; margin:2em auto; padding:0 1em }
     h1,h2{ font-family:"Segoe UI",Arial,sans-serif }
-    h1{ text-align:center }
+    h1{ text-align:center; margin:0 0 .6em }
+
+    /* Sections */
     .section-bloc{ max-width:800px; margin:2em auto; padding:1.5em; border-radius:var(--radius) }
-    .section-bloc h2{ display:flex; align-items:center; gap:.5em; margin-bottom:1em; color:#4a2f1d }
-    .agenda-bloc{ background:var(--soft) } .affiche-bloc{ background:var(--paper) } .temoignage-bloc{ background:var(--soft-2) }
-    #agenda-mfp>div,#affiches-mfp>div,#temoignages-mfp>article{
-      background:var(--paper); border-radius:10px; padding:1.2em; margin-bottom:1.5em;
-      box-shadow:var(--shadow); transition:transform .25s, box-shadow .25s, border-color .25s; border:1px solid rgba(0,0,0,.04)
+    .section-bloc h2{ display:flex; align-items:center; gap:.5em; margin:0 0 1em; color:#4a2f1d; font-size:1.6em }
+    .agenda-bloc{ background:var(--soft) }
+    .affiche-bloc{ background:var(--paper) }
+    .temoignage-bloc{ background:var(--soft-2) }
+
+    /* Cartes + hover */
+    #agenda-mfp>div, #affiches-mfp>div, #temoignages-mfp>article{
+      background:var(--paper); border-radius:12px; padding:1.2em; margin-bottom:1.5em;
+      box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      border:1px solid rgba(0,0,0,.04);
     }
-    #agenda-mfp>div:hover,#affiches-mfp>div:hover,#temoignages-mfp>article:hover{ transform:translateY(-6px) scale(1.01); box-shadow:var(--shadow-lg); border-color:rgba(90,62,43,.18) }
+    #agenda-mfp>div:hover, #affiches-mfp>div:hover, #temoignages-mfp>article:hover{
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(90,62,43,.18);
+    }
+
+    /* Témoignages */
     #temoignages-mfp h3{ margin:.2em 0 .3em; color:#4a2f1d }
     #temoignages-mfp .meta{ font-size:.9em; color:var(--muted); margin-bottom:.8em }
     .tmj-body.is-collapsed{ max-height:280px; overflow:hidden; position:relative }
-    .tmj-body.is-collapsed::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:3.5em; background:linear-gradient(to bottom, rgba(255,255,255,0), var(--paper)) }
+    .tmj-body.is-collapsed::after{
+      content:""; position:absolute; left:0; right:0; bottom:0; height:3.5em;
+      background:linear-gradient(to bottom, rgba(255,255,255,0), var(--paper));
+    }
     .toggle-more{ border:0; background:transparent; color:var(--brand); font-weight:700; cursor:pointer; margin-top:.6em }
+
+    /* Images + fade-in (activé par mfp.js) */
     img{ display:block; max-width:100%; height:auto; border-radius:8px }
-    .media-spaced{ margin:1em 0 } .lazy-img{ opacity:0; transform:translateY(8px); transition:opacity .4s, transform .35s }
+    .media-spaced{ margin:1em 0 }
+    .lazy-img{ opacity:0; transform: translateY(8px); transition: opacity .4s, transform .35s }
     .lazy-img.is-loaded{ opacity:1; transform:none }
+
+    /* Footer */
     footer{ margin-top:3em; padding:2em; background:var(--brand); color:#fff; text-align:center }
     footer a{ color:var(--brand-contrast); text-decoration:none; margin:0 1em }
+
+    @media (max-width:600px){
+      h1{ font-size:1.8em }
+      .section-bloc h2{ font-size:1.3em }
+    }
   </style>
 </head>
 <body>
+  <!-- Top Bar -->
   <div class="top-bar">
     <a href="/" aria-label="Accueil paroisse"><i class="fas fa-church"></i></a>
     <nav>
@@ -52,26 +84,34 @@
     </nav>
   </div>
 
+  <!-- Intro -->
   <div class="content">
     <h1>Maisons Fraternelles de la Parole</h1>
-    <p style="text-align:center">Les Maisons Fraternelles de la Parole sont des lieux d’accueil, de prière et de partage fraternel autour de la Parole de Dieu.</p>
+    <p style="text-align:center">
+      Les Maisons Fraternelles de la Parole sont des lieux d’accueil, de prière et de partage fraternel autour de la Parole de Dieu.
+      Animées par des membres de notre paroisse, elles sont ouvertes à tous ceux qui souhaitent vivre un moment de foi en petit groupe.
+    </p>
   </div>
 
+  <!-- Agenda -->
   <section class="section-bloc agenda-bloc">
     <h2><i class="fas fa-calendar-alt"></i> Prochains événements</h2>
     <div id="agenda-mfp"></div>
   </section>
 
+  <!-- Affiches -->
   <section class="section-bloc affiche-bloc">
     <h2><i class="fas fa-image"></i> Affiches des rencontres</h2>
     <div id="affiches-mfp"></div>
   </section>
 
+  <!-- Témoignages -->
   <section class="section-bloc temoignage-bloc">
     <h2><i class="fas fa-comment-dots"></i> Témoignages</h2>
     <div id="temoignages-mfp"></div>
   </section>
 
+  <!-- Pied de page -->
   <footer>
     <a href="https://www.cathobel.be/">Cathobel.be</a>
     <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
@@ -82,79 +122,7 @@
     </div>
   </footer>
 
+  <!-- Injection de contenu (agenda, affiches, témoignages) -->
   <script src="scripts/mfp.js"></script>
-  <script>
-    // --- Mini rendu Markdown (basique) pour le body des témoignages ---
-    function mdToHtml(md){
-      if(!md) return "";
-      // backslash + newline => saut de ligne
-      md = md.replace(/\\\r?\n/g, "<br>");
-      // paragraphes (double saut de ligne)
-      md = md.split(/\n{2,}/).map(p => "<p>"+p.replace(/\n/g,"<br>")+"</p>").join("");
-      // gras / italique
-      md = md.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-      md = md.replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g, "$1<em>$2</em>");
-      // citations
-      md = md.replace(/^>\s?(.*)$/gm, "<blockquote>$1</blockquote>");
-      // liens [texte](url)
-      md = md.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-      return md;
-    }
-
-    function renderMarkdownAndReadMore(){
-      // 1) Convertir le Markdown du body en HTML
-      document.querySelectorAll("#temoignages-mfp article").forEach(article=>{
-        // chercher un div/p qui contient le texte principal (hors .meta)
-        let body = Array.from(article.children).find(el =>
-          (el.tagName === "DIV" || el.tagName === "P") &&
-          !el.classList.contains("meta") &&
-          (el.textContent||"").trim().length > 0
-        );
-        if(!body) return;
-
-        // si du Markdown brut est visible, on le convertit
-        const raw = body.textContent.trim();
-        body.innerHTML = mdToHtml(raw);
-        body.classList.add("tmj-body");
-
-        // 2) Lire plus / Lire moins (seuil raisonnable)
-        const longEnough = body.textContent.trim().length > 350 || body.querySelectorAll("p").length >= 3;
-        if(longEnough){
-          body.classList.add("is-collapsed");
-          const btn = document.createElement("button");
-          btn.className="toggle-more";
-          btn.type="button";
-          btn.textContent="Lire plus";
-          btn.addEventListener("click", ()=>{
-            const collapsed = body.classList.toggle("is-collapsed");
-            btn.textContent = collapsed ? "Lire plus" : "Lire moins";
-          });
-          // Si un lien vidéo existe, placer le bouton juste avant
-          const video = article.querySelector('a[href*="http"]');
-          if(video) article.insertBefore(btn, video);
-          else article.appendChild(btn);
-        }
-      });
-
-      // 3) Lazy + fade-in sur toutes les images injectées
-      document.querySelectorAll("#agenda-mfp img,#affiches-mfp img,#temoignages-mfp img").forEach(img=>{
-        if(!img.hasAttribute("loading")) img.setAttribute("loading","lazy");
-        img.classList.add("media-spaced","lazy-img");
-        const onLoaded = ()=> img.classList.add("is-loaded");
-        if(img.complete && img.naturalWidth>0) onLoaded(); else img.addEventListener("load", onLoaded, {once:true});
-      });
-    }
-
-    // Exécuter une fois au chargement complet
-    window.addEventListener("load", ()=>{
-      // Observer une seule fois l’injection des témoignages par mfp.js
-      const target = document.getElementById("temoignages-mfp");
-      if(!target) return;
-      const once = new MutationObserver((m,obs)=>{ renderMarkdownAndReadMore(); obs.disconnect(); });
-      once.observe(target, { childList:true, subtree:true });
-      // sécurité : si déjà présent (cache), on lance quand même
-      renderMarkdownAndReadMore();
-    });
-  </script>
 </body>
 </html>
