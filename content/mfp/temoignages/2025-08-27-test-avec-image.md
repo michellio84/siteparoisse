@@ -1,7 +1,9 @@
 ---
-title: Test avec image
+title: Rencontre inspirante
 date: 2025-08-27T22:17:30+02:00
-image: /images/mfp/temoignages/inst_right.webp
+auteur: Jean Dupont
+extrait: Un petit partage simple
+image: ""
 visible: true
 ---
-T﻿est avec image et voici le contenu
+C’était une très belle rencontre. Nous avons prié, partagé et échangé dans la simplicité et la joie.
