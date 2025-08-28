@@ -37,6 +37,31 @@
     .lazy-img.is-loaded{ opacity:1; transform:none }
     footer{ margin-top:3em; padding:2em; background:var(--brand); color:#fff; text-align:center }
     footer a{ color:var(--brand-contrast); text-decoration:none; margin:0 1em }
+
+    /* ===== AJOUTS : bloc logo + animations (uniquement) ===== */
+    .mfp-logo-wrap{ text-align:center; margin:12px 0 20px; }
+    .mfp-logo{
+      max-width:220px; width:60%; height:auto;
+      display:inline-block; will-change:transform,opacity,filter;
+    }
+    /* 1) Apparition en fondu + léger pop */
+    .logo-fade-in{ opacity:0; transform:scale(0.94); animation:mfpFadeIn 1.2s ease-out forwards; }
+    @keyframes mfpFadeIn{ to{ opacity:1; transform:none; } }
+    /* 2) Zoom doux au survol */
+    .logo-zoom{ transition:transform .35s ease; }
+    .logo-zoom:hover{ transform:scale(1.05); }
+    /* 3) Halo lumineux discret en pulsation */
+    .logo-glow{ animation:mfpGlow 2.2s ease-in-out infinite alternate; }
+    @keyframes mfpGlow{
+      from{ filter:drop-shadow(0 0 2px rgba(13,110,168,.35)); }
+      to{   filter:drop-shadow(0 0 12px rgba(13,110,168,.55)); }
+    }
+    /* Accessibilité : réduire les animations si demandé */
+    @media (prefers-reduced-motion: reduce){
+      .logo-fade-in,.logo-glow{ animation:none !important; }
+      .logo-zoom,.mfp-logo{ transition:none !important; }
+    }
+    /* ===== FIN AJOUTS ===== */
   </style>
 </head>
 <body>
@@ -54,6 +79,15 @@
 
   <div class="content">
     <h1>Maisons Fraternelles de la Parole</h1>
+
+    <!-- ===== AJOUT : LOGO PNG animé ===== -->
+    <div class="mfp-logo-wrap">
+      <img src="/images/mfp-logo.png"
+           alt="Logo Maisons Fraternelles de la Parole"
+           class="mfp-logo logo-fade-in logo-zoom logo-glow">
+    </div>
+    <!-- ===== FIN AJOUT ===== -->
+
     <p style="text-align:center">Les Maisons Fraternelles de la Parole sont des lieux d’accueil, de prière et de partage fraternel autour de la Parole de Dieu.</p>
   </div>
 
@@ -83,28 +117,23 @@
   </footer>
 
   <script src="scripts/mfp.js"></script>
+
+  <!-- On ne touche pas à la logique “Lire plus / Lire moins” existante -->
   <script>
     // --- Mini rendu Markdown (basique) pour le body des témoignages ---
     function mdToHtml(md){
       if(!md) return "";
-      // backslash + newline => saut de ligne
       md = md.replace(/\\\r?\n/g, "<br>");
-      // paragraphes (double saut de ligne)
       md = md.split(/\n{2,}/).map(p => "<p>"+p.replace(/\n/g,"<br>")+"</p>").join("");
-      // gras / italique
       md = md.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
       md = md.replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g, "$1<em>$2</em>");
-      // citations
       md = md.replace(/^>\s?(.*)$/gm, "<blockquote>$1</blockquote>");
-      // liens [texte](url)
       md = md.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
       return md;
     }
 
     function renderMarkdownAndReadMore(){
-      // 1) Convertir le Markdown du body en HTML
       document.querySelectorAll("#temoignages-mfp article").forEach(article=>{
-        // chercher un div/p qui contient le texte principal (hors .meta)
         let body = Array.from(article.children).find(el =>
           (el.tagName === "DIV" || el.tagName === "P") &&
           !el.classList.contains("meta") &&
@@ -112,12 +141,10 @@
         );
         if(!body) return;
 
-        // si du Markdown brut est visible, on le convertit
         const raw = body.textContent.trim();
         body.innerHTML = mdToHtml(raw);
         body.classList.add("tmj-body");
 
-        // 2) Lire plus / Lire moins (seuil raisonnable)
         const longEnough = body.textContent.trim().length > 350 || body.querySelectorAll("p").length >= 3;
         if(longEnough){
           body.classList.add("is-collapsed");
@@ -129,14 +156,12 @@
             const collapsed = body.classList.toggle("is-collapsed");
             btn.textContent = collapsed ? "Lire plus" : "Lire moins";
           });
-          // Si un lien vidéo existe, placer le bouton juste avant
           const video = article.querySelector('a[href*="http"]');
           if(video) article.insertBefore(btn, video);
           else article.appendChild(btn);
         }
       });
 
-      // 3) Lazy + fade-in sur toutes les images injectées
       document.querySelectorAll("#agenda-mfp img,#affiches-mfp img,#temoignages-mfp img").forEach(img=>{
         if(!img.hasAttribute("loading")) img.setAttribute("loading","lazy");
         img.classList.add("media-spaced","lazy-img");
@@ -145,14 +170,11 @@
       });
     }
 
-    // Exécuter une fois au chargement complet
     window.addEventListener("load", ()=>{
-      // Observer une seule fois l’injection des témoignages par mfp.js
       const target = document.getElementById("temoignages-mfp");
       if(!target) return;
       const once = new MutationObserver((m,obs)=>{ renderMarkdownAndReadMore(); obs.disconnect(); });
       once.observe(target, { childList:true, subtree:true });
-      // sécurité : si déjà présent (cache), on lance quand même
       renderMarkdownAndReadMore();
     });
   </script>
