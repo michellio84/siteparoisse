@@ -74,6 +74,31 @@
       .logo-zoom,.mfp-logo{ transition:none!important }
     }
     /* ===== FIN AJOUT ===== */
+
+    /* — Encart contact MFP — */
+    .contact-card
+    {
+    background: var(--beige);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 16px auto 0;
+    max-width: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;              /* passe à la ligne sur mobile */
+    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    }
+    .contact-item
+    {
+      display:flex; align-items:center; gap:8px;
+      font-weight:600; color: var(--dark-chocolate);
+    }
+    .contact-item i{ color: var(--light-chocolate); font-size: 1.1em; }
+    .contact-item a{ color: inherit; text-decoration: none; }
+    .contact-item a:hover{ text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -102,8 +127,19 @@
 </div>
     <p style="text-align:center">
     Les Maisons fraternelles de la Parole sont des fraternités missionnaires centrées sur la louange, dans la force de l’Esprit Saint.La Parole de Dieu y est priée, enseignée, partagée, annoncée.Elles permettent l’expérience personnelle de la rencontre avec le Seigneur et la croissance spirituelle de chacun.Elles sont ouvertes à tous et forment des disciples missionnaires dans le monde et participent à la vie de l’Eglise.Elles sont sous la vigilance de la commission épiscopale chargée du suivi du Renouveau et sont en lien avec le Service national de communion CHARIS.
-    Contact : maisonfratparolebe@outlook.fr
-              tel. +32 487 60 57 45 </p>
+     </p>
+  <!-- Encart contact (séparé du texte) -->
+<div class="contact-card" role="complementary" aria-label="Contact Maisons Fraternelles de la Parole">
+  <div class="contact-item">
+    <i class="fas fa-envelope" aria-hidden="true"></i>
+    <a href="mailto:maisonfratparolebe@outlook.fr">maisonfratparolebe@outlook.fr</a>
+  </div>
+  <div class="contact-item">
+    <i class="fas fa-mobile-screen-button" aria-hidden="true"></i>
+    <a href="tel:+32487605745">+32 487 60 57 45</a>
+  </div>
+</div>
+
   </div>
 
   <section class="section-bloc agenda-bloc">
