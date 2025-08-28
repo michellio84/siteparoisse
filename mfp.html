@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <title>Maisons Fraternelles de la Parole</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    :root{
+    :root {
       --brand:#5a3e2b;
       --brand-contrast:#ffddaa;
       --bg:#faf8f6;
@@ -20,104 +19,113 @@
       --shadow-lg:0 14px 28px rgba(0,0,0,.18);
       --radius:12px;
     }
-    *{box-sizing:border-box}
-    body{
-      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Helvetica, sans-serif;
-      background:var(--bg);
-      color:var(--ink);
-      margin:0;
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      margin: 0;
+      color: var(--ink);
     }
+    /* Top Bar */
+    .top-bar {
+      background: var(--brand);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .8em 1.2em;
+    }
+    .top-bar nav a {
+      color: #fff;
+      margin-left: 1em;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .top-bar nav a.active { text-decoration: underline; }
 
-    /* Top bar */
-    .top-bar{
-      background:var(--brand);
-      color:#fff;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:.8em 1.2em;
-    }
-    .top-bar nav a{
-      color:#fff;text-decoration:none;font-weight:700;margin-left:1em
-    }
-    .top-bar nav a.active{ text-decoration:underline }
-
-    /* Intro */
-    .content{ max-width: 800px; margin: 2em auto; padding: 0 1em; }
-    h1,h2{ font-family: "Segoe UI", Arial, sans-serif; margin:0 0 .6em 0 }
-    h1{ text-align:center; }
+    .content { max-width: 800px; margin: 2em auto; padding: 0 1em; }
+    h1, h2 { font-family: "Segoe UI", sans-serif; }
+    h1 { text-align: center; }
 
     /* Sections */
-    .section-bloc{
-      padding:2em 1em; margin:3em auto; max-width:800px; border-radius:var(--radius);
+    .section-bloc {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1.5em;
+      border-radius: var(--radius);
     }
-    .section-bloc h2{
-      display:flex;align-items:center;gap:.5em;color:#4a2f1d;font-size:1.6em;margin-bottom:1em
+    .section-bloc h2 {
+      display: flex;
+      align-items: center;
+      gap: .5em;
+      margin-bottom: 1em;
+      color: #4a2f1d;
     }
-    .agenda-bloc{ background:var(--soft) }
-    .affiche-bloc{ background:var(--paper) }
-    .temoignage-bloc{ background:var(--soft-2) }
+    .agenda-bloc { background: var(--soft); }
+    .affiche-bloc { background: var(--paper); }
+    .temoignage-bloc { background: var(--soft-2); }
 
-    /* Cartes & hover unifié et plus marqué */
+    /* Cartes */
     #agenda-mfp > div,
     #affiches-mfp > div,
-    #temoignages-mfp > article{
-      background:var(--paper);
-      border-radius:12px;
-      padding:1.2em;
-      margin-bottom:1.5em;
-      box-shadow:var(--shadow);
-      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-      border:1px solid rgba(0,0,0,.04);
+    #temoignages-mfp > article {
+      background: var(--paper);
+      border-radius: 10px;
+      padding: 1.2em;
+      margin-bottom: 1.5em;
+      box-shadow: var(--shadow);
+      transition: transform .25s ease, box-shadow .25s ease;
     }
     #agenda-mfp > div:hover,
     #affiches-mfp > div:hover,
-    #temoignages-mfp > article:hover{
+    #temoignages-mfp > article:hover {
       transform: translateY(-6px) scale(1.01);
       box-shadow: var(--shadow-lg);
-      border-color: rgba(90,62,43,.18);
     }
 
-    /* Images + animation d’apparition */
-    img{ display:block; max-width:100%; height:auto; border-radius:8px }
-    .media-spaced{ margin:1em 0 }
-    .lazy-img{ opacity:0; transform: translateY(8px); transition: opacity .4s ease, transform .35s ease }
-    .lazy-img.is-loaded{ opacity:1; transform:none }
-
     /* Témoignages */
-    #temoignages-mfp h3{ margin:.2em 0 .3em; color:#4a2f1d }
-    #temoignages-mfp .meta{ font-size:.9em;color:var(--muted); margin-bottom:.8em }
-    .tmj-body{ line-height:1.6; }
-    .tmj-body.is-collapsed{
-      max-height: 280px; /* seuil visible plus tôt */
+    #temoignages-mfp h3 { margin-top: 0; }
+    #temoignages-mfp .meta { font-size: .9em; color: var(--muted); margin-bottom: .8em; }
+    .tmj-body.is-collapsed {
+      max-height: 250px;
       overflow: hidden;
       position: relative;
     }
-    .tmj-body.is-collapsed::after{
-      content:"";
-      position:absolute;left:0;right:0;bottom:0;height:3.5em;
-      background:linear-gradient(to bottom, rgba(255,255,255,0), var(--paper));
+    .tmj-body.is-collapsed::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 3em;
+      background: linear-gradient(to bottom, rgba(255,255,255,0), var(--paper));
     }
-    .toggle-more{
-      display:inline-block;margin-top:.6em;border:0;background:transparent;
-      color:var(--brand);font-weight:700;cursor:pointer;padding:0
+    .toggle-more {
+      border: none;
+      background: transparent;
+      color: var(--brand);
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: .5em;
     }
-    .toggle-more:focus{ outline:2px dashed var(--brand); outline-offset:2px }
+
+    /* Images */
+    img { max-width: 100%; border-radius: 6px; display: block; }
+    .lazy-img { opacity: 0; transform: translateY(8px); transition: opacity .4s, transform .3s; }
+    .lazy-img.is-loaded { opacity: 1; transform: none; }
 
     /* Footer */
-    footer{
-      margin-top:3em;padding:2em;background:var(--brand);color:#fff;text-align:center
+    footer {
+      margin-top: 3em;
+      background: var(--brand);
+      color: #fff;
+      text-align: center;
+      padding: 2em;
     }
-    footer a{ color:var(--brand-contrast); text-decoration:none; margin:0 1em }
-
-    @media (max-width:600px){
-      h1{ font-size:1.8em }
-      .section-bloc h2{ font-size:1.3em }
-    }
+    footer a { color: var(--brand-contrast); text-decoration: none; margin: 0 1em; }
   </style>
 </head>
 <body>
   <!-- Top Bar -->
   <div class="top-bar">
-    <a href="/" class="church-icon" aria-label="Accueil paroisse"><i class="fas fa-church"></i></a>
+    <a href="/" aria-label="Accueil paroisse"><i class="fas fa-church"></i></a>
     <nav>
       <a href="index.html">Accueil</a>
       <a href="agenda.html">Agenda</a>
@@ -128,29 +136,22 @@
     </nav>
   </div>
 
-  <!-- Intro -->
   <div class="content">
     <h1>Maisons Fraternelles de la Parole</h1>
-    <p style="text-align:center">
-      Les Maisons Fraternelles de la Parole sont des lieux d’accueil, de prière et de partage fraternel autour de la Parole de Dieu.
-      Animées par des membres de notre paroisse, elles sont ouvertes à tous ceux qui souhaitent vivre un moment de foi en petit groupe.
-    </p>
+    <p style="text-align:center">Les Maisons Fraternelles de la Parole sont des lieux d’accueil, de prière et de partage fraternel autour de la Parole de Dieu.</p>
   </div>
 
-  <!-- Agenda -->
-  <section class="section-bloc agenda-bloc" id="section-agenda">
+  <section class="section-bloc agenda-bloc">
     <h2><i class="fas fa-calendar-alt"></i> Prochains événements</h2>
     <div id="agenda-mfp"></div>
   </section>
 
-  <!-- Affiches -->
-  <section class="section-bloc affiche-bloc" id="section-affiches">
+  <section class="section-bloc affiche-bloc">
     <h2><i class="fas fa-image"></i> Affiches des rencontres</h2>
     <div id="affiches-mfp"></div>
   </section>
 
-  <!-- Témoignages -->
-  <section class="section-bloc temoignage-bloc" id="section-temoignages">
+  <section class="section-bloc temoignage-bloc">
     <h2><i class="fas fa-comment-dots"></i> Témoignages</h2>
     <div id="temoignages-mfp"></div>
   </section>
@@ -159,84 +160,38 @@
     <a href="https://www.cathobel.be/">Cathobel.be</a>
     <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
     <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
-    <div class="contact-info" style="margin-top:.8em">
+    <div class="contact-info">
       <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
       <p>Email : <a href="mailto:secretariatstetienne@gmail.com" style="color:var(--brand-contrast)">secretariatstetienne@gmail.com</a></p>
     </div>
   </footer>
 
-  <!-- Script d’injection existant -->
   <script src="scripts/mfp.js"></script>
-
-  <!-- Améliorations frontend -->
   <script>
-    // 1) Lazy-load + fade-in
-    function applyLazy(){
-      document.querySelectorAll('#agenda-mfp img, #affiches-mfp img, #temoignages-mfp img').forEach(img=>{
-        if(!img.hasAttribute('loading')) img.setAttribute('loading','lazy');
-        img.classList.add('media-spaced','lazy-img');
-        const onLoaded=()=>img.classList.add('is-loaded');
-        if(img.complete && img.naturalWidth>0){ onLoaded(); }
-        else { img.addEventListener('load', onLoaded, {once:true}); }
+    // Lazy-load + effet fade-in
+    document.addEventListener("DOMContentLoaded", ()=>{
+      document.querySelectorAll("#agenda-mfp img,#affiches-mfp img,#temoignages-mfp img").forEach(img=>{
+        img.setAttribute("loading","lazy");
+        img.classList.add("lazy-img");
+        img.addEventListener("load", ()=> img.classList.add("is-loaded"), {once:true});
       });
-    }
 
-    // 2) Lire plus / Lire moins (seuil abaissé)
-    function enhanceTemoignages(){
-      document.querySelectorAll('#temoignages-mfp article').forEach(article=>{
-        // Cherche un bloc de texte principal
-        let body = Array.from(article.children).find(el => el.tagName === 'DIV' && (el.innerText||'').trim().length > 0);
-        if(!body){
-          const paragraphs = article.querySelectorAll('p');
-          if(paragraphs.length){
-            body = document.createElement('div');
-            paragraphs.forEach(p => body.appendChild(p.cloneNode(true)));
-            article.appendChild(body);
-          }
-        }
+      // Lire plus / moins
+      document.querySelectorAll("#temoignages-mfp article").forEach(article=>{
+        const body = article.querySelector("p, div");
         if(!body) return;
-
-        body.classList.add('tmj-body');
-
-        // Seuil plus bas pour déclencher "Lire plus"
-        const longEnough = ((body.innerText||'').trim().length > 350) || (body.scrollHeight > 320) || (body.querySelectorAll('p').length >= 3);
-        if(!longEnough) return;
-
-        body.classList.add('is-collapsed');
-
-        const btn = document.createElement('button');
-        btn.className = 'toggle-more';
-        btn.type = 'button';
-        btn.setAttribute('aria-expanded','false');
-        btn.textContent = 'Lire plus';
-        btn.addEventListener('click', ()=>{
-          const isCollapsed = body.classList.toggle('is-collapsed');
-          const expanded = !isCollapsed;
-          btn.textContent = expanded ? 'Lire moins' : 'Lire plus';
-          btn.setAttribute('aria-expanded', String(expanded));
-        });
-
-        const video = article.querySelector('a[href*="http"]');
-        if(video) article.insertBefore(btn, video);
-        else article.appendChild(btn);
+        if(body.innerText.length > 350 || article.querySelectorAll("p").length > 3){
+          body.classList.add("tmj-body","is-collapsed");
+          const btn = document.createElement("button");
+          btn.className="toggle-more";
+          btn.textContent="Lire plus";
+          btn.onclick=()=>{
+            const collapsed=body.classList.toggle("is-collapsed");
+            btn.textContent = collapsed ? "Lire plus" : "Lire moins";
+          };
+          article.appendChild(btn);
+        }
       });
-    }
-
-    // 3) Observer l’injection asynchrone (mfp.js)
-    const targets = ['#agenda-mfp', '#affiches-mfp', '#temoignages-mfp'];
-    const observer = new MutationObserver(() => {
-      applyLazy();
-      enhanceTemoignages();
-    });
-    targets.forEach(sel=>{
-      const el = document.querySelector(sel);
-      if(el) observer.observe(el, {childList:true, subtree:true});
-    });
-
-    // Sécurité : exécuter aussi après chargement
-    window.addEventListener('load', ()=>{
-      applyLazy();
-      enhanceTemoignages();
     });
   </script>
 </body>
