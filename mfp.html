@@ -16,8 +16,8 @@
       --soft-2:#f7f0ea;
       --ink:#333;
       --muted:#777;
-      --shadow:0 2px 6px rgba(0,0,0,.1);
-      --shadow-lg:0 4px 10px rgba(0,0,0,.15);
+      --shadow:0 3px 10px rgba(0,0,0,.12);
+      --shadow-lg:0 14px 28px rgba(0,0,0,.18);
       --radius:12px;
     }
     *{box-sizing:border-box}
@@ -56,32 +56,38 @@
     .affiche-bloc{ background:var(--paper) }
     .temoignage-bloc{ background:var(--soft-2) }
 
-    /* Cartes & hover unifié (sans classe .card nécessaire) */
+    /* Cartes & hover unifié et plus marqué */
     #agenda-mfp > div,
     #affiches-mfp > div,
     #temoignages-mfp > article{
       background:var(--paper);
-      border-radius:10px;
+      border-radius:12px;
       padding:1.2em;
       margin-bottom:1.5em;
       box-shadow:var(--shadow);
-      transition:transform .2s ease, box-shadow .2s ease;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      border:1px solid rgba(0,0,0,.04);
     }
     #agenda-mfp > div:hover,
     #affiches-mfp > div:hover,
     #temoignages-mfp > article:hover{
-      transform: translateY(-3px);
+      transform: translateY(-6px) scale(1.01);
       box-shadow: var(--shadow-lg);
+      border-color: rgba(90,62,43,.18);
     }
+
+    /* Images + animation d’apparition */
+    img{ display:block; max-width:100%; height:auto; border-radius:8px }
+    .media-spaced{ margin:1em 0 }
+    .lazy-img{ opacity:0; transform: translateY(8px); transition: opacity .4s ease, transform .35s ease }
+    .lazy-img.is-loaded{ opacity:1; transform:none }
 
     /* Témoignages */
     #temoignages-mfp h3{ margin:.2em 0 .3em; color:#4a2f1d }
     #temoignages-mfp .meta{ font-size:.9em;color:var(--muted); margin-bottom:.8em }
-
-    /* Corps long : plié/déplié sans toucher à mfp.js */
-    .tmj-body{ line-height:1.55; }
+    .tmj-body{ line-height:1.6; }
     .tmj-body.is-collapsed{
-      max-height: 260px;
+      max-height: 280px; /* seuil visible plus tôt */
       overflow: hidden;
       position: relative;
     }
@@ -95,10 +101,6 @@
       color:var(--brand);font-weight:700;cursor:pointer;padding:0
     }
     .toggle-more:focus{ outline:2px dashed var(--brand); outline-offset:2px }
-
-    /* Images */
-    img{ display:block; max-width:100%; height:auto; border-radius:6px }
-    .media-spaced{ margin:1em 0 }
 
     /* Footer */
     footer{
@@ -163,26 +165,28 @@
     </div>
   </footer>
 
-  <!-- Ton script existant qui injecte les contenus -->
+  <!-- Script d’injection existant -->
   <script src="scripts/mfp.js"></script>
 
-  <!-- Améliorations frontend sans toucher à mfp.js -->
+  <!-- Améliorations frontend -->
   <script>
-    // 1) Lazy-load sur toutes les images injectées
+    // 1) Lazy-load + fade-in
     function applyLazy(){
       document.querySelectorAll('#agenda-mfp img, #affiches-mfp img, #temoignages-mfp img').forEach(img=>{
         if(!img.hasAttribute('loading')) img.setAttribute('loading','lazy');
-        img.classList.add('media-spaced');
+        img.classList.add('media-spaced','lazy-img');
+        const onLoaded=()=>img.classList.add('is-loaded');
+        if(img.complete && img.naturalWidth>0){ onLoaded(); }
+        else { img.addEventListener('load', onLoaded, {once:true}); }
       });
     }
 
-    // 2) Ajout "Lire plus / Lire moins" sur les témoignages longs
+    // 2) Lire plus / Lire moins (seuil abaissé)
     function enhanceTemoignages(){
       document.querySelectorAll('#temoignages-mfp article').forEach(article=>{
-        // Tente de trouver un bloc de texte principal ; si mfp.js n’a pas mis de classe, on l’ajoute
-        let body = Array.from(article.children).find(el => el.tagName === 'DIV' && el.innerText && el.innerText.trim().length > 0);
+        // Cherche un bloc de texte principal
+        let body = Array.from(article.children).find(el => el.tagName === 'DIV' && (el.innerText||'').trim().length > 0);
         if(!body){
-          // fallback : regrouper les paragraphes dans un div
           const paragraphs = article.querySelectorAll('p');
           if(paragraphs.length){
             body = document.createElement('div');
@@ -192,17 +196,14 @@
         }
         if(!body) return;
 
-        // donner une classe standard pour le style
         body.classList.add('tmj-body');
 
-        // Critère de longueur (texte long)
-        const longEnough = (body.innerText || '').trim().length > 600 || body.scrollHeight > 600;
+        // Seuil plus bas pour déclencher "Lire plus"
+        const longEnough = ((body.innerText||'').trim().length > 350) || (body.scrollHeight > 320) || (body.querySelectorAll('p').length >= 3);
         if(!longEnough) return;
 
-        // Appliquer l’état "plié"
         body.classList.add('is-collapsed');
 
-        // Bouton toggle
         const btn = document.createElement('button');
         btn.className = 'toggle-more';
         btn.type = 'button';
@@ -215,14 +216,13 @@
           btn.setAttribute('aria-expanded', String(expanded));
         });
 
-        // Insérer le bouton après le corps (avant un éventuel lien vidéo)
         const video = article.querySelector('a[href*="http"]');
         if(video) article.insertBefore(btn, video);
         else article.appendChild(btn);
       });
     }
 
-    // 3) Observer l’injection asynchrone (mfp.js) et appliquer les améliorations ensuite
+    // 3) Observer l’injection asynchrone (mfp.js)
     const targets = ['#agenda-mfp', '#affiches-mfp', '#temoignages-mfp'];
     const observer = new MutationObserver(() => {
       applyLazy();
