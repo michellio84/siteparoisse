@@ -1,72 +1,85 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <base href="/" />
   <meta charset="UTF-8" />
   <title>Maisons Fraternelles de la Parole</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Même base que index.html -->
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
   <style>
-    :root{
-      --brand:#5a3e2b; --brand-contrast:#ffddaa; --bg:#faf8f6; --paper:#fff;
-      --soft:#f3ede8; --soft-2:#f7f0ea; --ink:#333; --muted:#777;
-      --shadow:0 3px 10px rgba(0,0,0,.12); --shadow-lg:0 14px 28px rgba(0,0,0,.18);
-      --radius:12px;
-    }
-    body{ font-family:Arial,sans-serif; background:var(--bg); margin:0; color:var(--ink); }
-    .top-bar{ background:var(--brand); color:#fff; display:flex; align-items:center; justify-content:space-between; padding:.8em 1.2em; }
-    .top-bar nav a{ color:#fff; text-decoration:none; font-weight:700; margin-left:1em }
-    .top-bar nav a.active{ text-decoration:underline }
+    /* ===== On ne touche pas à la barre top : styles dans styles.css ===== */
+
+    /* Bloc(s) locaux à la page MFP uniquement */
     .content{ max-width:800px; margin:2em auto; padding:0 1em }
     h1,h2{ font-family:"Segoe UI",Arial,sans-serif }
     h1{ text-align:center }
-    .section-bloc{ max-width:800px; margin:2em auto; padding:1.5em; border-radius:var(--radius) }
-    .section-bloc h2{ display:flex; align-items:center; gap:.5em; margin-bottom:1em; color:#4a2f1d }
-    .agenda-bloc{ background:var(--soft) } .affiche-bloc{ background:var(--paper) } .temoignage-bloc{ background:var(--soft-2) }
-    #agenda-mfp>div,#affiches-mfp>div,#temoignages-mfp>article{
-      background:var(--paper); border-radius:10px; padding:1.2em; margin-bottom:1.5em;
-      box-shadow:var(--shadow); transition:transform .25s, box-shadow .25s, border-color .25s; border:1px solid rgba(0,0,0,.04)
-    }
-    #agenda-mfp>div:hover,#affiches-mfp>div:hover,#temoignages-mfp>article:hover{ transform:translateY(-6px) scale(1.01); box-shadow:var(--shadow-lg); border-color:rgba(90,62,43,.18) }
-    #temoignages-mfp h3{ margin:.2em 0 .3em; color:#4a2f1d }
-    #temoignages-mfp .meta{ font-size:.9em; color:var(--muted); margin-bottom:.8em }
-    .tmj-body.is-collapsed{ max-height:280px; overflow:hidden; position:relative }
-    .tmj-body.is-collapsed::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:3.5em; background:linear-gradient(to bottom, rgba(255,255,255,0), var(--paper)) }
-    .toggle-more{ border:0; background:transparent; color:var(--brand); font-weight:700; cursor:pointer; margin-top:.6em }
-    img{ display:block; max-width:100%; height:auto; border-radius:8px }
-    .media-spaced{ margin:1em 0 } .lazy-img{ opacity:0; transform:translateY(8px); transition:opacity .4s, transform .35s }
-    .lazy-img.is-loaded{ opacity:1; transform:none }
-    footer{ margin-top:3em; padding:2em; background:var(--brand); color:#fff; text-align:center }
-    footer a{ color:var(--brand-contrast); text-decoration:none; margin:0 1em }
 
-    /* ===== AJOUTS : bloc logo + animations (uniquement) ===== */
+    .section-bloc{ max-width:800px; margin:2em auto; padding:1.5em; border-radius:12px }
+    .section-bloc h2{ display:flex; align-items:center; gap:.5em; margin-bottom:1em; color:#4a2f1d }
+    .agenda-bloc{ background:#f3ede8 } 
+    .affiche-bloc{ background:#fff } 
+    .temoignage-bloc{ background:#f7f0ea }
+
+    #agenda-mfp>div,#affiches-mfp>div,#temoignages-mfp>article{
+      background:#fff; border-radius:10px; padding:1.2em; margin-bottom:1.5em;
+      box-shadow:0 3px 10px rgba(0,0,0,.12);
+      transition:transform .25s, box-shadow .25s, border-color .25s;
+      border:1px solid rgba(0,0,0,.04)
+    }
+    #agenda-mfp>div:hover,#affiches-mfp>div:hover,#temoignages-mfp>article:hover{
+      transform:translateY(-6px) scale(1.01);
+      box-shadow:0 14px 28px rgba(0,0,0,.18);
+      border-color:rgba(90,62,43,.18)
+    }
+
+    #temoignages-mfp h3{ margin:.2em 0 .3em; color:#4a2f1d }
+    #temoignages-mfp .meta{ font-size:.9em; color:#777; margin-bottom:.8em }
+
+    .tmj-body.is-collapsed{ max-height:280px; overflow:hidden; position:relative }
+    .tmj-body.is-collapsed::after{
+      content:""; position:absolute; left:0; right:0; bottom:0; height:3.5em;
+      background:linear-gradient(to bottom, rgba(255,255,255,0), #fff)
+    }
+    .toggle-more{ border:0; background:transparent; color:#5a3e2b; font-weight:700; cursor:pointer; margin-top:.6em }
+
+    img{ display:block; max-width:100%; height:auto; border-radius:8px }
+    .media-spaced{ margin:1em 0 } 
+    .lazy-img{ opacity:0; transform:translateY(8px); transition:opacity .4s, transform .35s }
+    .lazy-img.is-loaded{ opacity:1; transform:none }
+
+    footer{ margin-top:3em; padding:2em; background:#5a3e2b; color:#fff; text-align:center }
+    footer a{ color:#ffddaa; text-decoration:none; margin:0 1em }
+
+    /* ===== AJOUT : Logo MFP (PNG) + animations (fade-in + zoom + halo) ===== */
     .mfp-logo-wrap{ text-align:center; margin:12px 0 20px; }
     .mfp-logo{
       max-width:220px; width:60%; height:auto;
       display:inline-block; will-change:transform,opacity,filter;
     }
-    /* 1) Apparition en fondu + léger pop */
     .logo-fade-in{ opacity:0; transform:scale(0.94); animation:mfpFadeIn 1.2s ease-out forwards; }
     @keyframes mfpFadeIn{ to{ opacity:1; transform:none; } }
-    /* 2) Zoom doux au survol */
     .logo-zoom{ transition:transform .35s ease; }
     .logo-zoom:hover{ transform:scale(1.05); }
-    /* 3) Halo lumineux discret en pulsation */
     .logo-glow{ animation:mfpGlow 2.2s ease-in-out infinite alternate; }
     @keyframes mfpGlow{
       from{ filter:drop-shadow(0 0 2px rgba(13,110,168,.35)); }
       to{   filter:drop-shadow(0 0 12px rgba(13,110,168,.55)); }
     }
-    /* Accessibilité : réduire les animations si demandé */
     @media (prefers-reduced-motion: reduce){
-      .logo-fade-in,.logo-glow{ animation:none !important; }
-      .logo-zoom,.mfp-logo{ transition:none !important; }
+      .logo-fade-in,.logo-glow{ animation:none!important }
+      .logo-zoom,.mfp-logo{ transition:none!important }
     }
-    /* ===== FIN AJOUTS ===== */
+    /* ===== FIN AJOUT ===== */
   </style>
 </head>
 <body>
+  <!-- Top bar : s'appuie sur styles.css (même rendu que index.html) -->
   <div class="top-bar">
-    <a href="/" aria-label="Accueil paroisse"><i class="fas fa-church"></i></a>
+    <a href="/" class="church-icon" aria-label="Accueil paroisse"><i class="fas fa-church"></i></a>
     <nav>
       <a href="index.html">Accueil</a>
       <a href="agenda.html">Agenda</a>
@@ -80,15 +93,16 @@
   <div class="content">
     <h1>Maisons Fraternelles de la Parole</h1>
 
-    <!-- ===== AJOUT : LOGO PNG animé ===== -->
+    <!-- LOGO MFP (PNG) -->
     <div class="mfp-logo-wrap">
       <img src="/images/mfp-logo.png"
            alt="Logo Maisons Fraternelles de la Parole"
            class="mfp-logo logo-fade-in logo-zoom logo-glow">
     </div>
-    <!-- ===== FIN AJOUT ===== -->
 
-    <p style="text-align:center">Les Maisons Fraternelles de la Parole sont des lieux d’accueil, de prière et de partage fraternel autour de la Parole de Dieu.</p>
+    <p style="text-align:center">
+      Les Maisons Fraternelles de la Parole sont des lieux d’accueil, de prière et de partage fraternel autour de la Parole de Dieu.
+    </p>
   </div>
 
   <section class="section-bloc agenda-bloc">
@@ -108,19 +122,18 @@
 
   <footer>
     <a href="https://www.cathobel.be/">Cathobel.be</a>
-    <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+    <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
     <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
     <div class="contact-info" style="margin-top:.8em">
       <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
-      <p>Email : <a href="mailto:secretariatstetienne@gmail.com" style="color:var(--brand-contrast)">secretariatstetienne@gmail.com</a></p>
+      <p>Email : <a href="mailto:secretariatstetienne@gmail.com" style="color:#ffddaa">secretariatstetienne@gmail.com</a></p>
     </div>
   </footer>
 
   <script src="scripts/mfp.js"></script>
 
-  <!-- On ne touche pas à la logique “Lire plus / Lire moins” existante -->
+  <!-- On ne touche PAS à ta logique “Lire plus / Lire moins” : rendu + lazy -->
   <script>
-    // --- Mini rendu Markdown (basique) pour le body des témoignages ---
     function mdToHtml(md){
       if(!md) return "";
       md = md.replace(/\\\r?\n/g, "<br>");
@@ -157,8 +170,7 @@
             btn.textContent = collapsed ? "Lire plus" : "Lire moins";
           });
           const video = article.querySelector('a[href*="http"]');
-          if(video) article.insertBefore(btn, video);
-          else article.appendChild(btn);
+          if(video) article.insertBefore(btn, video); else article.appendChild(btn);
         }
       });
 
