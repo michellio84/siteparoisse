@@ -1,6 +1,6 @@
 ---
 title: "Calendrier 2025 Adultes dans la Foi "
-date: 2025-08-26T10:00:45.363Z
+date: 2025-10-04T08:26:45.716Z
 image: /images/uploads/3ème-trimestre-25-adultes.png
 location: La Closière (Salle Paroissiale) Rue Sainte-Anne, 3 1420 Braine-L'Alleud
 description: Les soirées "Adultes dans la Foi" de l'Unité Pastorale de
