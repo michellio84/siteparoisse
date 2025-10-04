@@ -1,6 +1,6 @@
 ---
 title: Calendrier Pôle Jeune 2025
-date: 2025-08-26T09:42:18.112Z
+date: 2025-10-04T08:27:13.082Z
 image: /images/uploads/3ème-trimestre-25.png
 location: La Closière (Salle Paroissiale) Rue Sainte-Anne, 3 1420 Braine-L'Alleud
 description: >-
