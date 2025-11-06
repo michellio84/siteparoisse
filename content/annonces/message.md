@@ -1,3 +1,3 @@
 ---
-message: "Vendredi 31 octobre à 19h30, soirée Adultes dans la Foi ! "
+message: "Vendredi 7 novembre à 18h30, soirée pôle jeunes ! "
 ---
