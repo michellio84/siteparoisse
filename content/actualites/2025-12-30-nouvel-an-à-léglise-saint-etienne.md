@@ -1,8 +1,7 @@
 ---
 title: Nouvel an à l'église Saint-Etienne
 date: 2025-12-31T17:00:35.560Z
-description: Ou comment passer un réveillon du Nouvel An loin du bruit et de la
-  fête. Ci-dessous un horaire complet et détaillé.
+description: "Ou comment passer un réveillon du Nouvel An loin du bruit... "
 ---
 **3﻿1 décembre:**
 
