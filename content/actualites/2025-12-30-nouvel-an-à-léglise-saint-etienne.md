@@ -1,11 +1,11 @@
 ---
 title: Nouvel an à l'église Saint-Etienne
 date: 2025-12-31T17:00:35.560Z
-description: Ou comment entrer dans la nouvelle année auprès du Seigneur.
+description: Ou comment entrer dans la nouvelle année auprès du Seigneur
 ---
 **3﻿1 décembre:**
 
-* 1﻿7h30: Adoration
+* 1﻿7h30: adoration
 * 1﻿8h00: vêpres - prière du soir
 * 1﻿8h30: messe
 * 1﻿9h00: angélus
