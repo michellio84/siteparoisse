@@ -1,4 +1,3 @@
 ---
-message: " Horaires du 31 décembre et 1er janvier : voir actualités -  Vendredi
-  2 janvier  à 18h30, soirée pour les jeunes ! "
+message: "Vendredi 9 janvier  à 19h30, soirée Adultes dans la foi ! "
 ---
