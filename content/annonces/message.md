@@ -1,3 +1,4 @@
 ---
-message: Vendredi 6 mars  à 19h30, soirée Adultes dans la foi ! Samedi messe à 9h !
+message: Vendredi 13 mars 24 heures pour le Seigneur. Adoration de vendredi 19h
+  (messe) à samedi 18h ! Samedi messe à 9h !
 ---
