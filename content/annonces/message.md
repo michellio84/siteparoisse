@@ -1,4 +1,3 @@
 ---
-message: 'Vendredi 20 mars à 19h30 : rencontre "Adultes dans la foi"  Samedi
-  messe à 9h !'
+message: "Vendredi 27 mars à 18h30 : rencontre du pôle jeunes.  Samedi messe à 9h !"
 ---
