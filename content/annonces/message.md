@@ -1,3 +1,3 @@
 ---
-message: Les horaires complets de la Semaine Sainte dans l'onglet actualité.
+message: L'horaire complet de la Semaine Sainte dans l'onglet actualité.
 ---
