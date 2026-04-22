@@ -1,3 +1,3 @@
 ---
-message: L'horaire complet de la Semaine Sainte dans l'onglet actualité.
+message: "Ce vendredi Pastorale des jeunes à 18h30. "
 ---
