@@ -1,3 +1,4 @@
 ---
-message: "Ce vendredi Pastorale des jeunes à 18h30. "
+message: Ce vendredi, Adultes dans la foi à 19h30. dimanche 28 juin, messe
+  unique à 10h30
 ---
