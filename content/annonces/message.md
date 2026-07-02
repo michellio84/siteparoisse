@@ -1,4 +1,4 @@
 ---
-message: Ce vendredi, Adultes dans la foi à 19h30. Dimanche 28 juin, messe
-  unique à 10h30
+message: "Pendant les mois de juillet et août, la messe du mercredi soir est
+  suspendue. "
 ---
