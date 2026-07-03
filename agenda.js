@@ -1,32 +1,50 @@
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded and parsed');
+document.addEventListener("DOMContentLoaded", async function () {
+    const container = document.getElementById("events-container");
+    if (!container) return;
 
-    fetch('/content/agenda/agenda-index.json')
-        .then(response => {
-            console.log('Fetch response:', response);
-            return response.json();
-        })
-        .then(data => {
-            console.log('Fetched data:', data);
-            const container = document.getElementById('events-container');
-            data.forEach(event => {
-                const eventElement = document.createElement('div');
-                eventElement.className = 'event-item';
-                eventElement.innerHTML = `
-                    <img src="${event.image}" alt="${event.title}">
-                    <h2>${event.title}</h2>
-                    <div class="event-info">
-                        <i class="fas fa-calendar-alt event-icon"></i>
-                        <span>${new Date(event.date).toLocaleDateString()}</span>
-                    </div>
-                    <div class="event-info">
-                        <i class="fas fa-map-marker-alt event-icon"></i>
-                        <span>${event.location}</span>
-                    </div>
-                    <p class="event-description"><em>${event.description}</em></p>
-                `;
-                container.appendChild(eventElement);
-            });
-        })
-        .catch(error => console.error('Error loading events:', error));
+    const escapeHtml = (value) => String(value || "").replace(/[&<>"']/g, (character) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+    }[character]));
+
+    const renderCard = (event) => `
+        <article class="event-item">
+            ${event.image ? `<img src="${escapeHtml(event.image)}" alt="" loading="lazy">` : ""}
+            <div class="event-card-body">
+                <time datetime="${escapeHtml(event.date)}">${new Date(event.date).toLocaleDateString("fr-BE", { day: "numeric", month: "long", year: "numeric" })}</time>
+                <h3>${escapeHtml(event.title)}</h3>
+                ${event.location ? `<p><i class="fas fa-location-dot" aria-hidden="true"></i> ${escapeHtml(event.location)}</p>` : ""}
+                ${event.description ? `<p>${escapeHtml(event.description)}</p>` : ""}
+                ${event.featured ? '<span class="featured-label"><i class="fas fa-star" aria-hidden="true"></i> À la une</span>' : ""}
+            </div>
+        </article>
+    `;
+
+    try {
+        const response = await fetch("/content/agenda/agenda-index.json", { cache: "no-cache" });
+        if (!response.ok) throw new Error("Agenda indisponible");
+        const events = (await response.json()).filter((event) => event && event.title && event.date);
+        const endOfToday = new Date();
+        endOfToday.setHours(0, 0, 0, 0);
+        const future = events
+            .filter((event) => new Date(event.date) >= endOfToday)
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
+        const past = events
+            .filter((event) => new Date(event.date) < endOfToday)
+            .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        container.innerHTML = `
+            <section class="agenda-section" aria-labelledby="upcoming-events">
+                <h2 id="upcoming-events">À venir</h2>
+                <div class="agenda-grid">${future.length ? future.map(renderCard).join("") : '<p class="empty-state">Aucun événement annoncé pour le moment.</p>'}</div>
+            </section>
+            ${past.length ? `
+                <details class="agenda-archive">
+                    <summary>Voir les événements passés (${past.length})</summary>
+                    <div class="agenda-grid">${past.map(renderCard).join("")}</div>
+                </details>
+            ` : ""}
+        `;
+    } catch (error) {
+        container.innerHTML = '<p class="empty-state">L’agenda est momentanément indisponible. Merci de réessayer plus tard.</p>';
+    }
 });
