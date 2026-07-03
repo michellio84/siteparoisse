@@ -13,7 +13,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Date de publication", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Contenu", name: "body", widget: "markdown" }
     sort: "date:desc"
@@ -26,11 +26,12 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Date de l’événement ou de publication", name: "date", widget: "datetime" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Lieu", name: "location", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Mettre en avant sur la page d’accueil", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Afficher sur l’accueil jusqu’au (facultatif)", name: "featured_until", widget: "datetime", required: false, hint: "Si ce champ reste vide, le contenu demeure sur l’accueil jusqu’à ce que la case « Mettre en avant » soit décochée." }
     sort: "date:desc"
     summary: "{{title}} - {{date}}"
 

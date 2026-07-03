@@ -18,7 +18,8 @@ const events = fs.readdirSync(contentDir)
       image: data.image,
       description: data.description,
       location: data.location,
-      featured: Boolean(data.featured)
+      featured: Boolean(data.featured),
+      featured_until: data.featured_until || null
     };
 })
   .filter(event => event.title && event.date)

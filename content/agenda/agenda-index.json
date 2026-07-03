@@ -6,7 +6,8 @@
     "image": "/images/uploads/messe-18h.png",
     "description": "Après la trêve estivale, reprise de la messe à 18h30 le mercredi précédée de la prière des vêpres.",
     "location": "église Saint-Etienne",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Calendrier Mardi de la Parole",
@@ -15,7 +16,8 @@
     "image": "/images/uploads/2.png",
     "description": "Journée de retraite pour les dames.",
     "location": "La Closière Rue Sainte-Anne, 3 1420 Braine-L'Alleud",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Calendrier Hommes de Saint Joseph",
@@ -24,7 +26,8 @@
     "image": "/images/uploads/1.png",
     "description": "Retraite de deux jours pour les hommes.",
     "location": "Monastère Saint André de Clerlande",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Naviguer dans la Bible",
@@ -33,7 +36,8 @@
     "image": "/images/uploads/naviguer-dans-la-bible.png",
     "description": "Un temps d'approfondissement de la Parole de Dieu dans la lignée de la Lectio Divina. \nAccessible à tous.",
     "location": "Salle de la Closière, 3 rue Sainte-Anne 1420 Braine-l'Alleud",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Calendrier 2025 Adultes dans la Foi ",
@@ -42,7 +46,8 @@
     "image": "/images/uploads/3ème-trimestre-25-adultes.png",
     "description": "Les soirées \"Adultes dans la Foi\" de l'Unité Pastorale de Braine-l'Alleud offrent aux adultes un espace pour redécouvrir et approfondir leur foi. Ces rencontres sont l'occasion de partager des moments de réflexion et d'échange dans un cadre convivial.",
     "location": "La Closière (Salle Paroissiale) Rue Sainte-Anne, 3 1420 Braine-L'Alleud",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Calendrier Pôle Jeune 2025",
@@ -51,7 +56,8 @@
     "image": "/images/uploads/3ème-trimestre-25.png",
     "description": "Les soirées du Pôle Jeunes de l'Unité Pastorale de Braine-l'Alleud sont un moment privilégié pour les jeunes de 11 à 18 ans. Ces rencontres, axées sur l'amitié, le partage et la prière, permettent aux participants de vivre leur foi de manière conviviale et profonde.\nLe vendredi, de 18h30 à 20h30, les jeunes se retrouvent à La Closière, un espace chaleureux et accueillant, situé rue Sainte-Anne 3, à Braine-l'Alleud.",
     "location": "La Closière (Salle Paroissiale) Rue Sainte-Anne, 3 1420 Braine-L'Alleud",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Night Fever",
@@ -60,7 +66,8 @@
     "image": "/images/uploads/night-fever.png",
     "description": "Au cœur des féeries de Noël, une veillée de prière et d'adoration.",
     "location": "Eglise Saint-Etienne",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Horaires des célébrations de Noël dans l'Unité pastorale",
@@ -69,7 +76,8 @@
     "image": "/images/uploads/affiche-noël-1-2025.png",
     "description": "Horaire de toutes les célébrations de Noël dans notre Unité pastorale",
     "location": "Braine-l'Alleud",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Calendrier Adultes dans la foi 2026",
@@ -78,7 +86,8 @@
     "image": "/images/uploads/programme-261.png",
     "description": "Moment de rencontre pour les adultes désireux de redécouvrir et approfondir la foi.\n2 rencontres par mois de 19h30 à 21h.\nOuvert à tous. Pas d'inscription préalable.",
     "location": "Salle \"La Closière\" 3 rue Sainte-Anne, 1420 Braine-l'Alleud",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Calendrier pôle Jeunes 2026",
@@ -87,7 +96,8 @@
     "image": "/images/uploads/programme-jeunes-2026.png",
     "description": "Les soirées du Pôle Jeunes de l'Unité Pastorale de Braine-l'Alleud sont un moment privilégié pour les jeunes de 11 à 18 ans. Ces rencontres, axées sur l'amitié, le partage et la prière, permettent aux participants de vivre leur foi de manière conviviale et profonde.\nLe vendredi, de 18h30 à 20h30, les jeunes se retrouvent à La Closière, un espace chaleureux et accueillant, situé rue Sainte-Anne 3, à Braine-l'Alleud.",
     "location": "Salle \"La Closière\" 3 rue Sainte-Anne, 1420 Braine-l'Alleud",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Pèlerinage du lundi de Pentecôte",
@@ -96,7 +106,8 @@
     "image": "/images/uploads/paroisse-events-2026.png",
     "description": "Rejoignez-nous pour notre Grand tour des églises de Braine-l'Alleud, le lundi 25 mai dès 6h du matin.\nItinéraire via le QR code",
     "location": "Rue du Paradis",
-    "featured": false
+    "featured": false,
+    "featured_until": null
   },
   {
     "title": "Inscriptions au caté pour la préparation aux sacrements.",
@@ -105,6 +116,7 @@
     "image": "/images/uploads/inscription-kt-26.png",
     "description": "Les inscriptions au KT sont ouvertes.   \nPour les jeunes et les adultes, contactez Charlotte ou le secrétariat.",
     "location": "3 rue Sainte-Anne 1420 Braine-l'Alleud",
-    "featured": false
+    "featured": true,
+    "featured_until": null
   }
 ]

@@ -28,15 +28,25 @@
         return date;
     }
 
+    function isFeaturedActive(event, now) {
+        if (!event.featured) return false;
+        if (!event.featured_until) return true;
+        return eventDate(event.featured_until) >= now;
+    }
+
     async function loadEvents() {
         const container = document.getElementById("home-events");
         try {
             const response = await fetch("content/agenda/agenda-index.json", { cache: "no-cache" });
             if (!response.ok) throw new Error("Agenda indisponible");
+            const now = new Date();
             const events = (await response.json())
-                .filter((event) => event && event.title && event.date && eventDate(event.date) >= new Date())
+                .filter((event) => event && event.title && event.date)
+                .filter((event) => eventDate(event.date) >= now || isFeaturedActive(event, now))
                 .sort((a, b) => {
-                    if (Boolean(a.featured) !== Boolean(b.featured)) return a.featured ? -1 : 1;
+                    const aFeatured = isFeaturedActive(a, now);
+                    const bFeatured = isFeaturedActive(b, now);
+                    if (aFeatured !== bFeatured) return aFeatured ? -1 : 1;
                     return new Date(a.date) - new Date(b.date);
                 })
                 .slice(0, 3);
@@ -50,7 +60,9 @@
                 <article class="home-event-card">
                     ${event.image ? `<img src="${escapeHtml(event.image)}" alt="" loading="lazy">` : '<div class="event-placeholder"><i class="fas fa-calendar-days" aria-hidden="true"></i></div>'}
                     <div class="home-event-body">
-                        <time datetime="${escapeHtml(event.date)}">${new Date(event.date).toLocaleDateString("fr-BE", { day: "numeric", month: "long", year: "numeric" })}</time>
+                        ${event.featured && eventDate(event.date) < now
+                            ? '<span class="featured-label"><i class="fas fa-star" aria-hidden="true"></i> À la une</span>'
+                            : `<time datetime="${escapeHtml(event.date)}">${new Date(event.date).toLocaleDateString("fr-BE", { day: "numeric", month: "long", year: "numeric" })}</time>`}
                         <h3>${escapeHtml(event.title)}</h3>
                         ${event.location ? `<p><i class="fas fa-location-dot" aria-hidden="true"></i> ${escapeHtml(event.location)}</p>` : ""}
                         ${event.description ? `<p>${escapeHtml(event.description)}</p>` : ""}
