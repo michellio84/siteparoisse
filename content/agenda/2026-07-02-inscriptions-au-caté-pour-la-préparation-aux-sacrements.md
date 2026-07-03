@@ -6,4 +6,5 @@ location: 3 rue Sainte-Anne 1420 Braine-l'Alleud
 description: |-
   Les inscriptions au KT sont ouvertes.   
   Pour les jeunes et les adultes, contactez Charlotte ou le secrétariat.
+featured: true
 ---
