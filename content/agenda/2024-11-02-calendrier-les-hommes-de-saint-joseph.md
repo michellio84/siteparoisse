@@ -1,5 +1,5 @@
 ---
-title: Calendrier Hommes de Saint Joseph
+title: Soirée de la paroles 2026-2027
 date: 2025-10-01T08:22:47.781Z
 image: /images/uploads/1.png
 location: Monastère Saint André de Clerlande
