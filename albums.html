@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Informations, célébrations et vie de la paroisse Saint-Étienne de Braine-l’Alleud.">
     <title>Albums photos – Paroisse Saint-Étienne</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="responsive.css?v=20260704-3">
     <script src="mobile-nav.js" defer></script>
 </head>
 <body>
@@ -43,31 +45,6 @@
             <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
         </div>
     </footer>
-
-    <script>
-        // Bandeau d'annonce
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('/content/annonces/message.md')
-                .then(response => response.text())
-                .then(message => {
-                    let yamlMatch = message.match(/message:\s*["']?([\s\S]*)["']?/i);
-                    if (yamlMatch) {
-                        message = yamlMatch[1].trim();
-                    } else {
-                        let lines = message.split("\n").map(line => line.trim());
-                        for (let line of lines) {
-                            if (line.startsWith("|") && !line.includes("message")) {
-                                message = line.replace(/\|/g, "").trim();
-                                break;
-                            }
-                        }
-                    }
-                    message = message.replace(/^["']|["']$/g, '').trim();
-                    document.getElementById('announcement-text').textContent = message || "Aucune annonce disponible.";
-                })
-                .catch(error => console.error('Erreur lors du chargement du message :', error));
-        });
-    </script>
 
     <script src="albums.js"></script>
 </body>

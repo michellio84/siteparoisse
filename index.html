@@ -3,237 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paroisse Saint-Étienne de Braine-L'Alleud</title>
+    <meta name="description" content="Bienvenue à la paroisse Saint-Étienne de Braine-l’Alleud : horaires des messes, sacrements, agenda, actualités et vie paroissiale.">
+    <meta property="og:title" content="Paroisse Saint-Étienne de Braine-l’Alleud">
+    <meta property="og:description" content="Une communauté chrétienne vivante au cœur de Braine-l’Alleud.">
+    <meta property="og:image" content="https://paroissesaintetienne.be/images/Eglise-Saint-Etienne-hero.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://paroissesaintetienne.be/">
+    <title>Paroisse Saint-Étienne de Braine-l’Alleud</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css?v=20260704-3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<style>
-    /* Style du bandeau d'annonces */
-    #announcement-banner {
-        background-color: #8B7260;
-        color: #fff;
-        text-align: center;
-        padding: 10px 0;
-        font-size: 18px;
-        font-weight: bold;
-        overflow: hidden; /* Garde le texte dans les limites */
-    }
-
-    /* Animation du texte déroulant */
-    #announcement-text {
-        display: inline-block;
-        white-space: nowrap; /* Permet au texte de rester sur une seule ligne */
-        animation: scroll-left 30s linear infinite; /* Ajuste la durée pour le défilement */
-    }
-
-    /* Animation pour faire défiler le texte */
-    @keyframes scroll-left {
-        0% {
-            transform: translateX(100%); /* Le texte commence hors de l'écran, à droite */
-        }
-        100% {
-            transform: translateX(-100%); /* Le texte finit hors de l'écran, à gauche */
-        }
-    }
-</style>
-
-    <link rel="stylesheet" href="responsive.css">
     <script src="mobile-nav.js" defer></script>
+    <script src="home.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Church",
+      "name": "Paroisse Saint-Étienne de Braine-l’Alleud",
+      "url": "https://paroissesaintetienne.be/",
+      "telephone": "+3223842512",
+      "email": "secretariatstetienne@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3 rue Sainte-Anne",
+        "postalCode": "1420",
+        "addressLocality": "Braine-l’Alleud",
+        "addressCountry": "BE"
+      }
+    }
+    </script>
 </head>
-<body>
-    <div class="top-bar">
-        <a href="/" class="church-icon">
-            <i class="fas fa-church"></i>
-        </a>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="horaire.html">Horaires</a>
-            <a href="agenda.html">Agenda</a>
-            <a href="actualite.html">Actualités</a>
-            <a href="albums.html">Galerie</a>
-            <a href="contact.html">Contact</a>
-            <a href="histoire.html">Histoire</a>
-        </nav>
-    </div>
+<body class="home-page">
+    <div class="top-bar"><a href="/" class="church-icon"><i class="fas fa-church"></i></a><nav><a href="index.html">Accueil</a></nav></div>
 
-    <!-- Affichage de la date actuelle -->
-    <div id="current-date" style="text-align: center; font-size: 24px; padding: 20px 0;"></div>
+    <main id="contenu-principal">
+        <section class="home-hero" aria-labelledby="hero-title">
+            <div class="home-hero-content">
+                <p class="eyebrow">Bienvenue</p>
+                <h1 id="hero-title">Paroisse Saint-Étienne</h1>
+                <p>Une communauté chrétienne vivante au cœur de Braine-l’Alleud.</p>
+                <div class="hero-actions">
+                    <a class="primary-button" href="horaire.html">Voir les horaires</a>
+                    <a class="hero-text-link" href="contact.html">Nous rencontrer <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
 
-   <div class="banner">
-    <h1 class="animated-title">Paroisse Saint-Étienne de Braine-L'Alleud</h1>
-    <p class="animated-subtitle">Une communauté chrétienne vivante au cœur de Braine-L'Alleud</p>
-</div>
-<div id="announcement-banner">
-    <span id="announcement-text"></span>  <!-- L'élément est vide au départ -->
-</div>
-
-
-    <!-- Section des horaires -->
-    <div class="opening-hours" style="text-align: center; font-size: 18px; padding: 10px 0;">
-        <strong>Ouverture de l’église :</strong> 8h30 à 18h
-    </div>
-
-    <div class="daily-schedule fade-in">
-        <div id="schedule-content">
-            <div class="schedule-item" data-day="1">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Lundi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="2">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Mardi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="3">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Mercredi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="4">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Jeudi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="5">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Vendredi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="6">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Samedi</h3>
-                <p></p>
-            </div>
-            <div class="schedule-item" data-day="0">
-                <i class="fas fa-clock schedule-icon"></i>
-                <h3>Dimanche</h3>
-                <p></p>
-            </div>
+        <div id="announcement-banner" class="announcement" hidden>
+            <i class="fas fa-bell" aria-hidden="true"></i>
+            <span id="announcement-text"></span>
         </div>
-    </div>
 
-    <!-- Autres sections originales -->
-    <div class="content">
-        <div class="service fade-in">
-            <a href="sacrements.html">
-                <img src="images/Préparation.png" alt="Préparation" class="service-image">
-            </a>
-            <i class="fas fa-book-open service-icon"></i>
-            <h3>Préparation</h3>
-            <p>Baptême, Mariage,...</p>
-        </div>
-        <div class="service fade-in">
-            <a href="acompagnement.html">
-                <img src="images/Accompagnement.jpeg" alt="Accompagnement" class="service-image">
-            </a>
-            <i class="fas fa-hands-helping service-icon"></i>
-            <h3>Accompagnement</h3>
-            <p>Jeunes, Adultes, Malades</p>
-        </div>
-        <div class="service fade-in">
-            <a href="services.html">
-                <img src="images/Sacrements.jpg" alt="Sacrements" class="service-image">
-            </a>
-            <i class="fas fa-church service-icon"></i>
-            <h3>Autres Services</h3>
-            <p> Salle paroissiale,... </p>
-        </div>
-    </div>
+        <section class="home-section quick-access" aria-labelledby="quick-title">
+            <div class="section-heading">
+                <p class="eyebrow">Bienvenue chez vous</p>
+                <h2 id="quick-title">Comment pouvons-nous vous aider&nbsp;?</h2>
+            </div>
+            <div class="quick-grid">
+                <a class="quick-card" href="horaire.html">
+                    <span class="quick-icon"><i class="fas fa-clock" aria-hidden="true"></i></span>
+                    <span><strong>Horaires des messes</strong><small>Célébrations, prière et adoration</small></span>
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a class="quick-card" href="sacrements.html">
+                    <span class="quick-icon"><i class="fas fa-hands-praying" aria-hidden="true"></i></span>
+                    <span><strong>Préparer un sacrement</strong><small>Baptême, communion, mariage…</small></span>
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a class="quick-card" href="contact.html">
+                    <span class="quick-icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                    <span><strong>Nous contacter</strong><small>Une question ou une demande&nbsp;?</small></span>
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
 
-    <footer>
-        <a href="https://www.cathobel.be/">Cathobel.be</a>
-        <a href="/politique-de-confidentialite.html">Politique de confidentialité</a>
-        <a href="https://www.egliseinfo.be">Egliseinfo.be</a>
-        <div class="contact-info">
-            <p>Adresse : 3 rue Sainte-Anne, 1420 Braine-l'Alleud</p>
-            <p>Téléphone : 02/384.25.12</p>
-            <p>Email : <a href="mailto:secretariatstetienne@gmail.com">secretariatstetienne@gmail.com</a></p>
-        </div>
-    </footer>
+        <section class="today-section" aria-labelledby="today-title">
+            <div class="today-card">
+                <div class="today-heading">
+                    <span class="today-icon"><i class="fas fa-clock" aria-hidden="true"></i></span>
+                    <div>
+                        <p id="current-date" class="eyebrow"></p>
+                        <h2 id="today-title">Aujourd’hui</h2>
+                    </div>
+                </div>
+                <div id="today-schedule" class="today-schedule" aria-live="polite">
+                    <p>Chargement des horaires…</p>
+                </div>
+                <a class="secondary-button" href="horaire.html">Tous les horaires</a>
+            </div>
+            <aside class="opening-card">
+                <i class="fas fa-door-open" aria-hidden="true"></i>
+                <div><strong>Ouverture de l’église</strong><span id="opening-hours">8h30 à 18h</span></div>
+            </aside>
+        </section>
 
-    <script>
-        // Script pour afficher la date actuelle et les horaires dynamiques
-        document.addEventListener("DOMContentLoaded", function() {
-            var currentDate = new Date();
-            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            var formattedDate = currentDate.toLocaleDateString('fr-FR', options);
-            document.getElementById('current-date').textContent = formattedDate;
+        <section class="home-section events-section" aria-labelledby="events-title">
+            <div class="section-heading section-heading-row">
+                <div><p class="eyebrow">À noter</p><h2 id="events-title">À la une</h2></div>
+                <div class="section-heading-links">
+                    <a href="agenda.html">Agenda <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    <a href="actualite.html">Actualités <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div id="home-events" class="home-events-grid" aria-live="polite">
+                <p class="empty-state">Chargement des contenus à la une…</p>
+            </div>
+        </section>
 
-            var day = currentDate.getDay(); // 0 = Dimanche, 1 = Lundi, etc.
-            var scheduleItems = document.getElementsByClassName('schedule-item');
+        <section class="community-section" aria-labelledby="community-title">
+            <div class="community-image">
+                <img src="images/Shot Eglise.jpeg" alt="L’église Saint-Étienne à Braine-l’Alleud" loading="lazy">
+            </div>
+            <div class="community-copy">
+                <p class="eyebrow">Une communauté ouverte à tous</p>
+                <h2 id="community-title">Vivre, célébrer et grandir ensemble</h2>
+                <p>Que vous soyez paroissien de longue date, nouvel arrivant ou simplement curieux, vous êtes le bienvenu. Découvrez les groupes, les services et les propositions qui font vivre notre communauté.</p>
+                <div class="community-links">
+                    <a class="primary-button" href="acompagnement.html">Découvrir la communauté</a>
+                </div>
+            </div>
+        </section>
 
-            // Masquer tous les horaires au départ
-            function hideAll() {
-                for (let item of scheduleItems) item.style.display = 'none';
-            }
+        <section class="faith-resources-section" aria-labelledby="resources-title">
+            <div>
+                <p class="eyebrow">Pour aller plus loin</p>
+                <h2 id="resources-title">Grandir dans la foi</h2>
+                <p>Vidéos, parcours bibliques et ressources sélectionnées pour les jeunes, les adultes et le catéchuménat.</p>
+                <a class="primary-button" href="ressources-foi.html">Explorer les ressources</a>
+            </div>
+            <div class="pastoral-contact-card">
+                <span class="pastoral-contact-icon"><i class="fas fa-user-group" aria-hidden="true"></i></span>
+                <div>
+                    <p class="eyebrow">Une présence à vos côtés</p>
+                    <h3>Vous souhaitez parler à un prêtre&nbsp;?</h3>
+                    <p>Pour une question, une écoute ou un accompagnement spirituel, les prêtres de la paroisse sont disponibles pour vous rencontrer.</p>
+                </div>
+                <div class="pastoral-contact-actions">
+                    <a class="primary-button" href="contact.html#pretres">Contacter un prêtre <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    <a href="acompagnement.html">Découvrir l’accompagnement</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-            hideAll(); // Masquer tous les horaires
-
-            // Définir les horaires pour chaque jour
-            const horaires = {
-                1: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)', // Lundi
-                2: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h45 Chapelet', // Mardi
-                3: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique \18h00 Prière du soir (Vêpres)\18h30 Messe CEucharistie)', // Mercredi
-                4: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h45 Chapelet', // Jeudi
-                5: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n9h30 Confessions\n9h30 à 10h30 Adoration eucharistique', // Vendredi
-                6: '8h30 Prière du matin (Laudes)\n9h00 Messe (Eucharistie)\n18h00 Messe (Eucharistie)', // Samedi
-                0: '10h30 Messe (Eucharistie)' // Dimanche
-            };
-
-            // Afficher les horaires du jour actuel
-            for (let item of scheduleItems) {
-                if (parseInt(item.getAttribute('data-day')) === day) {
-                    item.style.display = 'block';
-                    item.querySelector('p').innerHTML = horaires[day].replace(/\n/g, '<br>');
-                }
-            }
-        });
-    </script>
-
-    <script>
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
-        }
-    </script>
-
-    <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    fetch('/content/annonces/message.md')
-        .then(response => response.text())
-        .then(message => {
-            console.log("Message brut chargé :", message); // Debugging
-
-            // Vérifier si c'est un format YAML
-            let yamlMatch = message.match(/message:\s*["']?([\s\S]*)["']?/i);
-            if (yamlMatch) {
-                message = yamlMatch[1].trim();
-            } else {
-                // Sinon, essayer d'extraire depuis un tableau Markdown
-                let lines = message.split("\n").map(line => line.trim());
-                for (let line of lines) {
-                    if (line.startsWith("|") && !line.includes("message")) {
-                        message = line.replace(/\|/g, "").trim();
-                        break;
-                    }
-                }
-            }
-
-            // Supprimer les éventuels guillemets restants
-            message = message.replace(/^["']|["']$/g, '').trim();
-
-            console.log("Message extrait :", message); // Debugging
-            document.getElementById('announcement-text').textContent = message || "Aucune annonce disponible.";
-        })
-        .catch(error => console.error('Erreur lors du chargement du message :', error));
-});
-
-    </script>
+    <footer></footer>
 </body>
 </html>

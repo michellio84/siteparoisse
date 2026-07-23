@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Frère Paul-Adrien",
+    "url": "https://www.youtube.com/@frerePaulAdrien",
+    "source_type": "channel",
+    "youtube_id": "UCWsPptxhLaTv8ATmceTOTog",
+    "audience": [
+      "Tous",
+      "Jeunes",
+      "Adultes"
+    ],
+    "category": "Approfondir sa foi",
+    "limit": 3,
+    "visible": true,
+    "slug": "frere-paul-adrien"
+  },
+  {
+    "title": "La Bible en 1 an",
+    "url": "https://www.youtube.com/@LaBibleen1an",
+    "source_type": "channel",
+    "youtube_id": "UCY_3zOV0g7kBEVIm8-SGo-A",
+    "audience": [
+      "Tous",
+      "KT et catéchuménat",
+      "Adultes"
+    ],
+    "category": "Bible",
+    "limit": 2,
+    "visible": true,
+    "slug": "la-bible-en-un-an"
+  }
+]

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vidéos, sélections et ressources catholiques pour découvrir et approfondir la foi à la paroisse Saint-Étienne.">
+    <meta property="og:title" content="Ressources pour la foi | Paroisse Saint-Étienne">
+    <meta property="og:description" content="Des ressources choisies pour découvrir, comprendre et vivre la foi chrétienne.">
+    <meta property="og:type" content="website">
+    <title>Ressources pour la foi | Paroisse Saint-Étienne</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css?v=20260704-3">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="mobile-nav.js" defer></script>
+    <script src="resources.js" defer></script>
+</head>
+<body class="resources-page">
+    <div class="top-bar"></div>
+
+    <main class="resources-main">
+        <header class="page-intro">
+            <p class="eyebrow">Grandir dans la foi</p>
+            <h1>Ressources pour la foi</h1>
+            <p>Une sélection de vidéos et de parcours pour découvrir la foi, préparer un chemin de catéchuménat ou approfondir sa vie chrétienne.</p>
+        </header>
+
+        <nav class="resource-filters" aria-label="Filtrer les ressources">
+            <button type="button" class="filter-button active" data-filter="all" aria-pressed="true">Toutes</button>
+            <button type="button" class="filter-button" data-filter="Découvrir la foi">Découvrir la foi</button>
+            <button type="button" class="filter-button" data-filter="KT et catéchuménat">KT et catéchuménat</button>
+            <button type="button" class="filter-button" data-filter="Approfondir sa foi">Approfondir sa foi</button>
+            <button type="button" class="filter-button" data-filter="Bible">Bible</button>
+            <button type="button" class="filter-button" data-filter="Prière et vie chrétienne">Prière et vie chrétienne</button>
+            <button type="button" class="filter-button" data-filter="Questions pratiques">Questions pratiques</button>
+        </nav>
+
+        <section class="resource-section" id="parish-selection" hidden>
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Choix de la paroisse</p>
+                    <h2>Notre sélection</h2>
+                </div>
+            </div>
+            <div class="video-grid" id="selected-videos"></div>
+        </section>
+
+        <section class="resource-section" aria-labelledby="latest-title">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">À regarder</p>
+                    <h2 id="latest-title">Dernières vidéos</h2>
+                </div>
+            </div>
+            <div class="video-grid" id="latest-videos" aria-live="polite">
+                <p class="resource-status">Chargement des ressources…</p>
+            </div>
+        </section>
+
+        <section class="resource-section" id="source-section">
+            <div class="section-heading-row">
+                <div>
+                    <p class="eyebrow">Pour aller plus loin</p>
+                    <h2>Chaînes recommandées</h2>
+                </div>
+            </div>
+            <div class="source-grid" id="video-sources"></div>
+        </section>
+
+        <section class="faith-help-grid" aria-label="Aide et questions">
+            <article class="pastoral-contact-card">
+                <span class="pastoral-contact-icon" aria-hidden="true"><i class="fas fa-user-group"></i></span>
+                <p class="eyebrow">Une présence à vos côtés</p>
+                <h2>Une question sur la foi&nbsp;?</h2>
+                <p>Un prêtre peut vous écouter, répondre à vos questions et vous accompagner personnellement dans votre cheminement.</p>
+                <div class="pastoral-contact-actions">
+                    <a class="primary-button" href="contact.html#pretres">Contacter un prêtre <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
+            <article class="pastoral-card">
+                <p class="eyebrow">Un accompagnement humain</p>
+                <h2>Vous souhaitez être accompagné ?</h2>
+                <p>La foi se découvre aussi dans la rencontre. L’équipe paroissiale peut vous écouter et vous orienter.</p>
+                <a class="secondary-button" href="acompagnement.html">Découvrir l’accompagnement</a>
+            </article>
+        </section>
+    </main>
+
+    <footer></footer>
+</body>
+</html>

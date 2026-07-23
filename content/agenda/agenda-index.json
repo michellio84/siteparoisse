@@ -1,13 +1,79 @@
 [
   {
-    "content": ""
+    "title": "Reprise de la messe du mercredi soir",
+    "date": "2025-09-03T16:30:49.813Z",
+    "slug": "2025-08-28-reprise-de-la-messe-du-mercredi-soir",
+    "image": "/images/uploads/messe-18h.png",
+    "instagram_url": null,
+    "description": "Après la trêve estivale, reprise de la messe à 18h30 le mercredi précédée de la prière des vêpres.",
+    "location": "église Saint-Etienne",
+    "featured": false,
+    "featured_until": null
   },
   {
-    "title": "Test Agenda",
-    "date": "2024-08-21T20:48:45.084Z",
-    "image": "/images/uploads/img_1833.jpeg",
-    "location": "La cure",
-    "description": "Réunion de test à la cure ",
-    "content": ""
+    "title": "Calendrier Mardi de la Parole 2026-2027",
+    "date": "2025-10-01T08:22:38.664Z",
+    "slug": "2024-07-19-test-débug-1",
+    "image": "/images/uploads/2.png",
+    "instagram_url": null,
+    "description": "Journée de retraite pour les dames.",
+    "location": "La Closière Rue Sainte-Anne, 3 1420 Braine-L'Alleud",
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "Soirée de la paroles 2026-2027",
+    "date": "2025-10-01T08:22:47.781Z",
+    "slug": "2024-11-02-calendrier-les-hommes-de-saint-joseph",
+    "image": "/images/uploads/1.png",
+    "instagram_url": null,
+    "description": "Retraite de deux jours pour les hommes.",
+    "location": "Monastère Saint André de Clerlande",
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "Naviguer dans la Bible",
+    "date": "2025-10-02T08:29:26.565Z",
+    "slug": "2025-09-19-naviguer-dans-la-bible",
+    "image": "/images/uploads/naviguer-dans-la-bible.png",
+    "instagram_url": null,
+    "description": "Un temps d'approfondissement de la Parole de Dieu dans la lignée de la Lectio Divina. \nAccessible à tous.",
+    "location": "Salle de la Closière, 3 rue Sainte-Anne 1420 Braine-l'Alleud",
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "Inscriptions au caté pour la préparation aux sacrements.",
+    "date": "2026-07-02T12:40:36.238Z",
+    "slug": "2026-07-02-inscriptions-au-caté-pour-la-préparation-aux-sacrements",
+    "image": "/images/uploads/inscription-kt-26.png",
+    "instagram_url": null,
+    "description": "Les inscriptions au KT sont ouvertes.   \nPour les jeunes et les adultes, contactez Charlotte ou le secrétariat.",
+    "location": "3 rue Sainte-Anne 1420 Braine-l'Alleud",
+    "featured": true,
+    "featured_until": null
+  },
+  {
+    "title": "Pôle Jeunes 2026-2027",
+    "date": "2026-07-19T10:45:25.115Z",
+    "slug": "2026-07-19-pôle-jeunes-2026-2027",
+    "image": "/images/uploads/1bis.png",
+    "instagram_url": null,
+    "description": "Rencontre Pôle Jeunes 2026-2027.:\n\n(vendredi 18h30 – 20h30)\n25/09 : (+ confirmands) Lancement de l’année\n09/10 : (+ confirmands) S5E1\n23/10 : Témoin 1\n06/11 : approfondissement\n20/11 : Chosen S5E2\n04/12 : Conseils évangéliques\n18/12 : Témoin 2\n15/01 : Chosen S5E3\n29/01 : Témoin 3\n12/02 : approfondissement\n26/02 : Chosen S5E4\n12/03 : S5E5\n26/03 : Vendredi Saint\n09/04 : Chosen S5E6 \n23/04 : témoin 4\n07/05 : approfondissement\n21/05 : Chosen 5E7\n04/06 : Chosen S5E8\n18/06 : fête de fin d’année",
+    "location": "La Closière (Salle Paroissiale)",
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "NOUVEAU:  Rencontre Jeunes Pros 2026-2027",
+    "date": "2026-07-19T10:48:04.999Z",
+    "slug": "2026-07-19-nouveau-rencontre-jeunes-pros-2026",
+    "image": "/images/uploads/2bis.png",
+    "instagram_url": "https://www.instagram.com/reel/DbJPvhUpu3H/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
+    "description": "Rencontre de 18 à 30 ans:\n\nJeunes pros 26/27\n(vendredi 19h30 – 21h)\n18/09 : Lancement de l’année\n02/10 : l’orgueil\n16/10 : film\n23/10 : Témoin 1\n30/10 : approfondissement/Halloween\n13/11 : luxure\n27/11 : film\n11/12 : conseils évangéliques\n18/12 : Témoin 2\n25/12 : Noël\n08/01 : gourmandise\n22/01 : film\n29/01 : témoin 3\n05/02 : approfondissement\n19/02 : avarice\n05/03 : 24h POUR LE SEIGNEUR\n19/03 : film\n02/04 : Jalousie/envie\n16/04 : film\n23/04 : témoin 4\n30/04 : approfondissement\n14/05 : colère\n28/05 : film\n11/06 : paresse\n26/06 : film\n",
+    "location": "La Closière (Salle Paroissiale)",
+    "featured": true,
+    "featured_until": "2027-07-01T18:06:48.727Z"
   }
 ]

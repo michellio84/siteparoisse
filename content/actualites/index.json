@@ -1,21 +1,92 @@
 [
   {
-    "title": "Test 2",
-    "date": "2024-07-17T08:57:12.096Z",
-    "slug": "2024-07-17-test-2",
-    "image": "/images/uploads/img_1808.jpeg",
-    "description": "C'est encore un test"
+    "title": "Messe et fête paroissiale du 28 juin",
+    "date": "2026-06-28T08:30:56.380Z",
+    "slug": "2026-06-09-messe-et-fête-paroissiale-du-28-juin",
+    "description": "Fête d'au-revoir et de mercis à notre curé, Nicolas Favart",
+    "instagram_url": null,
+    "featured": false,
+    "featured_until": null
   },
   {
-    "title": "Test du titre",
-    "date": "2024-07-16T22:36:34.009Z",
-    "slug": "2024-07-16-test-du-titre",
-    "image": "/images/uploads/img_1808.jpeg"
+    "title": "Horaire de la Semaine sainte",
+    "date": "2026-03-29T20:30:33.265Z",
+    "slug": "2026-03-26-horaire-de-la-semaine-sainte",
+    "description": "horaire de la semaine sainte",
+    "instagram_url": null,
+    "featured": false,
+    "featured_until": null
   },
   {
-    "title": "Célébration de la Pentecôte",
-    "date": "2023-05-25T00:00:00.000Z",
-    "slug": "2023-05-25-pentecote",
-    "image": "/images/uploads/phoenix1972_40_years_old_woman_holding_open_the_bible_with_her_44e3e48e-e69a-4363-8816-f2156e6bef09.png"
+    "title": "Entrée en Carême",
+    "date": "2026-02-18T18:00:35.976Z",
+    "slug": "2026-02-12-entrée-en-carême",
+    "description": "Mercredi des Cendres en Unité pastorale",
+    "instagram_url": null,
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "Nouvel an à l'église Saint-Etienne",
+    "date": "2025-12-31T17:00:35.560Z",
+    "slug": "2025-12-30-nouvel-an-à-léglise-saint-etienne",
+    "description": "Ou comment entrer dans la nouvelle année auprès du Seigneur",
+    "instagram_url": null,
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "Arrivées et départs à la paroisse Saint-Etienne",
+    "date": "2025-10-02T14:16:38.952Z",
+    "slug": "2025-10-02-arrivées-et-départs-à-la-paroisse-saint-etienne",
+    "description": "Annonce importante",
+    "instagram_url": null,
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "Fête paroissiale",
+    "date": "2025-09-14T09:25:14.932Z",
+    "slug": "2025-09-11-fête-paroissiale",
+    "description": "Garden party du Curé",
+    "instagram_url": null,
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "9 Juin pèlerinage jubilaire du lundi de Pentecôte",
+    "date": "2025-05-30T08:54:06.120Z",
+    "slug": "2025-05-30-9-juin-pèlerinage-jubilaire-du-lundi-de-pentecôte",
+    "description": "Pèlerinage",
+    "instagram_url": null,
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "Onction des malades ce week-end des 8 et 9 février",
+    "date": "2025-02-07T16:19:56.006Z",
+    "slug": "2025-02-07-onction-des-malades-ce-week-end-des-8-et-9-février",
+    "description": "Au cours des célébrations dominicales du week-end prochain (18h00 le samedi 8 février et 10h30, le dimanche 9 février), il y aura possibilité de recevoir le sacrement des malades. ",
+    "instagram_url": null,
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "Préparer Noël, horaires et événements de la paroisse",
+    "date": "2024-12-14T15:42:48.347Z",
+    "slug": "2024-12-14-préparez-vos-cœurs-pour-noël-horaires-et-événements-de-la-paroisse",
+    "description": "Actualités de Noël et de fin d'année",
+    "instagram_url": null,
+    "featured": false,
+    "featured_until": null
+  },
+  {
+    "title": "Introduction du nouveau site de la paroisse",
+    "date": "2024-11-02T13:33:16.803Z",
+    "slug": "2024-10-28-article-complet",
+    "description": "Actualités ",
+    "instagram_url": null,
+    "featured": false,
+    "featured_until": null
   }
 ]

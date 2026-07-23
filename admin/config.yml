@@ -13,9 +13,13 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Date de publication", name: "date", widget: "datetime" }
+      - { label: "Image de couverture (facultative)", name: "image", widget: "image", required: false, hint: "Pour une vidéo Instagram, choisissez une image ou une capture qui servira d’aperçu sur le site." }
+      - { label: "Lien vers la vidéo Instagram (Reel)", name: "instagram_url", widget: "string", required: false, hint: "Ouvrez le Reel dans Instagram, choisissez « Copier le lien », puis collez ici l’adresse commençant par https://www.instagram.com/reel/..." }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Contenu", name: "body", widget: "markdown" }
+      - { label: "Mettre en avant sur la page d’accueil", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Afficher sur l’accueil jusqu’au (facultatif)", name: "featured_until", widget: "datetime", required: false, hint: "Si ce champ reste vide, l’actualité demeure sur l’accueil jusqu’à ce que la case « Mettre en avant » soit décochée." }
     sort: "date:desc"
     summary: "{{title}} - {{date}}"
 
@@ -26,10 +30,13 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Date de l’événement ou de publication", name: "date", widget: "datetime" }
       - { label: "Image", name: "image", widget: "image" }
+      - { label: "Lien vers la vidéo Instagram (Reel)", name: "instagram_url", widget: "string", required: false, hint: "Ouvrez le Reel dans Instagram, choisissez « Copier le lien », puis collez ici l’adresse commençant par https://www.instagram.com/reel/..." }
       - { label: "Lieu", name: "location", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
+      - { label: "Mettre en avant sur la page d’accueil", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Afficher sur l’accueil jusqu’au (facultatif)", name: "featured_until", widget: "datetime", required: false, hint: "Si ce champ reste vide, le contenu demeure sur l’accueil jusqu’à ce que la case « Mettre en avant » soit décochée." }
     sort: "date:desc"
     summary: "{{title}} - {{date}}"
 
@@ -94,4 +101,35 @@ collections:
       - { label: "Texte (markdown)", name: "body", widget: "markdown" }
       - { label: "Photo (optionnelle)", name: "image", widget: "image", required: false }
       - { label: "Lien vidéo (YouTube/Vimeo – optionnel)", name: "video", widget: "string", required: false }
+      - { label: "Visible", name: "visible", widget: "boolean", default: true }
+
+  - name: "video_sources"
+    label: "Ressources – Sources vidéo"
+    label_singular: "Source vidéo"
+    folder: "content/videos/sources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nom", name: "title", widget: "string" }
+      - { label: "URL YouTube de la chaîne ou playlist", name: "url", widget: "string" }
+      - { label: "Type", name: "source_type", widget: "select", options: ["channel", "playlist"], default: "channel" }
+      - { label: "Identifiant YouTube (optionnel)", name: "youtube_id", widget: "string", required: false, hint: "Laisser vide si l’URL contient déjà @nomdelachaine." }
+      - { label: "Public", name: "audience", widget: "select", multiple: true, options: ["Tous", "Jeunes", "KT et catéchuménat", "Adultes"] }
+      - { label: "Catégorie", name: "category", widget: "select", options: ["Découvrir la foi", "KT et catéchuménat", "Approfondir sa foi", "Bible", "Prière et vie chrétienne", "Questions pratiques"] }
+      - { label: "Nombre maximal de nouveautés", name: "limit", widget: "number", default: 3, value_type: "int", min: 1, max: 6 }
+      - { label: "Visible", name: "visible", widget: "boolean", default: true }
+
+  - name: "video_selections"
+    label: "Ressources – Sélection de la paroisse"
+    label_singular: "Vidéo recommandée"
+    folder: "content/videos/selections"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "URL YouTube", name: "url", widget: "string" }
+      - { label: "Commentaire de la paroisse", name: "comment", widget: "text", required: false }
+      - { label: "Public", name: "audience", widget: "select", multiple: true, options: ["Tous", "Jeunes", "KT et catéchuménat", "Adultes"] }
+      - { label: "Catégorie", name: "category", widget: "select", options: ["Découvrir la foi", "KT et catéchuménat", "Approfondir sa foi", "Bible", "Prière et vie chrétienne", "Questions pratiques"] }
+      - { label: "Mettre en avant", name: "featured", widget: "boolean", default: false }
       - { label: "Visible", name: "visible", widget: "boolean", default: true }

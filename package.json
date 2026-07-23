@@ -7,8 +7,9 @@
     "generate-agenda": "node scripts/generate-agenda.js",
     "generate-agenda-mfp": "node scripts/generate-agenda-mfp.js",
     "generate-affiches": "node scripts/generate-affiches-mfp.js",
-    "generate-temoignages-mfp": "node scripts/generate-temoignages-mfp.js", 
-    "build": "echo 'Aucun build requis pour ce site statique 😇'"
+    "generate-temoignages-mfp": "node scripts/generate-temoignages-mfp.js",
+    "generate-videos": "node scripts/generate-videos.js",
+    "build": "npm run generate-videos"
   },
   "dependencies": {
     "gray-matter": "^4.0.3"

@@ -1,0 +1,69 @@
+{
+  "ouverture": "8h30 à 18h",
+  "jours": [
+    {
+      "index": 1,
+      "nom": "Lundi",
+      "celebrations": [
+        "8h30 Prière du matin (Laudes)",
+        "9h00 Messe (Eucharistie)"
+      ]
+    },
+    {
+      "index": 2,
+      "nom": "Mardi",
+      "celebrations": [
+        "8h30 Prière du matin (Laudes)",
+        "9h00 Messe (Eucharistie)",
+        "9h45 Chapelet"
+      ]
+    },
+    {
+      "index": 3,
+      "nom": "Mercredi",
+      "celebrations": [
+        "8h30 Prière du matin (Laudes)",
+        "9h00 Messe (Eucharistie)",
+        "9h30 Confessions",
+        "9h30 à 10h30 Adoration eucharistique",
+        "18h00 Prière du soir (Vêpres)",
+        "18h30 Messe (Eucharistie)"
+      ]
+    },
+    {
+      "index": 4,
+      "nom": "Jeudi",
+      "celebrations": [
+        "8h30 Prière du matin (Laudes)",
+        "9h00 Messe (Eucharistie)",
+        "9h45 Chapelet"
+      ]
+    },
+    {
+      "index": 5,
+      "nom": "Vendredi",
+      "celebrations": [
+        "8h30 Prière du matin (Laudes)",
+        "9h00 Messe (Eucharistie)",
+        "9h30 Confessions",
+        "9h30 à 10h30 Adoration eucharistique"
+      ]
+    },
+    {
+      "index": 6,
+      "nom": "Samedi",
+      "celebrations": [
+        "8h30 Prière du matin (Laudes)",
+        "9h00 Messe (Eucharistie)",
+        "18h00 Messe (Eucharistie)"
+      ]
+    },
+    {
+      "index": 0,
+      "nom": "Dimanche",
+      "celebrations": [
+        "10h30 Messe (Eucharistie)"
+      ]
+    }
+  ]
+}

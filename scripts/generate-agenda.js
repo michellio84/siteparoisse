@@ -16,11 +16,15 @@ const events = fs.readdirSync(contentDir)
       date: data.date,
       slug: filename.slice(0, -3), // Remove .md extension
       image: data.image,
+      instagram_url: data.instagram_url || null,
       description: data.description,
-      location: data.location // Ajout de la propriété location
+      location: data.location,
+      featured: Boolean(data.featured),
+      featured_until: data.featured_until || null
     };
 })
-  .sort((a, b) => new Date(b.date) - new Date(a.date));
+  .filter(event => event.title && event.date)
+  .sort((a, b) => new Date(a.date) - new Date(b.date));
 
 fs.writeFileSync(outputFile, JSON.stringify(events, null, 2));
 console.log('agenda-index.json generated successfully');
