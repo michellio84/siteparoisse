@@ -12,7 +12,6 @@
         {
             label: "Vie paroissiale",
             items: [
-                { label: "Maisons Fraternelles (MFP)", href: "mfp.html" },
                 { label: "Pôle Jeunes", href: "jeune.html" },
                 { label: "Adultes dans la foi", href: "adultes.html" },
                 { label: "Solidarité", href: "solidarité.html" },

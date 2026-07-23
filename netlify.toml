@@ -3,3 +3,12 @@ command = "npm install && npm run generate-index && npm run generate-agenda && n
 publish = "."
 functions = "netlify/functions"
 
+[[redirects]]
+from = "/mfp"
+to = "/mfp.html"
+status = 200
+
+[[redirects]]
+from = "/MFP"
+to = "/mfp.html"
+status = 200
