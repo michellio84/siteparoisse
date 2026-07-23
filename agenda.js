@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const renderCard = (event) => {
         const instagram = validInstagramUrl(event.instagram_url);
         return `
-            <article class="event-item">
+            <article class="event-item" id="event-${escapeHtml(event.slug)}">
                 ${event.image ? `
                     ${instagram ? `<a class="event-media instagram-media" href="${escapeHtml(instagram)}" target="_blank" rel="noopener noreferrer" aria-label="Voir le Reel Instagram : ${escapeHtml(event.title)}">` : ""}
                     <img src="${escapeHtml(event.image)}" alt="" loading="lazy">

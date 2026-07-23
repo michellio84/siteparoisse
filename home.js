@@ -54,18 +54,9 @@
 
     function mediaMarkup(item) {
         const instagram = validInstagramUrl(item.instagram_url);
-        const visual = item.image
+        return item.image
             ? `<img src="${escapeHtml(item.image)}" alt="" loading="lazy">`
             : `<div class="event-placeholder"><i class="${instagram ? "fab fa-instagram" : "fas fa-calendar-days"}" aria-hidden="true"></i></div>`;
-
-        if (!instagram) return visual;
-        return `
-            <a class="event-media instagram-media" href="${escapeHtml(instagram)}" target="_blank" rel="noopener noreferrer"
-               aria-label="Voir le Reel Instagram : ${escapeHtml(item.title)}">
-                ${visual}
-                <span class="video-play-badge"><i class="fas fa-play" aria-hidden="true"></i><span>Voir la vidéo</span></span>
-            </a>
-        `;
     }
 
     async function loadEvents() {
@@ -80,7 +71,11 @@
             const events = (agendaResult.status === "fulfilled" ? agendaResult.value : [])
                 .filter((event) => event && event.title && event.date)
                 .filter((event) => eventDate(event.date) >= now || isFeaturedActive(event, now))
-                .map((event) => ({ ...event, content_type: "event" }));
+                .map((event) => ({
+                    ...event,
+                    content_type: "event",
+                    detail_url: `agenda.html#event-${encodeURIComponent(event.slug)}`
+                }));
 
             const news = (newsResult.status === "fulfilled" ? newsResult.value : [])
                 .filter((article) => article && article.title && article.date && isFeaturedActive(article, now))
@@ -110,17 +105,20 @@
                 const isPastFeatured = isFeaturedActive(item, now) && eventDate(item.date) < now;
                 return `
                     <article class="home-event-card">
-                        ${mediaMarkup(item)}
-                        <div class="home-event-body">
-                            <span class="content-type-label">${item.content_type === "news" ? "Actualité" : "Événement"}</span>
-                            ${isPastFeatured
-                                ? '<span class="featured-label"><i class="fas fa-star" aria-hidden="true"></i> À la une</span>'
-                                : `<time datetime="${escapeHtml(item.date)}">${new Date(item.date).toLocaleDateString("fr-BE", { day: "numeric", month: "long", year: "numeric" })}</time>`}
-                            <h3>${item.detail_url ? `<a href="${escapeHtml(item.detail_url)}">${escapeHtml(item.title)}</a>` : escapeHtml(item.title)}</h3>
-                            ${item.location ? `<p><i class="fas fa-location-dot" aria-hidden="true"></i> ${escapeHtml(item.location)}</p>` : ""}
-                            ${item.description ? `<p>${escapeHtml(item.description)}</p>` : ""}
-                            ${instagram ? `<a class="instagram-link" href="${escapeHtml(instagram)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Voir le Reel sur Instagram</a>` : ""}
-                        </div>
+                        <a class="home-card-link" href="${escapeHtml(item.detail_url)}" aria-label="${escapeHtml(item.title)}">
+                            <span class="home-card-media">
+                                ${mediaMarkup(item)}
+                                ${instagram ? '<span class="video-play-badge"><i class="fas fa-play" aria-hidden="true"></i><span>Vidéo disponible</span></span>' : ""}
+                            </span>
+                            <span class="home-event-body">
+                                <span class="content-type-label">${item.content_type === "news" ? "Actualité" : "Événement"}</span>
+                                ${isPastFeatured
+                                    ? '<span class="featured-label"><i class="fas fa-star" aria-hidden="true"></i> À la une</span>'
+                                    : `<time datetime="${escapeHtml(item.date)}">${new Date(item.date).toLocaleDateString("fr-BE", { day: "numeric", month: "long", year: "numeric" })}</time>`}
+                                <h3>${escapeHtml(item.title)}</h3>
+                                <span class="home-card-cta">Voir ${item.content_type === "news" ? "l’actualité" : "dans l’agenda"} <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                            </span>
+                        </a>
                     </article>
                 `;
             }).join("");
