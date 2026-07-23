@@ -105,11 +105,13 @@
                 const isPastFeatured = isFeaturedActive(item, now) && eventDate(item.date) < now;
                 return `
                     <article class="home-event-card">
-                        <a class="home-card-link" href="${escapeHtml(item.detail_url)}" aria-label="${escapeHtml(item.title)}">
-                            <span class="home-card-media">
+                        <span class="home-card-media">
+                            <a class="home-poster-link" href="${escapeHtml(item.detail_url)}" aria-label="${escapeHtml(item.title)}">
                                 ${mediaMarkup(item)}
-                                ${instagram ? '<span class="video-play-badge"><i class="fas fa-play" aria-hidden="true"></i><span>Vidéo disponible</span></span>' : ""}
-                            </span>
+                            </a>
+                            ${instagram ? `<a class="video-play-badge" href="${escapeHtml(instagram)}" target="_blank" rel="noopener noreferrer" aria-label="Voir la vidéo Instagram : ${escapeHtml(item.title)}"><i class="fab fa-instagram" aria-hidden="true"></i><span>Vidéo disponible</span></a>` : ""}
+                        </span>
+                        <a class="home-card-link" href="${escapeHtml(item.detail_url)}" aria-label="${escapeHtml(item.title)}">
                             <span class="home-event-body">
                                 <span class="content-type-label">${item.content_type === "news" ? "Actualité" : "Événement"}</span>
                                 ${isPastFeatured

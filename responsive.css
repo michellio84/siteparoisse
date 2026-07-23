@@ -1593,6 +1593,15 @@ h2 {
     background: var(--cream-2);
 }
 
+.home-poster-link {
+    display: block;
+}
+
+.home-poster-link:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: -3px;
+}
+
 .home-event-card img {
     display: block;
     width: 100%;
@@ -1634,7 +1643,14 @@ h2 {
     color: white;
     font-size: 0.8rem;
     font-weight: 800;
+    text-decoration: none;
     box-shadow: var(--shadow-sm);
+}
+
+.video-play-badge:hover,
+.video-play-badge:focus-visible {
+    background: var(--chocolate);
+    color: white;
 }
 
 .home-event-body {
