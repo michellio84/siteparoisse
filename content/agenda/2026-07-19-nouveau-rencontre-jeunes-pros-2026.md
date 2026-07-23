@@ -2,7 +2,7 @@
 title: "NOUVEAU:  Rencontre Jeunes Pros 2026-2027"
 date: 2026-07-19T10:48:04.999Z
 image: /images/uploads/2bis.png
-instagram_url: https://6a48427accaa4c000871a65f--paroisse-saint-etienne-bla.netlify.app/admin/
+instagram_url: https://www.instagram.com/reel/DbJPvhUpu3H/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==
 location: La Closière (Salle Paroissiale)
 description: |
   Rencontre de 18 à 30 ans:
