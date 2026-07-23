@@ -63,6 +63,24 @@ document.addEventListener("DOMContentLoaded", async function () {
                 </details>
             ` : ""}
         `;
+
+        if (window.location.hash) {
+            let targetId = window.location.hash.slice(1);
+            try {
+                targetId = decodeURIComponent(targetId);
+            } catch (_) {
+                // Conserve le fragment tel quel s'il n'est pas encodé correctement.
+            }
+
+            const target = document.getElementById(targetId);
+            if (target) {
+                const archive = target.closest("details");
+                if (archive) archive.open = true;
+                window.requestAnimationFrame(() => {
+                    target.scrollIntoView({ block: "start" });
+                });
+            }
+        }
     } catch (error) {
         container.innerHTML = '<p class="empty-state">L’agenda est momentanément indisponible. Merci de réessayer plus tard.</p>';
     }
