@@ -34,43 +34,98 @@
         return eventDate(event.featured_until) >= now;
     }
 
+    function validInstagramUrl(value) {
+        if (!value) return "";
+        try {
+            const url = new URL(value);
+            const hostname = url.hostname.toLowerCase();
+            if (url.protocol !== "https:" || (hostname !== "instagram.com" && hostname !== "www.instagram.com")) return "";
+            return url.href;
+        } catch (_) {
+            return "";
+        }
+    }
+
+    async function fetchJson(url) {
+        const response = await fetch(url, { cache: "no-cache" });
+        if (!response.ok) throw new Error(`Contenu indisponible : ${url}`);
+        return response.json();
+    }
+
+    function mediaMarkup(item) {
+        const instagram = validInstagramUrl(item.instagram_url);
+        const visual = item.image
+            ? `<img src="${escapeHtml(item.image)}" alt="" loading="lazy">`
+            : `<div class="event-placeholder"><i class="${instagram ? "fab fa-instagram" : "fas fa-calendar-days"}" aria-hidden="true"></i></div>`;
+
+        if (!instagram) return visual;
+        return `
+            <a class="event-media instagram-media" href="${escapeHtml(instagram)}" target="_blank" rel="noopener noreferrer"
+               aria-label="Voir le Reel Instagram : ${escapeHtml(item.title)}">
+                ${visual}
+                <span class="video-play-badge"><i class="fas fa-play" aria-hidden="true"></i><span>Voir la vidéo</span></span>
+            </a>
+        `;
+    }
+
     async function loadEvents() {
         const container = document.getElementById("home-events");
         try {
-            const response = await fetch("content/agenda/agenda-index.json", { cache: "no-cache" });
-            if (!response.ok) throw new Error("Agenda indisponible");
             const now = new Date();
-            const events = (await response.json())
+            const [agendaResult, newsResult] = await Promise.allSettled([
+                fetchJson("content/agenda/agenda-index.json"),
+                fetchJson("content/actualites/index.json")
+            ]);
+
+            const events = (agendaResult.status === "fulfilled" ? agendaResult.value : [])
                 .filter((event) => event && event.title && event.date)
                 .filter((event) => eventDate(event.date) >= now || isFeaturedActive(event, now))
+                .map((event) => ({ ...event, content_type: "event" }));
+
+            const news = (newsResult.status === "fulfilled" ? newsResult.value : [])
+                .filter((article) => article && article.title && article.date && isFeaturedActive(article, now))
+                .map((article) => ({
+                    ...article,
+                    content_type: "news",
+                    detail_url: `article.html?slug=${encodeURIComponent(article.slug)}`
+                }));
+
+            const items = [...events, ...news]
                 .sort((a, b) => {
                     const aFeatured = isFeaturedActive(a, now);
                     const bFeatured = isFeaturedActive(b, now);
                     if (aFeatured !== bFeatured) return aFeatured ? -1 : 1;
+                    if (aFeatured && bFeatured) return new Date(b.date) - new Date(a.date);
                     return new Date(a.date) - new Date(b.date);
                 })
                 .slice(0, 3);
 
-            if (!events.length) {
-                container.innerHTML = '<p class="empty-state">Aucun événement annoncé pour le moment. Consultez bientôt notre agenda.</p>';
+            if (!items.length) {
+                container.innerHTML = '<p class="empty-state">Aucun contenu à la une pour le moment. Consultez bientôt notre agenda et nos actualités.</p>';
                 return;
             }
 
-            container.innerHTML = events.map((event) => `
-                <article class="home-event-card">
-                    ${event.image ? `<img src="${escapeHtml(event.image)}" alt="" loading="lazy">` : '<div class="event-placeholder"><i class="fas fa-calendar-days" aria-hidden="true"></i></div>'}
-                    <div class="home-event-body">
-                        ${event.featured && eventDate(event.date) < now
-                            ? '<span class="featured-label"><i class="fas fa-star" aria-hidden="true"></i> À la une</span>'
-                            : `<time datetime="${escapeHtml(event.date)}">${new Date(event.date).toLocaleDateString("fr-BE", { day: "numeric", month: "long", year: "numeric" })}</time>`}
-                        <h3>${escapeHtml(event.title)}</h3>
-                        ${event.location ? `<p><i class="fas fa-location-dot" aria-hidden="true"></i> ${escapeHtml(event.location)}</p>` : ""}
-                        ${event.description ? `<p>${escapeHtml(event.description)}</p>` : ""}
-                    </div>
-                </article>
-            `).join("");
+            container.innerHTML = items.map((item) => {
+                const instagram = validInstagramUrl(item.instagram_url);
+                const isPastFeatured = isFeaturedActive(item, now) && eventDate(item.date) < now;
+                return `
+                    <article class="home-event-card">
+                        ${mediaMarkup(item)}
+                        <div class="home-event-body">
+                            <span class="content-type-label">${item.content_type === "news" ? "Actualité" : "Événement"}</span>
+                            ${isPastFeatured
+                                ? '<span class="featured-label"><i class="fas fa-star" aria-hidden="true"></i> À la une</span>'
+                                : `<time datetime="${escapeHtml(item.date)}">${new Date(item.date).toLocaleDateString("fr-BE", { day: "numeric", month: "long", year: "numeric" })}</time>`}
+                            <h3>${item.detail_url ? `<a href="${escapeHtml(item.detail_url)}">${escapeHtml(item.title)}</a>` : escapeHtml(item.title)}</h3>
+                            ${item.location ? `<p><i class="fas fa-location-dot" aria-hidden="true"></i> ${escapeHtml(item.location)}</p>` : ""}
+                            ${item.description ? `<p>${escapeHtml(item.description)}</p>` : ""}
+                            ${instagram ? `<a class="instagram-link" href="${escapeHtml(instagram)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Voir le Reel sur Instagram</a>` : ""}
+                        </div>
+                    </article>
+                `;
+            }).join("");
         } catch (error) {
-            container.innerHTML = '<p class="empty-state">L’agenda ne peut pas être chargé pour le moment. <a href="agenda.html">Ouvrir l’agenda complet</a>.</p>';
+            container.innerHTML = '<p class="empty-state">Les contenus à la une ne peuvent pas être chargés pour le moment. <a href="agenda.html">Ouvrir l’agenda</a>.</p>';
         }
     }
 

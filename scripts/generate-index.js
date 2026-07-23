@@ -16,7 +16,10 @@ const articles = fs.readdirSync(contentDir)
       date: data.date,
       slug: filename.slice(0, -3), // Remove .md extension
       image: data.image,
-      description: data.description
+      description: data.description,
+      instagram_url: data.instagram_url || null,
+      featured: Boolean(data.featured),
+      featured_until: data.featured_until || null
     };
   })
   .sort((a, b) => new Date(b.date) - new Date(a.date));

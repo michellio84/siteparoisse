@@ -16,6 +16,7 @@ const events = fs.readdirSync(contentDir)
       date: data.date,
       slug: filename.slice(0, -3), // Remove .md extension
       image: data.image,
+      instagram_url: data.instagram_url || null,
       description: data.description,
       location: data.location,
       featured: Boolean(data.featured),

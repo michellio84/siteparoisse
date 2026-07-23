@@ -6,18 +6,37 @@ document.addEventListener("DOMContentLoaded", async function () {
         "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
     }[character]));
 
-    const renderCard = (event) => `
-        <article class="event-item">
-            ${event.image ? `<img src="${escapeHtml(event.image)}" alt="" loading="lazy">` : ""}
-            <div class="event-card-body">
-                <time datetime="${escapeHtml(event.date)}">${new Date(event.date).toLocaleDateString("fr-BE", { day: "numeric", month: "long", year: "numeric" })}</time>
-                <h3>${escapeHtml(event.title)}</h3>
-                ${event.location ? `<p><i class="fas fa-location-dot" aria-hidden="true"></i> ${escapeHtml(event.location)}</p>` : ""}
-                ${event.description ? `<p>${escapeHtml(event.description)}</p>` : ""}
-                ${event.featured ? '<span class="featured-label"><i class="fas fa-star" aria-hidden="true"></i> À la une</span>' : ""}
-            </div>
-        </article>
-    `;
+    const validInstagramUrl = (value) => {
+        if (!value) return "";
+        try {
+            const url = new URL(value);
+            const hostname = url.hostname.toLowerCase();
+            return url.protocol === "https:" && (hostname === "instagram.com" || hostname === "www.instagram.com") ? url.href : "";
+        } catch (_) {
+            return "";
+        }
+    };
+
+    const renderCard = (event) => {
+        const instagram = validInstagramUrl(event.instagram_url);
+        return `
+            <article class="event-item">
+                ${event.image ? `
+                    ${instagram ? `<a class="event-media instagram-media" href="${escapeHtml(instagram)}" target="_blank" rel="noopener noreferrer" aria-label="Voir le Reel Instagram : ${escapeHtml(event.title)}">` : ""}
+                    <img src="${escapeHtml(event.image)}" alt="" loading="lazy">
+                    ${instagram ? '<span class="video-play-badge"><i class="fas fa-play" aria-hidden="true"></i><span>Voir la vidéo</span></span></a>' : ""}
+                ` : ""}
+                <div class="event-card-body">
+                    <time datetime="${escapeHtml(event.date)}">${new Date(event.date).toLocaleDateString("fr-BE", { day: "numeric", month: "long", year: "numeric" })}</time>
+                    <h3>${escapeHtml(event.title)}</h3>
+                    ${event.location ? `<p><i class="fas fa-location-dot" aria-hidden="true"></i> ${escapeHtml(event.location)}</p>` : ""}
+                    ${event.description ? `<p>${escapeHtml(event.description)}</p>` : ""}
+                    ${instagram ? `<a class="instagram-link" href="${escapeHtml(instagram)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Voir le Reel sur Instagram</a>` : ""}
+                    ${event.featured ? '<span class="featured-label"><i class="fas fa-star" aria-hidden="true"></i> À la une</span>' : ""}
+                </div>
+            </article>
+        `;
+    };
 
     try {
         const response = await fetch("/content/agenda/agenda-index.json", { cache: "no-cache" });

@@ -81,6 +81,19 @@
             line-height: 1.6;
             color: #534741;
         }
+        #article-cover {
+            display: none;
+            width: 100%;
+            max-height: 520px;
+            margin: 1em 0;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+        #article-instagram {
+            display: none;
+            width: fit-content;
+            margin: 1em 0;
+        }
         footer {
             background-color: var(--dark-chocolate); /* Même fond que la barre du top */
             color: var(--beige);
@@ -127,6 +140,8 @@
         <h1 id="article-title">Titre de l'Article</h1>
         <p id="article-date">Publié le 00/00/0000</p>
         <p id="article-description">Description de l'article</p>
+        <img id="article-cover" alt="" loading="lazy">
+        <a id="article-instagram" class="instagram-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Voir le Reel sur Instagram</a>
         <div id="article-content"></div>
     </div>
 
@@ -159,6 +174,25 @@
                     document.getElementById('article-date').textContent = metadata.date ? 
                         `Publié le ${new Date(metadata.date).toLocaleDateString()}` : "Date non spécifiée";
                     document.getElementById('article-description').textContent = metadata.description || "";
+                    const cleanMetadataValue = (value) => String(value || "").replace(/^["']|["']$/g, "");
+                    const image = cleanMetadataValue(metadata.image);
+                    if (image) {
+                        const cover = document.getElementById('article-cover');
+                        cover.src = image;
+                        cover.style.display = "block";
+                    }
+                    const instagramValue = cleanMetadataValue(metadata.instagram_url);
+                    try {
+                        const instagramUrl = new URL(instagramValue);
+                        const hostname = instagramUrl.hostname.toLowerCase();
+                        if (instagramUrl.protocol === "https:" && (hostname === "instagram.com" || hostname === "www.instagram.com")) {
+                            const instagramLink = document.getElementById('article-instagram');
+                            instagramLink.href = instagramUrl.href;
+                            instagramLink.style.display = "inline-flex";
+                        }
+                    } catch (_) {
+                        // L’URL Instagram est facultative.
+                    }
                     document.getElementById('article-content').innerHTML = markdown ? marked.parse(markdown) : "Contenu manquant.";
                 })
                 .catch(error => console.error("Erreur lors du chargement du contenu de l'article :", error));

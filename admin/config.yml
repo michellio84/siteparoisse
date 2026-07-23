@@ -14,8 +14,12 @@ collections:
     fields:
       - { label: "Titre", name: "title", widget: "string" }
       - { label: "Date de publication", name: "date", widget: "datetime" }
+      - { label: "Image de couverture (facultative)", name: "image", widget: "image", required: false, hint: "Pour une vidéo Instagram, choisissez une image ou une capture qui servira d’aperçu sur le site." }
+      - { label: "URL du Reel Instagram (facultative)", name: "instagram_url", widget: "string", required: false, hint: "Collez ici l’adresse complète du Reel, par exemple https://www.instagram.com/reel/..." }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Contenu", name: "body", widget: "markdown" }
+      - { label: "Mettre en avant sur la page d’accueil", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Afficher sur l’accueil jusqu’au (facultatif)", name: "featured_until", widget: "datetime", required: false, hint: "Si ce champ reste vide, l’actualité demeure sur l’accueil jusqu’à ce que la case « Mettre en avant » soit décochée." }
     sort: "date:desc"
     summary: "{{title}} - {{date}}"
 
@@ -28,6 +32,7 @@ collections:
       - { label: "Titre", name: "title", widget: "string" }
       - { label: "Date de l’événement ou de publication", name: "date", widget: "datetime" }
       - { label: "Image", name: "image", widget: "image" }
+      - { label: "URL du Reel Instagram (facultative)", name: "instagram_url", widget: "string", required: false, hint: "Collez ici l’adresse complète du Reel publié sur le compte Instagram de la paroisse." }
       - { label: "Lieu", name: "location", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Mettre en avant sur la page d’accueil", name: "featured", widget: "boolean", default: false, required: false }
