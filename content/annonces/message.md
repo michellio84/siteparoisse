@@ -1,4 +1,3 @@
 ---
-message: Pendant les mois de juillet et août, la messe du mercredi soir est
-  suspendue. Les inscriptions au caté sont ouvertes.
+message: Pas de messe ce samedi 29 août à 18h. Les inscriptions au caté sont ouvertes.
 ---
