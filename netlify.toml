@@ -46,11 +46,151 @@ status = 301
 force = true
 
 [[redirects]]
-from = "/:page"
-to = "/:page.html"
+from = "/acompagnement"
+to = "/acompagnement.html"
 status = 301
+force = true
 
 [[redirects]]
-from = "/:page/"
-to = "/:page.html"
+from = "/actualite"
+to = "/actualite.html"
 status = 301
+force = true
+
+[[redirects]]
+from = "/article"
+to = "/article.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/adultes"
+to = "/adultes.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/agenda"
+to = "/agenda.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/albums"
+to = "/albums.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/bapteme"
+to = "/bapteme.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/benedictions"
+to = "/benedictions.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/communion"
+to = "/communion.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/confirmation"
+to = "/confirmation.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/contact"
+to = "/contact.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/funneraille"
+to = "/funneraille.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/histoire"
+to = "/histoire.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/horaire"
+to = "/horaire.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/jeune"
+to = "/jeune.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/mariage"
+to = "/mariage.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/onction"
+to = "/onction.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/politique-de-confidentialite"
+to = "/politique-de-confidentialite.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/reconciliation"
+to = "/reconciliation.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/ressources-foi"
+to = "/ressources-foi.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/sacrements"
+to = "/sacrements.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/salleparoissiale"
+to = "/salleparoissiale.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/services"
+to = "/services.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/solidarité"
+to = "/solidarité.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/unitépastorale"
+to = "/unitépastorale.html"
+status = 301
+force = true
