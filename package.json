@@ -8,6 +8,7 @@
     "generate-agenda-mfp": "node scripts/generate-agenda-mfp.js",
     "generate-affiches": "node scripts/generate-affiches-mfp.js",
     "generate-temoignages-mfp": "node scripts/generate-temoignages-mfp.js",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
     "generate-videos": "node scripts/generate-videos.js",
     "build": "npm run generate-videos"
   },
