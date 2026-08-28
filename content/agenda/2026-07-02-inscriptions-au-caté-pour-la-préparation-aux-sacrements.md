@@ -7,4 +7,5 @@ description: |-
   Les inscriptions au KT sont ouvertes.   
   Pour les jeunes et les adultes, contactez Charlotte ou le secrétariat.
 featured: true
+featured_until: 2026-10-11T13:13:43.787Z
 ---
