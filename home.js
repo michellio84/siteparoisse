@@ -159,7 +159,7 @@
     let webTvLoaded = false;
 
     async function loadWebTv() {
-        if (webTvLoaded || !window.matchMedia("(min-width: 1100px)").matches) return;
+        if (webTvLoaded) return;
 
         try {
             const data = await fetchJson("content/web-tv.json");
@@ -167,19 +167,48 @@
             const instagramUrl = validInstagramUrl(data.instagram_url);
             if (!videoUrl || !instagramUrl) return;
 
-            const section = document.getElementById("web-tv-section");
-            const link = document.getElementById("web-tv-link");
-            const video = document.getElementById("web-tv-video");
+            const views = [
+                {
+                    section: document.getElementById("web-tv-section"),
+                    link: document.getElementById("web-tv-link"),
+                    video: document.getElementById("web-tv-video")
+                },
+                {
+                    section: document.getElementById("mobile-web-tv-section"),
+                    link: document.getElementById("mobile-web-tv-link"),
+                    video: document.getElementById("mobile-web-tv-video")
+                }
+            ].filter((view) => view.section && view.link && view.video);
 
             webTvLoaded = true;
-            link.href = instagramUrl;
-            video.src = videoUrl;
-            section.hidden = false;
+            views.forEach((view) => {
+                view.link.href = instagramUrl;
+                view.section.hidden = false;
+            });
+
+            const desktopMedia = window.matchMedia("(min-width: 1100px)");
+            const activateResponsiveVideo = () => {
+                const activeIndex = desktopMedia.matches ? 0 : 1;
+                views.forEach((view, index) => {
+                    if (index === activeIndex) {
+                        if (!view.video.src) view.video.src = videoUrl;
+                    } else if (view.video.src) {
+                        view.video.pause();
+                        view.video.removeAttribute("src");
+                        view.video.load();
+                    }
+                });
+            };
+
+            activateResponsiveVideo();
+            desktopMedia.addEventListener("change", activateResponsiveVideo);
 
             if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
+                    const video = entry.target.querySelector("video");
+                    if (!video) return;
                     if (entry.isIntersecting) {
                         video.play().catch(() => {});
                     } else {
@@ -188,9 +217,10 @@
                 });
             }, { threshold: 0.35 });
 
-            observer.observe(section);
+            views.forEach((view) => observer.observe(view.section));
         } catch (_) {
             document.getElementById("web-tv-section").hidden = true;
+            document.getElementById("mobile-web-tv-section").hidden = true;
         }
     }
 
@@ -218,13 +248,6 @@
         loadEvents();
         loadWebTv();
         loadAnnouncement();
-
-        const desktopMedia = window.matchMedia("(min-width: 1100px)");
-        desktopMedia.addEventListener("change", (event) => {
-            const video = document.getElementById("web-tv-video");
-            if (event.matches) loadWebTv();
-            else if (video) video.pause();
-        });
 
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", (user) => {
