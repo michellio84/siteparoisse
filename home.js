@@ -159,7 +159,7 @@
     let webTvLoaded = false;
 
     async function loadWebTv() {
-        if (webTvLoaded || !window.matchMedia("(min-width: 901px)").matches) return;
+        if (webTvLoaded || !window.matchMedia("(min-width: 1100px)").matches) return;
 
         try {
             const data = await fetchJson("content/web-tv.json");
@@ -219,7 +219,7 @@
         loadWebTv();
         loadAnnouncement();
 
-        const desktopMedia = window.matchMedia("(min-width: 901px)");
+        const desktopMedia = window.matchMedia("(min-width: 1100px)");
         desktopMedia.addEventListener("change", (event) => {
             const video = document.getElementById("web-tv-video");
             if (event.matches) loadWebTv();

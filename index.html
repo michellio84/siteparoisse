@@ -11,11 +11,11 @@
     <meta property="og:url" content="https://paroissesaintetienne.be/">
     <title>Paroisse Saint-Étienne de Braine-l’Alleud</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="responsive.css?v=20260828-1">
+    <link rel="stylesheet" href="responsive.css?v=20260828-2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script src="mobile-nav.js" defer></script>
-    <script src="home.js" defer></script>
+    <script src="home.js?v=20260828-2" defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -48,6 +48,15 @@
                     <a class="hero-text-link" href="contact.html">Nous rencontrer <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
+            <aside id="web-tv-section" class="hero-web-tv" aria-label="La paroisse en vidéo" hidden>
+                <a id="web-tv-link" class="hero-web-tv-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Voir la vidéo de la paroisse sur Instagram">
+                    <span class="hero-phone">
+                        <span class="hero-phone-camera" aria-hidden="true"></span>
+                        <video id="web-tv-video" muted loop playsinline preload="metadata" aria-label="Dernière vidéo de la paroisse"></video>
+                        <span class="hero-phone-label"><i class="fab fa-instagram" aria-hidden="true"></i> Voir le Reel</span>
+                    </span>
+                </a>
+            </aside>
         </section>
 
         <div id="announcement-banner" class="announcement" hidden>
@@ -115,30 +124,6 @@
             <div id="home-news" class="home-news-grid" aria-labelledby="news-title" aria-live="polite">
                 <p class="empty-state">Chargement des actualités…</p>
             </div>
-        </section>
-
-        <section id="web-tv-section" class="web-tv-section" aria-labelledby="web-tv-title" hidden>
-            <div class="web-tv-copy">
-                <p class="eyebrow">En images</p>
-                <h2 id="web-tv-title">La Web TV de la paroisse</h2>
-                <p>Découvrez notre dernière vidéo et retrouvez-la sur le compte Instagram de la paroisse.</p>
-                <span class="web-tv-instagram"><i class="fab fa-instagram" aria-hidden="true"></i> Voir la vidéo sur Instagram</span>
-            </div>
-            <a id="web-tv-link" class="web-tv-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Voir la vidéo de la paroisse sur Instagram">
-                <span class="web-tv-antenna" aria-hidden="true"><span></span><span></span></span>
-                <span class="web-tv-set">
-                    <span class="web-tv-screen">
-                        <video id="web-tv-video" muted loop playsinline preload="metadata" aria-label="Dernière vidéo de la paroisse"></video>
-                        <span class="web-tv-screen-label"><i class="fab fa-instagram" aria-hidden="true"></i> Ouvrir sur Instagram</span>
-                    </span>
-                    <span class="web-tv-controls" aria-hidden="true">
-                        <span class="web-tv-knob"></span>
-                        <span class="web-tv-knob"></span>
-                        <span class="web-tv-speaker"></span>
-                    </span>
-                </span>
-                <span class="web-tv-feet" aria-hidden="true"><span></span><span></span></span>
-            </a>
         </section>
 
         <section class="community-section" aria-labelledby="community-title">
