@@ -9,6 +9,7 @@
     <meta property="og:image" content="https://paroissesaintetienne.be/images/Eglise-Saint-Etienne-hero.webp">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://paroissesaintetienne.be/">
+    <link rel="canonical" href="https://paroissesaintetienne.be/">
     <title>Paroisse Saint-Étienne de Braine-l’Alleud</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="responsive.css?v=20260828-3">
@@ -20,10 +21,21 @@
     {
       "@context": "https://schema.org",
       "@type": "Church",
+      "@id": "https://paroissesaintetienne.be/#paroisse",
       "name": "Paroisse Saint-Étienne de Braine-l’Alleud",
       "url": "https://paroissesaintetienne.be/",
+      "image": "https://paroissesaintetienne.be/images/Eglise-Saint-Etienne-hero.webp",
       "telephone": "+3223842512",
       "email": "secretariatstetienne@gmail.com",
+      "sameAs": [
+        "https://www.instagram.com/paroisse_sainte_etienne_bla/"
+      ],
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "08:30",
+        "closes": "18:00"
+      }],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3 rue Sainte-Anne",

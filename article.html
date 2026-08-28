@@ -4,8 +4,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Informations, célébrations et vie de la paroisse Saint-Étienne de Braine-l’Alleud.">
-    <title>Article</title>
+    <meta id="article-meta-description" name="description" content="Actualité de la paroisse Saint-Étienne de Braine-l’Alleud.">
+    <link id="article-canonical" rel="canonical" href="https://paroissesaintetienne.be/actualite.html">
+    <title>Actualité | Paroisse Saint-Étienne</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <style>
         .fas.fa-file-alt {
@@ -151,6 +152,8 @@
         const slug = urlParams.get('slug');
 
         if (slug) {
+            document.getElementById('article-canonical').href =
+                `https://paroissesaintetienne.be/article.html?slug=${encodeURIComponent(slug)}`;
             fetch(`/content/actualites/${slug}.md`)
                 .then(response => {
                     if (!response.ok) throw new Error("Erreur HTTP " + response.status);
@@ -170,11 +173,17 @@
                         markdown = markdown.replace(metadataPattern, '').trim();
                     }
 
+                    const cleanMetadataValue = (value) => String(value || "").replace(/^["']|["']$/g, "");
                     document.getElementById('article-title').textContent = metadata.title || "Titre manquant";
+                    if (metadata.title) {
+                        document.title = `${cleanMetadataValue(metadata.title)} | Paroisse Saint-Étienne`;
+                    }
+                    if (metadata.description) {
+                        document.getElementById('article-meta-description').content = cleanMetadataValue(metadata.description);
+                    }
                     document.getElementById('article-date').textContent = metadata.date ? 
                         `Publié le ${new Date(metadata.date).toLocaleDateString()}` : "Date non spécifiée";
                     document.getElementById('article-description').textContent = metadata.description || "";
-                    const cleanMetadataValue = (value) => String(value || "").replace(/^["']|["']$/g, "");
                     const image = cleanMetadataValue(metadata.image);
                     if (image) {
                         const cover = document.getElementById('article-cover');

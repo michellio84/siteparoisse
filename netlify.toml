@@ -1,14 +1,56 @@
 [build]
-command = "npm install && npm run generate-index && npm run generate-agenda && node generate-albums-index.js && npm run generate-affiches && npm run generate-agenda-mfp && npm run generate-temoignages-mfp && node scripts/configure-admin-branch.js && npm run build"
+command = "npm install && npm run generate-index && npm run generate-agenda && node generate-albums-index.js && npm run generate-affiches && npm run generate-agenda-mfp && npm run generate-temoignages-mfp && npm run generate-sitemap && node scripts/configure-admin-branch.js && npm run build"
 publish = "."
 functions = "netlify/functions"
 
 [[redirects]]
-from = "/mfp"
-to = "/mfp.html"
-status = 200
+from = "/index.html"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/index"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/contacts"
+to = "/contact.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/contacts/"
+to = "/contact.html"
+status = 301
+force = true
 
 [[redirects]]
 from = "/MFP"
 to = "/mfp.html"
-status = 200
+status = 301
+force = true
+
+[[redirects]]
+from = "/mfp"
+to = "/mfp.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/mfp/"
+to = "/mfp.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/:page"
+to = "/:page.html"
+status = 301
+
+[[redirects]]
+from = "/:page/"
+to = "/:page.html"
+status = 301
