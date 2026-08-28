@@ -6,6 +6,32 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  - name: "web_tv"
+    label: "Web TV"
+    files:
+      - label: "Vidéo mise en avant"
+        name: "video_mise_en_avant"
+        file: "content/web-tv.json"
+        format: "json"
+        fields:
+          - label: "Fichier vidéo MP4 sans son"
+            name: "video"
+            widget: "file"
+            required: false
+            allow_multiple: false
+            choose_url: false
+            pattern: ['\.[mM][pP]4$', "Utilisez uniquement un fichier vidéo au format MP4."]
+            hint: "Choisissez une vidéo verticale MP4 sans son, en basse résolution, de 8 Mo maximum."
+            media_library:
+              config:
+                max_file_size: 8388608
+          - label: "Lien Instagram"
+            name: "instagram_url"
+            widget: "string"
+            required: false
+            pattern: ['^https://(www\.)?instagram\.com/(reel|p)/.+', "Collez un lien valide vers une publication ou un Reel Instagram."]
+            hint: "Collez le lien du Reel Instagram qui doit s’ouvrir lorsque le visiteur clique sur la Web TV."
+
   - name: "actualites"
     label: "Actualités"
     folder: "content/actualites"
