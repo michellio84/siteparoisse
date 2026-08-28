@@ -170,7 +170,10 @@
             </div>
             <div class="site-footer-bottom">
                 <span>© ${new Date().getFullYear()} Paroisse Saint-Étienne</span>
-                <span><a href="https://www.cathobel.be/">Cathobel</a> · <a href="https://www.egliseinfo.be">Égliseinfo</a></span>
+                <nav class="footer-external-links" aria-label="Sites catholiques utiles">
+                    <a href="https://www.cathobel.be/">Cathobel</a>
+                    <a href="https://www.egliseinfo.be">Égliseinfo</a>
+                </nav>
             </div>
         `;
     }
