@@ -1,6 +1,6 @@
 ---
 title: Préparation Sacrements Adultes
-date: 2026-08-28T13:09:37.340Z
+date: 2027-06-30T13:09:37.340Z
 image: /images/uploads/sacrements.png
 location: Salle Paroissiale
 description: Préparation aux sacrements pour adultes
