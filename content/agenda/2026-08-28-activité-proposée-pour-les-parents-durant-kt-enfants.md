@@ -1,6 +1,6 @@
 ---
 title: Activité proposée pour les parents durant KT enfants
-date: 2026-08-28T18:56:14.573Z
+date: 2027-06-30T18:56:14.573Z
 image: /images/uploads/kt-adultes.png
 instagram_url: https://www.instagram.com/paroisse_sainte_etienne_bla/reel/DccJnuKpaSg/
 location: Eglise Saint-Étienne
