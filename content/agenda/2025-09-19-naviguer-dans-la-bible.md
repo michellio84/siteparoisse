@@ -1,6 +1,6 @@
 ---
 title: Naviguer dans la Bible
-date: 2026-08-28T13:08:21.264Z
+date: 2027-06-30T13:08:21.264Z
 image: /images/uploads/scruté-la-bible.png
 location: Salle de la Closière, 3 rue Sainte-Anne 1420 Braine-l'Alleud
 description: >-
