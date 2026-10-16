@@ -1,7 +1,7 @@
 ---
 title: "NOUVEAU:  Rencontre Jeunes Pros 2026-2027"
 date: 2027-06-30T10:48:04.999Z
-image: /images/uploads/2bis.png
+image: /images/uploads/578e7fb6-e212-4588-8b18-e2d90828c8f2.png
 instagram_url: https://www.instagram.com/reel/DbJPvhUpu3H/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==
 location: La Closière (Salle Paroissiale)
 description: |
