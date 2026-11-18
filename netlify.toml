@@ -1,6 +1,6 @@
 [build]
-command = "npm install && npm run generate-index && npm run generate-agenda && node generate-albums-index.js && npm run generate-affiches && npm run generate-agenda-mfp && npm run generate-temoignages-mfp && npm run generate-sitemap && node scripts/configure-admin-branch.js && npm run build"
-publish = "."
+command = "npm ci && npm run generate-index && npm run generate-agenda && node generate-albums-index.js && npm run generate-affiches && npm run generate-agenda-mfp && npm run generate-temoignages-mfp && npm run generate-sitemap && node scripts/configure-admin-branch.js && npm run build && node scripts/prepare-public-site.js"
+publish = "dist"
 functions = "netlify/functions"
 
 [[redirects]]

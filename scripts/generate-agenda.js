@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const matter = require('gray-matter');
+const matter = require("./read-front-matter");
 
 const contentDir = path.join(process.cwd(), 'content', 'agenda');
 const outputFile = path.join(contentDir, 'agenda-index.json');

@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const matter = require("gray-matter");
+const matter = require("./read-front-matter");
 
 const root = process.cwd();
 const sourcesDir = path.join(root, "content", "videos", "sources");
@@ -26,7 +26,7 @@ function videoIdFromUrl(url = "") {
 async function youtube(endpoint, params) {
   const url = new URL(`https://www.googleapis.com/youtube/v3/${endpoint}`);
   Object.entries({ ...params, key: apiKey }).forEach(([key, value]) => url.searchParams.set(key, value));
-  const response = await fetch(url);
+  const response = await fetch(url, { signal: AbortSignal.timeout(5000) });
   if (!response.ok) throw new Error(`YouTube API ${response.status}`);
   return response.json();
 }
@@ -65,9 +65,9 @@ async function latestForSource(source) {
     .filter((video) => video.id && video.title && video.title !== "Deleted video");
 }
 
-async function enrichSelections(selections) {
+async function enrichSelections(selections, enrich = true) {
   const visible = selections.filter((selection) => selection.visible !== false);
-  if (!apiKey || !visible.length) return visible.map((selection) => ({
+  if (!apiKey || !enrich || !visible.length) return visible.map((selection) => ({
     ...selection,
     id: videoIdFromUrl(selection.url),
     thumbnail: videoIdFromUrl(selection.url) ? `https://i.ytimg.com/vi/${videoIdFromUrl(selection.url)}/hqdefault.jpg` : ""
@@ -105,14 +105,19 @@ async function main() {
   }
 
   const videos = [];
+  let refreshFailed = false;
   for (const source of sources) {
     try {
       videos.push(...await latestForSource(source));
     } catch (error) {
-      console.warn(`Source ${source.title} ignorée : ${error.message}`);
+      refreshFailed = true;
+      console.warn(`Source ${source.title} indisponible : ${error.message}`);
     }
   }
-  fs.writeFileSync(path.join(outputDir, "videos-cache.json"), JSON.stringify(videos, null, 2));
+  const cachePath = path.join(outputDir, "videos-cache.json");
+  if (!refreshFailed || !fs.existsSync(cachePath)) {
+    fs.writeFileSync(cachePath, JSON.stringify(videos, null, 2));
+  }
 }
 
 main().catch((error) => {

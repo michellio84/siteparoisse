@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const matter = require("gray-matter");
+const matter = require("./read-front-matter");
 
 const inputDir = path.join(__dirname, "../content/mfp/affiches");
 const outputFile = path.join(__dirname, "../affiches-mfp.json");
